@@ -307,7 +307,7 @@ a {
   user-select: none; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 18px; }
 
 h1, h2, h3, h4, h5, h6, p, a {
   color: #222222;
@@ -357,14 +357,10 @@ li {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  html {
-    font-size: 66.5%; }
   h1, h2, h3, h4, h5, h6, p, a {
     line-height: 130%; } }
 
 @media (min-width: 1025px) {
-  html {
-    font-size: 70.5%; }
   h1, h2, h3, h4, h5, h6, p, a {
     line-height: 135%; } }
 
@@ -377,6 +373,31 @@ li {
 
 .hidden {
   display: none !important; }
+
+nav {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(34, 34, 34, 0.75);
+  backdrop-filter: blur(8px);
+  color: #e6e6e6;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 0.12em; }
+  nav ul {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 2em 1em; }
+  nav li {
+    padding: 0.75em 0;
+    border-bottom: 1px solid #777777; }
+    nav li:last-of-type {
+      border-bottom: none; }
 
 body {
   margin: 0;

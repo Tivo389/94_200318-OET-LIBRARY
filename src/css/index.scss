@@ -9,6 +9,37 @@
 
 
 // ELEMENT LEVEL ----------------------------------------------------------------------------------
+nav {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: $colorBlackTransparent;
+  backdrop-filter: blur(8px);
+  color: $colorWhite;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: bolder;
+  letter-spacing: 0.12em;
+  ul {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 2em 1em;
+  }
+  li {
+    padding: 0.75em 0;
+    border-bottom: 1px solid $colorGray;
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+}
+
+
+// ELEMENT LEVEL ----------------------------------------------------------------------------------
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,9 +47,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
- border: 1px dashed red;
 }
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

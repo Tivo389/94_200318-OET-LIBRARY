@@ -1,5 +1,5 @@
 html {
-  font-size: 62.5%;
+  font-size: 18px;
 }
 h1, h2, h3, h4, h5, h6, p, a {
   color: $colorBlack;
@@ -52,18 +52,12 @@ li {
 
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  html {
-    font-size: 66.5%;
-  }
   h1, h2, h3, h4, h5, h6, p, a {
     line-height: 130%;
   }
 }
 
 @media (min-width: 1025px) {
-  html {
-    font-size: 70.5%;
-  }
   h1, h2, h3, h4, h5, h6, p, a {
     line-height: 135%;
   }
