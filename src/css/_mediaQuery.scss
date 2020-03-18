@@ -1,0 +1,32 @@
+// MEDIA QUERY SETTINGS ---------------------------------------------------------------------------
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin pointerTouch {
+  @media (pointer: coarse) {
+    @content;
+  }
+}
+@mixin pointerMouse {
+  @media (pointer: fine) {
+    @content;
+  }
+}
+@mixin hoverUnavailable {
+  @media (hover: none) {
+    @content;
+  }
+}
+@mixin hoverAvailable {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
