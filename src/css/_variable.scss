@@ -15,7 +15,7 @@ $colorAccent: #EE86A8;
 
 $ffBody: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $ffHeader: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$fsP: 1.6rem;                   // BODY TEXT
+$fsP: 1rem;                   // BODY TEXT
 $fsH1: calc(#{$fsP} * 4.48);    // PAGE BANNER
 $fsH2: calc(#{$fsP} * 3.32);    // PAGE MAIN HEADER
 $fsH3: calc(#{$fsP} * 2.46);    // PAGE SUB HEADER
@@ -26,6 +26,8 @@ $fsH6: $fsP;                    // ARTICLE SECTION
 $spaceUnitS: 3rem;
 $spaceUnitM: 6rem;
 $spaceUnitL: 9rem;
+
+$navBarUnit: 44px;
 
 $transitionS: 0.3s;
 $transitionM: 0.6s;
