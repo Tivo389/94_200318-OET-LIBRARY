@@ -5,8 +5,13 @@ class Navigation extends Component {
   render() {
     return (
       <>
-      <nav>
-        <ul>
+      <nav className="navBar">
+        <ul className="navBarItems">
+          <li className="navBarItem" onClick={this.onClick}>
+            <FontAwesomeIcon icon="bars"/>
+          </li>
+        </ul>
+        <ul className="navBarContent">
           <li>Item 01</li>
           <li>Item 02</li>
           <li>Item 03</li>
@@ -14,12 +19,12 @@ class Navigation extends Component {
           <li>Item 05</li>
         </ul>
       </nav>
-      <div className="navButton">
-          <FontAwesomeIcon icon="bars" />
-      </div>
       </>
     );
   }
+  onClick = (e) => {
+    document.querySelector(".navBar").classList.toggle('active');
+  };
 }
 
 export default Navigation;

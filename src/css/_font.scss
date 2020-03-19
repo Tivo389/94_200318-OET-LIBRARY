@@ -3,7 +3,7 @@ html {
 }
 h1, h2, h3, h4, h5, h6, p, a {
   color: $colorBlack;
-  line-height: 125%;
+  line-height: 135%;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: $ffHeader;
@@ -48,17 +48,4 @@ a {
 }
 li {
   font-family: $ffBody;
-}
-
-
-@media (min-width: 768px) and (max-width: 1024px) {
-  h1, h2, h3, h4, h5, h6, p, a {
-    line-height: 130%;
-  }
-}
-
-@media (min-width: 1025px) {
-  h1, h2, h3, h4, h5, h6, p, a {
-    line-height: 135%;
-  }
 }
