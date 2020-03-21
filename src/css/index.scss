@@ -32,11 +32,10 @@
   font-size: 1rem;
   font-weight: bolder;
   justify-content: center;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   list-style: none;
   margin: 0;
-  padding: 8px $navBarUnit 0 $navBarUnit;
-  pointer-events: none;
+  padding: 0 $navBarUnit;
   text-align: left;
   text-transform: uppercase;
   transform: translateY(-100vh);
@@ -44,9 +43,12 @@
   width: 100%;
   li {
     padding: 1em 0;
-    border-top: 1px solid lighten($colorBlack, 5%);
+    border-top: 1px solid lighten($colorGray, 5%);
+    &:hover {
+      background: $colorWhiteTransparent;
+    }
     &:last-of-type {
-      border-bottom:  1px solid lighten($colorBlack, 5%);
+      border-bottom:  1px solid lighten($colorGray, 5%);
     }
   }
 }

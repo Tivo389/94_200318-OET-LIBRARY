@@ -12,7 +12,7 @@ class Navigation extends Component {
           </li>
         </ul>
         <ul className="navBarContent">
-          <li>Item 01</li>
+          <li>Typography</li>
           <li>Item 02</li>
           <li>Item 03</li>
           <li>Item 04</li>

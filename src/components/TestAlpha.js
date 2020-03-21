@@ -3,7 +3,14 @@ import React, { Component } from 'react';
 class TestAlpha extends Component {
   render() {
     return (
-      <h1>Alpha</h1>
+      <div>
+        <h1>Alpha</h1>
+        <h1>Alpha</h1>
+        <h1>Alpha</h1>
+        <h1>Alpha</h1>
+        <h1>Alpha</h1>
+        <h1>Alpha</h1>
+      </div>
     );
   }
 }
