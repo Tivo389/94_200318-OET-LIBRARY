@@ -19,12 +19,7 @@
     @content;
   }
 }
-@mixin hoverUnavailable {
-  @media (hover: none) {
-    @content;
-  }
-}
-@mixin hoverAvailable {
+@mixin hover {
   @media (hover: hover) {
     @content;
   }

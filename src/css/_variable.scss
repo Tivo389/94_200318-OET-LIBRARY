@@ -7,7 +7,7 @@ $colorDarkGray: #333333;
 $colorLightGray: #cccccc;
 $colorGray: #777777;
 $colorWhite: rgb(230,230,230);
-$colorWhiteTransparent: rgba(230, 230, 230, 0.75);
+$colorWhiteTransparent: rgba(230, 230, 230, 0.15);
 $colorMain: #00A5D5;
 $colorMainTransparent: rgba(0,165,213,0.8);
 $colorSub: #EED786;
@@ -29,6 +29,6 @@ $spaceUnitL: 9rem;
 
 $navBarUnit: 44px;
 
-$transitionS: 0.3s;
-$transitionM: 0.6s;
-$transitionL: 1s;
+$transitionS: 0.15s;
+$transitionM: 0.30s;
+$transitionL: 0.45s;

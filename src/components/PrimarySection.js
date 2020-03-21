@@ -10,7 +10,11 @@ class PrimarySection extends Component {
 
   render() {
     const SelectedContent = this.content[this.props.content];
-    return <SelectedContent/>;
+    return (
+      <main>
+        <SelectedContent/>
+      </main>
+    );
   }
 }
 

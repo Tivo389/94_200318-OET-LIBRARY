@@ -12,11 +12,9 @@ function App() {
   return (
     <div className="App">
       <Navigation/>
-      <main>
-        <PrimarySection content={content}/>
-        <button onClick={() => setContent("alpha")}>Switch Alpha</button>
-        <button onClick={() => setContent("beta")}>Switch Beta</button>
-      </main>
+      <PrimarySection content={content}/>
+      <button onClick={() => setContent("alpha")}>Switch Alpha</button>
+      <button onClick={() => setContent("beta")}>Switch Beta</button>
     </div>
   );
 }
