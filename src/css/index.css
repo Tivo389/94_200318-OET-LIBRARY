@@ -310,7 +310,7 @@ html {
   font-size: 18px; }
 
 h1, h2, h3, h4, h5, h6, p, a {
-  color: #222222;
+  color: #101010;
   line-height: 135%; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -349,7 +349,7 @@ p {
 a {
   font-size: 1rem; }
   a:visited, a:focus, a:active {
-    color: #222222;
+    color: #101010;
     outline: none;
     text-decoration: none; }
 
@@ -368,8 +368,8 @@ li {
 
 .navBar {
   align-items: flex-start;
-  background-color: #222222;
-  color: #e6e6e6;
+  background-color: #101010;
+  color: #dfdfdf;
   display: flex;
   flex-direction: column;
   font-size: 1rem;
@@ -382,43 +382,60 @@ li {
     height: 100%; }
     .navBar.active .navBarContent {
       transform: translateY(0); }
+  @media (min-width: 768px) {
+    .navBar {
+      justify-content: center;
+      padding: 0 44px; } }
 
 .navBarContent {
-  color: #e6e6e6;
+  border-top: 1px solid #848484;
+  color: #dfdfdf;
   display: flex;
   flex-direction: column;
   font-size: 1rem;
-  font-weight: bolder;
   justify-content: center;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.02em;
+  line-height: 1;
   list-style: none;
   margin: 0;
   padding: 0 44px;
   text-align: left;
-  text-transform: uppercase;
   transform: translateY(-100vh);
   transition: 0.3s cubic-bezier(0, 0, 0.9, 1);
   width: 100%; }
   .navBarContent li {
-    padding: 1em 0;
-    border-top: 1px solid #848484; }
-    .navBarContent li:hover {
-      background: rgba(230, 230, 230, 0.15); }
-    .navBarContent li:last-of-type {
-      border-bottom: 1px solid #848484; }
+    border-bottom: 1px solid #848484;
+    padding: 1em 0; }
+  @media (min-width: 768px) {
+    .navBarContent {
+      border-top: none;
+      flex-direction: row;
+      font-size: 14px;
+      justify-content: space-between;
+      padding: 0;
+      transform: none; }
+      .navBarContent li {
+        border-bottom: none;
+        padding: calc((44px - 1em) / 2) 10px; }
+        .navBarContent li:hover {
+          color: white;
+          cursor: pointer; } }
 
-.navBarItems {
+.navBarIcons {
   list-style: none;
   margin: 0;
   padding: 0; }
+  @media (min-width: 768px) {
+    .navBarIcons {
+      display: none; } }
 
-.navBarItem {
+.navBarIcon {
   align-items: center;
   display: flex;
   height: 44px;
   justify-content: center;
   width: 44px; }
-  .navBarItem > svg {
+  .navBarIcon > svg {
     transform: scaleX(1.4); }
 
 body {

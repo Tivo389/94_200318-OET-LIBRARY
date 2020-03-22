@@ -1,15 +1,13 @@
 $boxShadowDefault: 0 3px 3px rgba(0,0,0,0.12), 0 3px 3px rgba(0,0,0,0.24), 0 0 3px rgba(0,0,0,0.12);
 $boxShadowHover: 0 6px 6px rgba(0,0,0,0.08), 0 6px 6px rgba(0,0,0,0.16), 0 0 6px rgba(0,0,0,0.08);
 
-$colorBlack: rgb(34, 34, 34);
-$colorBlackTransparent: rgba(34, 34, 34, 0.75);
+$colorWhite: rgb(255,255,255);
+$colorLight: rgb(223,223,223);
+$colorBlack: rgb(16, 16, 16);
 $colorDarkGray: #333333;
 $colorLightGray: #cccccc;
 $colorGray: #777777;
-$colorWhite: rgb(230,230,230);
-$colorWhiteTransparent: rgba(230, 230, 230, 0.15);
 $colorMain: #00A5D5;
-$colorMainTransparent: rgba(0,165,213,0.8);
 $colorSub: #EED786;
 $colorAccent: #EE86A8;
 
