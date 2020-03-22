@@ -1,0 +1,80 @@
+@charset 'utf-8';
+
+.navBar {
+  align-items: flex-start;
+  background-color: $colorBlack;
+  color: $colorLight;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  height: $navBarUnit;
+  justify-content: flex-start;
+  position: fixed;
+  transition: $transitionM ease-in-out;
+  width: 100%;
+  &.active {
+    height: 100%;
+    & .navBarContent {
+      transform: translateY(0);
+    }
+  }
+  @include tablet {
+    justify-content: center;
+    padding: 0 $navBarUnit;
+  }
+}
+.navBarContent {
+  border-top: 1px solid lighten($colorGray, 5%);
+  color: $colorLight;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  list-style: none;
+  margin: 0;
+  padding: 0 $navBarUnit;
+  text-align: left;
+  transform: translateY(-100vh);
+  transition: $transitionM cubic-bezier(0, 0, 0.9, 1);
+  width: 100%;
+  & li {
+    border-bottom: 1px solid lighten($colorGray, 5%);
+    padding: 1em 0;
+  }
+  @include tablet {
+    border-top: none;
+    flex-direction: row;
+    font-size: 14px;
+    justify-content: space-between;
+    padding: 0;
+    transform: none;
+    & li {
+      border-bottom: none;
+      padding: calc((#{$navBarUnit} - 1em) / 2) 10px;
+      &:hover {
+        color: $colorWhite;
+        cursor: pointer;
+      }
+    }
+  }
+}
+.navBarIcons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  @include tablet {
+    display: none;
+  }
+}
+.navBarIcon {
+  align-items: center;
+  display: flex;
+  height: $navBarUnit;
+  justify-content: center;
+  width: $navBarUnit;
+  & > svg {
+    transform: scaleX(1.4);
+  }
+}

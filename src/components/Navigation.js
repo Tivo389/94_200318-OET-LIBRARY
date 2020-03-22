@@ -6,8 +6,8 @@ class Navigation extends Component {
     return (
       <>
       <nav className="navBar">
-        <ul className="navBarItems">
-          <li className="navBarItem" onClick={this.onClick}>
+        <ul className="navBarIcons">
+          <li className="navBarIcon" onClick={this.onClick}>
             <FontAwesomeIcon icon="bars"/>
           </li>
         </ul>
