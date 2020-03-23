@@ -1,51 +1,120 @@
 html {
-  font-size: 18px;
+  font-size: 16px;
+  @include tablet {
+    font-size: 18px;
+  }
 }
-h1, h2, h3, h4, h5, h6, p, a {
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+code {
+  font-size: 1rem;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+h1, h2, h3, h4, h5, h6 {
   color: $colorBlack;
-  line-height: 135%;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  margin: 0;
 }
 h1, h2, h3, h4, h5, h6 {
   font-family: $ffHeader;
-  margin: 0 0 0.25em 0;
+}
+h1+h1, h1+h2, h1+h3, h1+h4, h1+h5, h1+h6, h2+h1, h2+h2, h2+h3, h2+h4, h2+h5, h2+h6, h3+h1, h3+h2, h3+h3, h3+h4, h3+h5, h3+h6, h4+h1, h4+h2, h4+h3, h4+h4, h4+h5, h4+h6, h5+h1, h5+h2, h5+h3, h5+h4, h5+h5, h5+h6, h6+h1, h6+h2, h6+h3, h6+h4, h6+h5, h6+h6 {
+  margin-top: 1em;
+}
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  color: $colorGray;
+  display: block;
+  font-size: 14px;
+  font-weight: initial;
+  letter-spacing: initial;
+  line-height: 1.35;
 }
 p, a {
+  color: $colorBlack;
   font-family: $ffBody;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
   margin: 0;
+  @include tablet {
+    line-height: 1.35;
+  }
 }
 p + p {
-  margin: 0.75em 0 0 0;
+  margin: 0.5em 0 0 0;
 }
 h1 {
   font-size: $fsH1;
+  @include tablet {
+    font-size: calc(#{$fsH1} * 1.2);
+  }
 }
 h2 {
   font-size: $fsH2;
+  @include tablet {
+    font-size: calc(#{$fsH2} * 1.2);
+  }
 }
 h3 {
   font-size: $fsH3;
+  @include tablet {
+    font-size: calc(#{$fsH3} * 1.2);
+  }
 }
 h4 {
   font-size: $fsH4;
+  @include tablet {
+    font-size: calc(#{$fsH4} * 1.2);
+  }
 }
 h5 {
   font-size: $fsH5;
+  @include tablet {
+    font-size: calc(#{$fsH5} * 1.2);
+  }
 }
 h6 {
   font-size: $fsH6;
-  font-weight: bolder;
+  @include tablet {
+    font-size: calc(#{$fsH6} * 1.2);
+  }
 }
 p {
   font-size: $fsP;
 }
 a {
   font-size: $fsP;
+  text-decoration: none;
   &:visited, &:focus, &:active {
     color: $colorBlack;
     outline: none;
-    text-decoration: none;
   }
+  @include tablet {
+    &:hover {
+      border-bottom: 1px solid $colorBlack;
+    }
+  }
+}
+code {
+  letter-spacing:  -0.02em;
 }
 li {
   font-family: $ffBody;
+}
+.externalIcon {
+  font-size: 80% !important;
+  color: $colorLightGray;
+  margin-left: 0.35em;
+  @include tablet {
+    &:hover {
+      color: $colorGray;
+    }
+  }
+}
+.prefixSVG {
+  margin-right: 0.35em;
 }
