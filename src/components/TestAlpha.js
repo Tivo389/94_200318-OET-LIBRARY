@@ -5,11 +5,6 @@ class TestAlpha extends Component {
     return (
       <div>
         <h1>Alpha</h1>
-        <h1>Alpha</h1>
-        <h1>Alpha</h1>
-        <h1>Alpha</h1>
-        <h1>Alpha</h1>
-        <h1>Alpha</h1>
       </div>
     );
   }

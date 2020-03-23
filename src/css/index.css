@@ -307,54 +307,119 @@ a {
   user-select: none; }
 
 html {
-  font-size: 18px; }
+  font-size: 16px; }
+  @media (min-width: 768px) {
+    html {
+      font-size: 18px; } }
 
-h1, h2, h3, h4, h5, h6, p, a {
-  color: #101010;
-  line-height: 135%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+code {
+  font-size: 1rem;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: 0 0 0.25em 0; }
-
-p, a {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #101010;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
   margin: 0; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+h1 + h1, h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6, h2 + h1, h2 + h2, h2 + h3, h2 + h4, h2 + h5, h2 + h6, h3 + h1, h3 + h2, h3 + h3, h3 + h4, h3 + h5, h3 + h6, h4 + h1, h4 + h2, h4 + h3, h4 + h4, h4 + h5, h4 + h6, h5 + h1, h5 + h2, h5 + h3, h5 + h4, h5 + h5, h5 + h6, h6 + h1, h6 + h2, h6 + h3, h6 + h4, h6 + h5, h6 + h6 {
+  margin-top: 1em; }
+
+h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
+  color: #777777;
+  display: block;
+  font-size: 14px;
+  font-weight: initial;
+  letter-spacing: initial;
+  line-height: 1.35; }
+
+p, a {
+  color: #101010;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.5;
+  margin: 0; }
+  @media (min-width: 768px) {
+    p, a {
+      line-height: 1.35; } }
+
 p + p {
-  margin: 0.75em 0 0 0; }
+  margin: 0.5em 0 0 0; }
 
 h1 {
-  font-size: calc(1rem * 4.48); }
+  font-size: calc(1rem * 3.00); }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: calc(calc(1rem * 3.00) * 1.2); } }
 
 h2 {
-  font-size: calc(1rem * 3.32); }
+  font-size: calc(1rem * 2.60); }
+  @media (min-width: 768px) {
+    h2 {
+      font-size: calc(calc(1rem * 2.60) * 1.2); } }
 
 h3 {
-  font-size: calc(1rem * 2.46); }
+  font-size: calc(1rem * 2.20); }
+  @media (min-width: 768px) {
+    h3 {
+      font-size: calc(calc(1rem * 2.20) * 1.2); } }
 
 h4 {
-  font-size: calc(1rem * 1.83); }
+  font-size: calc(1rem * 1.80); }
+  @media (min-width: 768px) {
+    h4 {
+      font-size: calc(calc(1rem * 1.80) * 1.2); } }
 
 h5 {
-  font-size: calc(1rem * 1.35); }
+  font-size: calc(1rem * 1.40); }
+  @media (min-width: 768px) {
+    h5 {
+      font-size: calc(calc(1rem * 1.40) * 1.2); } }
 
 h6 {
-  font-size: 1rem;
-  font-weight: bolder; }
+  font-size: calc(1rem * 1.00); }
+  @media (min-width: 768px) {
+    h6 {
+      font-size: calc(calc(1rem * 1.00) * 1.2); } }
 
 p {
   font-size: 1rem; }
 
 a {
-  font-size: 1rem; }
+  font-size: 1rem;
+  text-decoration: none; }
   a:visited, a:focus, a:active {
     color: #101010;
-    outline: none;
-    text-decoration: none; }
+    outline: none; }
+  @media (min-width: 768px) {
+    a:hover {
+      border-bottom: 1px solid #101010; } }
+
+code {
+  letter-spacing: -0.02em; }
 
 li {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+.externalIcon {
+  font-size: 80% !important;
+  color: #cccccc;
+  margin-left: 0.35em; }
+  @media (min-width: 768px) {
+    .externalIcon:hover {
+      color: #777777; } }
+
+.prefixSVG {
+  margin-right: 0.35em; }
 
 .debug {
   border: 1px dashed #FF0000 !important; }
@@ -411,12 +476,12 @@ li {
       border-top: none;
       flex-direction: row;
       font-size: 14px;
-      justify-content: space-between;
+      justify-content: center;
       padding: 0;
       transform: none; }
       .navBarContent li {
         border-bottom: none;
-        padding: calc((44px - 1em) / 2) 10px; }
+        padding: calc((44px - 1em) / 2) 1em; }
         .navBarContent li:hover {
           color: white;
           cursor: pointer; } }
@@ -438,28 +503,22 @@ li {
   .navBarIcon > svg {
     transform: scaleX(1.4); }
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale; }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace; }
-
 main {
   padding-top: 44px; }
 
-.mainWrapper {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  justify-content: center;
-  width: 100vw; }
-  @media (min-width: 768px) {
-    .mainWrapper {
-      flex-direction: initial; } }
-  @media (min-width: 1024px) {
-    .mainWrapper {
-      flex-direction: initial; } }
+hr {
+  background: #cccccc;
+  border: 0;
+  height: 1px;
+  margin: 1.5em 0; }
+
+.sectionContainer {
+  padding: 1.25em 1em; }
+
+.linksContainer {
+  margin-top: 1em; }
+  .linksContainer a {
+    margin-right: 1.5em; }
+
+.typographyElementExample h5 {
+  margin: 1em 0 0 0; }
