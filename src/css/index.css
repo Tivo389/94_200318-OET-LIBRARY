@@ -410,12 +410,12 @@ code {
 li {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
 
-.externalIcon {
+.externalLinkIcon {
   font-size: 80% !important;
   color: #cccccc;
   margin-left: 0.35em; }
   @media (min-width: 768px) {
-    .externalIcon:hover {
+    .externalLinkIcon:hover {
       color: #777777; } }
 
 .prefixSVG {
@@ -522,3 +522,11 @@ hr {
 
 .typographyElementExample h5 {
   margin: 1em 0 0 0; }
+
+.localeCode {
+  display: block;
+  background: #101010;
+  color: white;
+  line-height: 1;
+  padding: 0.75em 1.25em;
+  margin: 6em -1em 1em -1em; }
