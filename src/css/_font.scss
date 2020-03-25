@@ -45,7 +45,7 @@ p, a {
   }
 }
 p + p {
-  margin: 0.5em 0 0 0;
+  margin: 1em 0 0 0;
 }
 h1 {
   font-size: $fsH1;
@@ -83,11 +83,10 @@ h6 {
     font-size: calc(#{$fsH6} * 1.2);
   }
 }
-p {
+p, a {
   font-size: $fsP;
 }
 a {
-  font-size: $fsP;
   text-decoration: none;
   &:visited, &:focus, &:active {
     color: $colorBlack;
@@ -105,16 +104,6 @@ code {
 li {
   font-family: $ffBody;
 }
-.externalLinkIcon {
-  font-size: 80% !important;
-  color: $colorLightGray;
-  margin-left: 0.35em;
-  @include tablet {
-    &:hover {
-      color: $colorGray;
-    }
-  }
-}
-.prefixSVG {
-  margin-right: 0.35em;
+.textFullJustify {
+  text-align: justify;
 }

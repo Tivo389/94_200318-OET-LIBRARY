@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SectionTypographyEnglish extends Component {
   render() {
     return (
-      <>
-        <code className="localeCode"><FontAwesomeIcon icon="language" className="prefixSVG"/>ZH-CN (Chinese Simplified)</code>
+      <div className="locale_ZH-CN">
+        <code className="localeCode"><FontAwesomeIcon icon="language"/> ZH-CN (Chinese Simplified)</code>
         <h1>
           标题一
           <span>页标题/最大1个</span>
@@ -34,7 +34,7 @@ class SectionTypographyEnglish extends Component {
         <p>段落（来自古希腊παράγραφος段落、“写在旁边”或“写在旁边”）是论述特定观点或思想的书面论述的独立单元。一段包含一个以上的句子。 [1] [2]尽管任何语言的语法都没有要求、但段落通常是正式写作的预期组成部分、用于组织较长的散文。</p>
         <hr/>
         <div className="typographyElementExample">
-          <h4>E元素示例 / h4</h4>
+          <h4>示例 / h4</h4>
           <div>
             <h5>步骤 1: Alpha / h5</h5>
             <p>段落（来自古希腊παράγραφος段落、“写在旁边”或“写在旁边”）是论述特定观点或思想的书面论述的独立单元。一段包含一个以上的句子。 [1] [2]尽管任何语言的语法都没有要求、但段落通常是正式写作的预期组成部分、用于组织较长的散文。</p>
@@ -51,7 +51,7 @@ class SectionTypographyEnglish extends Component {
             <p>段落（来自古希腊παράγραφος段落、“写在旁边”或“写在旁边”）是论述特定观点或思想的书面论述的独立单元。一段包含一个以上的句子。 [1] [2]尽管任何语言的语法都没有要求、但段落通常是正式写作的预期组成部分、用于组织较长的散文。</p>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 

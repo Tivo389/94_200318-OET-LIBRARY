@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SectionTypographyEnglish extends Component {
   render() {
     return (
-      <>
-        <code className="localeCode"><FontAwesomeIcon icon="language" className="prefixSVG"/>JA-JP</code>
+      <div className="locale_JA-JP">
+        <code className="localeCode"><FontAwesomeIcon icon="language"/> JA-JP</code>
         <h1>
           見出し1
           <span>ページヘッダー / 最大1</span>
@@ -36,7 +36,7 @@ class SectionTypographyEnglish extends Component {
         <div className="typographyElementExample">
           <h4>要素の例 / h4</h4>
           <div>
-            <h5>ステップ 1: ステップ1：アルファ / h5</h5>
+            <h5>ステップ1：アルファ / h5</h5>
             <p>パラグラフ（古代ギリシャ語のααράγραφοςパラゴスから、「横に書く」または「横に書く」）は、特定のポイントまたはアイデアを扱う執筆における談話の自己完結型の単位です。段落は複数の文で構成されています。 [1] [2]どの言語の構文でも必須ではありませんが、通常、段落は正式な記述の予想される部分であり、長い散文を編成するために使用されます。</p>
           </div>
           <div>
@@ -51,7 +51,7 @@ class SectionTypographyEnglish extends Component {
             <p>パラグラフ（古代ギリシャ語のααράγραφοςパラゴスから、「横に書く」または「横に書く」）は、特定のポイントまたはアイデアを扱う執筆における談話の自己完結型の単位です。段落は複数の文で構成されています。 [1] [2]どの言語の構文でも必須ではありませんが、通常、段落は正式な記述の予想される部分であり、長い散文を編成するために使用されます。</p>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 

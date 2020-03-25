@@ -4,8 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SectionTypographyEnglish extends Component {
   render() {
     return (
-      <>
-        <code className="localeCode"><FontAwesomeIcon icon="language" className="prefixSVG"/>AR-AR</code>
+      <div className="locale_AR-AR">
+        <code className="localeCode"><FontAwesomeIcon icon="language"/> AR-AR</code>
         <h1>
           العنوان الأول
           <span>رأس الصفحة / الحد الأقصى. 1</span>
@@ -51,7 +51,7 @@ class SectionTypographyEnglish extends Component {
             <p>فقرة (من اليونانية القديمة φοςαράγραφος paraos ، "للكتابة بجانب" أو "مكتوب بجانب") هي وحدة قائمة بذاتها من الخطاب في الكتابة تتعامل مع نقطة أو فكرة معينة. تتكون الفقرة من أكثر من جملة واحدة. [1] [2] على الرغم من أن الفقرات لا تتطلبها بنية أي لغة ، إلا أن الفقرات عادة ما تكون جزءًا متوقعًا من الكتابة الرسمية ، وتستخدم لتنظيم النثر الأطول.</p>
           </div>
         </div>
-      </>
+      </div>
     );
   }
 

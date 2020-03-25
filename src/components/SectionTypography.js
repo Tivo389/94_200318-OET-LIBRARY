@@ -12,7 +12,7 @@ class SectionTypography extends Component {
   render() {
     return (
       <div className="sectionContainer">
-        <code><FontAwesomeIcon icon="file-alt" className="prefixSVG"/>TYPOGRAPHY / 200322</code>
+        <code><FontAwesomeIcon icon="file-alt"/>TYPOGRAPHY / 200322</code>
         <div className="linksContainer">
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"
@@ -25,6 +25,12 @@ class SectionTypography extends Component {
             target="_blank"
             rel="noopener noreferrer">
             <code>Paragraph<FontAwesomeIcon icon="external-link-alt" className="externalLinkIcon"/></code>
+          </a>
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/line-break"
+            target="_blank"
+            rel="noopener noreferrer">
+            <code>CSS/line-break<FontAwesomeIcon icon="external-link-alt" className="externalLinkIcon"/></code>
           </a>
         </div>
         <SectionTypographyEnglish/>

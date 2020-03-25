@@ -6,6 +6,7 @@
 @import '_font';
 @import '_debugger';
 @import '_navBar';
+@import '_typography';
 
 main {
   padding-top: $navBarUnit;
@@ -16,8 +17,15 @@ hr {
   height: 1px;
   margin: 1.5em 0;
 }
-.sectionContainer {
-  padding: 1.25em 1em;
+.externalLinkIcon {
+  font-size: 80% !important;
+  color: $colorLightGray;
+  margin-left: 0.35em;
+  @include tablet {
+    &:hover {
+      color: $colorGray;
+    }
+  }
 }
 .linksContainer {
   margin-top: 1em;
@@ -25,16 +33,6 @@ hr {
     margin-right: 1.5em;
   }
 }
-.typographyElementExample {
-  h5 {
-    margin: 1em 0 0 0;
-  }
-}
-.localeCode {
-  display: block;
-  background: $colorBlack;
-  color: $colorWhite;
-  line-height: 1;
-  padding: 0.75em 1.25em;
-  margin: 6em -1em 1em -1em;
+.sectionContainer {
+  padding: 1.25em 1em;
 }
