@@ -1,0 +1,68 @@
+.localeCode {
+  display: block;
+  background: $colorBlack;
+  color: $colorWhite;
+  line-height: 1;
+  padding: 0.75em 1.25em;
+  margin: 6em -1em 1em -1em;
+}
+.locale_ZH-CN, .locale_JA-JP {
+  h1, h2, h3, h4, h5, h6, p, a {
+    letter-spacing: normal;
+    line-break: strict;
+    line-height: 1.5;
+  }
+}
+.locale_AR-AR {
+  direction: rtl;
+  text-align: right;
+  h1, h2, h3, h4, h5, h6, p, a {
+    letter-spacing: normal;
+    line-break: strict;
+    line-height: 1.5;
+  }
+  h1 {
+    font-size: calc(#{$fsH1} * 1.25);
+    @include tablet {
+      font-size: calc(#{$fsH1} * 1.25);
+    }
+  }
+  h2 {
+    font-size: calc(#{$fsH2} * 1.25);
+    @include tablet {
+      font-size: calc(#{$fsH2} * 1.25);
+    }
+  }
+  h3 {
+    font-size: calc(#{$fsH3} * 1.25);
+    @include tablet {
+      font-size: calc(#{$fsH3} * 1.25);
+    }
+  }
+  h4 {
+    font-size: calc(#{$fsH4} * 1.25);
+    @include tablet {
+      font-size: calc(#{$fsH4} * 1.25);
+    }
+  }
+  h5 {
+    font-size: calc(#{$fsH5} * 1.25);
+    @include tablet {
+      font-size: calc(#{$fsH5} * 1.25);
+    }
+  }
+  h6 {
+    font-size: calc(#{$fsH6} * 1.25);
+    @include tablet {
+      font-size: calc(#{$fsH6} * 1.25);
+    }
+  }
+  p, a {
+    font-size: calc(#{$fsP} * 1.15);
+  }
+}
+.typographyElementExample {
+  h5 {
+    margin: 1em 0 0 0;
+  }
+}

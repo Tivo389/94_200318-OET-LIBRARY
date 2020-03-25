@@ -5,7 +5,7 @@ class SectionTypographyEnglish extends Component {
   render() {
     return (
       <>
-        <code className="localeCode"><FontAwesomeIcon icon="language" className="prefixSVG" />ES-ES</code>
+        <code className="localeCode"><FontAwesomeIcon icon="language"/> ES-ES</code>
         <h1>
           Encabezando uno
           <span> Encabezado de página / Máx. 1 </span>
