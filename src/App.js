@@ -7,7 +7,7 @@ import SectionPrimary from './components/SectionPrimary';
 library.add(faBars, faExternalLinkAlt, faFileAlt, faLanguage);
 
 function App() {
-  const [content, setContent] = useState("typography");
+  const [content, setContent] = useState("callToAction");
   return (
     <div className="App">
       <Navigation setContent={setContent}/>

@@ -12,6 +12,7 @@ class Navigation extends Component {
         </ul>
         <ul className="navBarContent">
           <li onClick={() => this.props.setContent("typography")}>Typography</li>
+          <li onClick={() => this.props.setContent("callToAction")}>CTA</li>
           <li onClick={() => this.props.setContent("alpha")}>Alpha</li>
           <li onClick={() => this.props.setContent("beta")}>Beta</li>
         </ul>

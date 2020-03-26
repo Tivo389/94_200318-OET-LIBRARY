@@ -7,6 +7,7 @@
 @import '_debugger';
 @import '_navBar';
 @import '_typography';
+@import '_cta';
 
 main {
   padding-top: $navBarUnit;
@@ -35,4 +36,11 @@ hr {
 }
 .sectionContainer {
   padding: 1.25em 1em;
+}
+.textAlignCenter {
+  text-align: center;
+}
+.flexDirectionColumn {
+  display: flex;
+  flex-direction: column;
 }
