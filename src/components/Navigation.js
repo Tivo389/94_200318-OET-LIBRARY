@@ -11,16 +11,35 @@ class Navigation extends Component {
           </li>
         </ul>
         <ul className="navBarContent">
-          <li onClick={() => this.props.setContent("typography")}>Typography</li>
-          <li onClick={() => this.props.setContent("callToAction")}>CTA</li>
-          <li onClick={() => this.props.setContent("alpha")}>Alpha</li>
-          <li onClick={() => this.props.setContent("beta")}>Beta</li>
+          <li
+            onClick={() => this.props.setContent("typography")}
+            onMouseUp={this.handleOnMouseUp}>
+              Typography
+          </li>
+          <li
+            onClick={() => this.props.setContent("callToAction")}
+            onMouseUp={this.handleOnMouseUp}>
+              CTA
+          </li>
+          <li
+            onClick={() => this.props.setContent("alpha")}
+            onMouseUp={this.handleOnMouseUp}>
+              Alpha
+          </li>
+          <li
+            onClick={() => this.props.setContent("beta")}
+            onMouseUp={this.handleOnMouseUp}>
+              Beta
+          </li>
         </ul>
       </nav>
     );
   }
   onClick = (e) => {
     document.querySelector(".navBar").classList.toggle('active');
+  };
+  handleOnMouseUp = () => {
+    document.querySelector(".navBar").classList.remove('active');
   };
 }
 
