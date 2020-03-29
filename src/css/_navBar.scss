@@ -12,9 +12,9 @@
   position: fixed;
   transition: $transitionM ease-in-out;
   width: 100%;
+  z-index: 9999;
   &.active {
     height: 100%;
-    z-index: 9999;
     & .navBarContent {
       transform: translateY(0);
     }
