@@ -1,5 +1,6 @@
+// GENERAL
 [class="callToActionContainer"] {
-  & [class*="cta"] + [class*="cta"] {
+  & [class*="ctaText"] + [class*="ctaText"] {
     margin-left: 1.5em;
   }
 }
@@ -15,6 +16,9 @@
   color: $colorGray;
 }
 .callToActionContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   & + .callToActionContainer {
     margin-top: 3em;
   }
@@ -27,11 +31,8 @@
     margin-top: 1.5em;
   }
 }
-
-
-
-
-[class*="ctaStandard"] {
+// CTA STANDARD
+[class*="ctaTextStandard"] {
   -webkit-tap-highlight-color: transparent; // Safari & Chrome Negate
   display: inline-block;
   margin: 0;
@@ -61,12 +62,18 @@
   &:active {
     transform: translateY(3px);
   }
-  &:hover::before, &:focus::before, &:active::before, &.active {
+  &:focus::before, &:active::before, &.active {
     opacity: 1;
     transform: scale(1,1);
   }
+  @include hover {
+    &:hover::before {
+      opacity: 1;
+      transform: scale(1,1);
+    }
+  }
 }
-.ctaStandardPrimary {
+.ctaTextStandardPrimary {
   &::before {
     background: $colorLightMain;
   }
@@ -74,7 +81,7 @@
     border: 2px solid $colorLightMain;
   }
 }
-.ctaStandardSecondary {
+.ctaTextStandardSecondary {
   &::before {
     background: $colorLightGray;
   }
@@ -82,15 +89,45 @@
     border: 2px solid $colorLightGray;
   }
 }
-
-
-
-.ctaTextPrimary, .ctaTextSecondary {
+// CTA TEXT
+.ctaTextOnlyPrimary, .ctaTextOnlySecondary {
   &::after {
     content: " >";
     display: inline;
   }
-  &:hover {
-    text-decoration: underline;
+  @include hover {
+    &:hover {
+      text-decoration: underline;
+    }
   }
+}
+// CTA ICON
+.ctaIconPrimary {
+  align-items: center;
+  display: flex;
+  transition: $transitionS ease-in-out;
+  flex-direction: column;
+  width: 33.333%;
+  margin: 0 0 2em 0;
+  & .ctaIconIcon {
+    height: 40px;
+    width: 40px;
+  }
+  @include hover {
+    &:hover {
+      transform: translateY(-4px);
+    }
+  }
+  @include tablet {
+    width: 96px;
+  }
+}
+.ctaIconText {
+  font-family: $ffBodyCondensed;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.035em;
+  margin: 0.25em 0 0 0;
+  text-align: center;
+  text-transform: uppercase;
 }

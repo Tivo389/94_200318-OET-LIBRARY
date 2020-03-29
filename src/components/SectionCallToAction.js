@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class CallToAction extends Component {
   render() {
@@ -7,7 +8,7 @@ class CallToAction extends Component {
         {/* STANDARD CTAS */}
         <div className="callToActionContainer">
           <a
-            className="ctaStandardPrimary"
+            className="ctaTextStandardPrimary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -15,7 +16,7 @@ class CallToAction extends Component {
             Learn More
           </a>
           <a
-            className="ctaStandardSecondary"
+            className="ctaTextStandardSecondary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -25,7 +26,7 @@ class CallToAction extends Component {
         </div>
         <div className="callToActionContainer ctaLayoutVertical">
           <a
-            className="ctaStandardPrimary"
+            className="ctaTextStandardPrimary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -33,7 +34,7 @@ class CallToAction extends Component {
             Learn More
           </a>
           <a
-            className="ctaStandardSecondary"
+            className="ctaTextStandardSecondary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -45,7 +46,7 @@ class CallToAction extends Component {
         {/* TEXT CTAS */}
         <div className="callToActionContainer">
           <a
-            className="ctaTextPrimary"
+            className="ctaTextOnlyPrimary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -53,7 +54,7 @@ class CallToAction extends Component {
             Learn More
           </a>
           <a
-            className="ctaTextSecondary"
+            className="ctaTextOnlySecondary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -63,7 +64,7 @@ class CallToAction extends Component {
         </div>
         <div className="callToActionContainer ctaLayoutVertical">
           <a
-            className="ctaTextPrimary"
+            className="ctaTextOnlyPrimary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -71,7 +72,7 @@ class CallToAction extends Component {
             Learn More
           </a>
           <a
-            className="ctaTextSecondary"
+            className="ctaTextOnlySecondary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -81,41 +82,51 @@ class CallToAction extends Component {
         </div>
         <hr/>
         {/* ICON & TEXT CTAS */}
-        {/* 999 CONTINUE HERE */}
         <div className="callToActionContainer">
           <a
-            className="ctaTextPrimary"
+            className="ctaIconPrimary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
             onTouchCancel={this.onTouchCancel}>
-            Learn More
+            <FontAwesomeIcon icon="newspaper" className="ctaIconIcon" width="100%"/>
+            <span className="ctaIconText">News</span>
           </a>
           <a
-            className="ctaTextSecondary"
+            className="ctaIconPrimary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
             onTouchCancel={this.onTouchCancel}>
-            Learn More
-          </a>
-        </div>
-        <div className="callToActionContainer ctaLayoutVertical">
-          <a
-            className="ctaTextPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            Learn More
+            <FontAwesomeIcon icon="video" className="ctaIconIcon" width="100%"/>
+            <span className="ctaIconText">Livestreams</span>
           </a>
           <a
-            className="ctaTextSecondary"
+            className="ctaIconPrimary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
             onTouchCancel={this.onTouchCancel}>
-            Learn More
+            <FontAwesomeIcon icon="calendar-alt" className="ctaIconIcon" width="100%"/>
+            <span className="ctaIconText">Events</span>
+          </a>
+          <a
+            className="ctaIconPrimary"
+            href="./"
+            onTouchStart={this.onTouchStart}
+            onTouchEnd={this.onTouchEnd}
+            onTouchCancel={this.onTouchCancel}>
+            <FontAwesomeIcon icon="play-circle" className="ctaIconIcon" width="100%"/>
+            <span className="ctaIconText">Videos</span>
+          </a>
+          <a
+            className="ctaIconPrimary"
+            href="./"
+            onTouchStart={this.onTouchStart}
+            onTouchEnd={this.onTouchEnd}
+            onTouchCancel={this.onTouchCancel}>
+            <FontAwesomeIcon icon="comments" className="ctaIconIcon" width="100%"/>
+            <span className="ctaIconText">Social</span>
           </a>
         </div>
       </div>
