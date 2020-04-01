@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;900&family=Roboto:wght@300;400;900&display=swap");
 /*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -344,7 +344,6 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   line-height: 1.35; }
 
 p, a {
-  color: #101010;
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   letter-spacing: -0.02em;
   line-height: 1.5;
@@ -352,6 +351,9 @@ p, a {
   @media (min-width: 768px) {
     p, a {
       line-height: 1.35; } }
+
+p {
+  color: #101010; }
 
 p + p {
   margin: 1em 0 0 0; }
@@ -617,10 +619,10 @@ li {
   border: 2px solid #f9ab9f; }
 
 .ctaTextStandardSecondary::before {
-  background: #d0c8c8; }
+  background: #e3dede; }
 
 .ctaTextStandardSecondary::after {
-  border: 2px solid #d0c8c8; }
+  border: 2px solid #e3dede; }
 
 .ctaTextOnlyPrimary::after, .ctaTextOnlySecondary::after {
   content: " >";
@@ -656,11 +658,52 @@ li {
   text-align: center;
   text-transform: uppercase; }
 
+.tileContainer {
+  width: 100%; }
+
+.tileText {
+  border: 1px solid #e3dede;
+  border-radius: 8px;
+  padding: 1.15em 1.25em 2.25em 1.25em;
+  background: white;
+  position: relative; }
+  .tileText + .tileText {
+    margin-top: 0.75em; }
+
+.tileTextHeader, .tileTextBody {
+  font-size: 0.875rem; }
+  @media (min-width: 768px) {
+    .tileTextHeader, .tileTextBody {
+      font-size: 1rem; } }
+
+.tileTextHeader {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 0 0.25em 0; }
+
+.tileTextBody {
+  max-height: calc((1.5 * 2em) + 1.35em);
+  overflow: hidden; }
+
+.tileDateStamp {
+  font-size: 0.75rem;
+  bottom: 0.75em;
+  content: "View More";
+  left: 1.25em; }
+
+.tileViewMore {
+  font-size: 0.75rem;
+  bottom: 0.75em;
+  content: "View More";
+  right: 1.25em; }
+
 main {
   padding-top: 44px; }
 
 hr {
-  background: #d0c8c8;
+  background: #e3dede;
   border: 0;
   height: 1px;
   margin: 2em 0;
@@ -668,7 +711,7 @@ hr {
 
 .externalLinkIcon {
   font-size: 80% !important;
-  color: #d0c8c8;
+  color: #e3dede;
   margin-left: 0.35em; }
   @media (min-width: 768px) {
     .externalLinkIcon:hover {
@@ -680,7 +723,7 @@ hr {
     margin-right: 1.5em; }
 
 .sectionContainer {
-  padding: 1.25em 1em;
+  padding: 24px 16px;
   min-height: calc(100vh - 44px);
   display: flex;
   flex-direction: column;

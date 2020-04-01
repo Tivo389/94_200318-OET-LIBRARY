@@ -22,6 +22,11 @@ class Navigation extends Component {
               CTA
           </li>
           <li
+            onClick={() => this.props.setContent("tile")}
+            onMouseUp={this.handleOnMouseUp}>
+              Tile
+          </li>
+          <li
             onClick={() => this.props.setContent("alpha")}
             onMouseUp={this.handleOnMouseUp}>
               Alpha
