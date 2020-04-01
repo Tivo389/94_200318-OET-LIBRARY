@@ -12,7 +12,7 @@ class SectionTypography extends Component {
   render() {
     return (
       <div className="sectionContainer">
-        <code><FontAwesomeIcon icon="file-alt"/>TYPOGRAPHY / 200322</code>
+        <code><FontAwesomeIcon icon="file-alt"/> TYPOGRAPHY / 200322</code>
         <div className="linksContainer">
           <a
             href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements"

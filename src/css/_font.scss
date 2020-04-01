@@ -16,7 +16,7 @@ code {
 }
 h1, h2, h3, h4, h5, h6 {
   color: $colorBlack;
-  line-height: 1.35;
+  line-height: $desktopLineHeight;
   letter-spacing: -0.02em;
   margin: 0;
 }
@@ -32,17 +32,19 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   font-size: 14px;
   font-weight: initial;
   letter-spacing: initial;
-  line-height: 1.35;
+  line-height: $desktopLineHeight;
 }
 p, a {
-  color: $colorBlack;
   font-family: $ffBody;
   letter-spacing: -0.02em;
-  line-height: 1.5;
+  line-height: $mobileLineHeight;
   margin: 0;
   @include tablet {
-    line-height: 1.35;
+    line-height: $desktopLineHeight;
   }
+}
+p {
+  color: $colorBlack;
 }
 p + p {
   margin: 1em 0 0 0;

@@ -7,7 +7,7 @@ import SectionPrimary from './components/SectionPrimary';
 library.add(faBars, faExternalLinkAlt, faFileAlt, faLanguage, faNewspaper, faVideo, faCalendarAlt, faPlayCircle, faComments);
 
 function App() {
-  const [content, setContent] = useState("callToAction");
+  const [content, setContent] = useState("tile");
   return (
     <div className="App">
       <Navigation setContent={setContent}/>

@@ -1,0 +1,44 @@
+.tileContainer {
+  width: 100%;
+}
+.tileText {
+  border: 1px solid $colorLightGray;
+  border-radius: 8px;
+  padding: 1.15em 1.25em 2.25em 1.25em;
+  background: $colorWhite;
+  position: relative;
+  & + .tileText {
+    margin-top: 0.75em;
+  }
+}
+.tileTextHeader, .tileTextBody {
+  font-size: 0.875rem;
+  @include tablet {
+    font-size: 1rem;
+  }
+}
+.tileTextHeader {
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0 0 0.25em 0;
+}
+.tileTextBody {
+  max-height: calc((#{$mobileLineHeight} * 2em) + 1.35em);
+  overflow: hidden;
+}
+.tileDateStamp {
+  font-size: 0.75rem;
+  bottom: 0.75em;
+  content: "View More";
+  // position: absolute;
+  left: 1.25em;
+}
+.tileViewMore {
+  font-size: 0.75rem;
+  bottom: 0.75em;
+  content: "View More";
+  // position: absolute;
+  right: 1.25em;
+}
