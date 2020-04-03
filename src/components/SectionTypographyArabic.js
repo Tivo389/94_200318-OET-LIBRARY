@@ -5,7 +5,7 @@ class SectionTypographyEnglish extends Component {
   render() {
     return (
       <div className="locale_AR-AR">
-        <code className="localeCode"><FontAwesomeIcon icon="language"/> AR-AR</code>
+        <code className="sectionHeader"><FontAwesomeIcon icon="language"/> AR-AR</code>
         <h1>
           العنوان الأول
           <span>رأس الصفحة / الحد الأقصى. 1</span>

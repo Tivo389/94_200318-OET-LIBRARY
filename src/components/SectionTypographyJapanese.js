@@ -5,7 +5,7 @@ class SectionTypographyEnglish extends Component {
   render() {
     return (
       <div className="locale_JA-JP">
-        <code className="localeCode"><FontAwesomeIcon icon="language"/> JA-JP</code>
+        <code className="sectionHeader"><FontAwesomeIcon icon="language"/> JA-JP</code>
         <h1>
           見出し1
           <span>ページヘッダー / 最大1</span>
