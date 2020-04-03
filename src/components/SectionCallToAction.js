@@ -4,9 +4,31 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class CallToAction extends Component {
   render() {
     return (
-      <div className="sectionContainer flexAlignCenter">
+      <div className="sectionContainer">
+        <code><FontAwesomeIcon icon="file-alt"/> CALL TO ACTION / 200325</code>
+        <div className="linksContainer">
+          <a
+            href="#standardCTA"
+            rel="noopener noreferrer">
+            <code>Standard CTA</code>
+          </a>
+          <a
+            href="#textCTA"
+            rel="noopener noreferrer">
+            <code>Text CTA</code>
+          </a>
+          <a
+            href="#iconCTA"
+            rel="noopener noreferrer">
+            <code>Icon CTA</code>
+          </a>
+        </div>
+
+
+
         {/* STANDARD CTAS */}
-        <div className="callToActionContainer">
+        <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Standard CTA</code>
+        <div id="standardCTA" className="callToActionContainer">
           <a
             className="ctaTextStandardPrimary"
             href="./"
@@ -42,9 +64,12 @@ class CallToAction extends Component {
             Learn More
           </a>
         </div>
-        <hr/>
+
+
+
         {/* TEXT CTAS */}
-        <div className="callToActionContainer">
+        <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Text CTA</code>
+        <div id="textCTA" className="callToActionContainer">
           <a
             className="ctaTextOnlyPrimary"
             href="./"
@@ -80,9 +105,12 @@ class CallToAction extends Component {
             Learn More
           </a>
         </div>
-        <hr/>
-        {/* ICON & TEXT CTAS */}
-        <div className="callToActionContainer">
+
+
+
+        {/* ICON CTAS */}
+        <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Icon CTA</code>
+        <div id="iconCTA" className="callToActionContainer">
           <a
             className="ctaIconPrimary"
             href="./"

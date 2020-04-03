@@ -5,7 +5,7 @@ class SectionTypographyEnglish extends Component {
   render() {
     return (
       <div className="locale_ZH-CN">
-        <code className="localeCode"><FontAwesomeIcon icon="language"/> ZH-CN (Chinese Simplified)</code>
+        <code className="sectionHeader"><FontAwesomeIcon icon="language"/> ZH-CN (Chinese Simplified)</code>
         <h1>
           标题一
           <span>页标题/最大1个</span>

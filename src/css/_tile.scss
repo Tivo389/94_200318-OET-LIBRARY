@@ -4,7 +4,7 @@
 .tileText {
   border: 1px solid $colorLightGray;
   border-radius: 8px;
-  padding: 1.15em 1.25em 2.25em 1.25em;
+  padding: 1.25em 1.25em 1.15em 1.25em;
   background: $colorWhite;
   position: relative;
   & + .tileText {
@@ -28,17 +28,21 @@
   max-height: calc((#{$mobileLineHeight} * 2em) + 1.35em);
   overflow: hidden;
 }
+.tileTextFooter {
+  display: flex;
+  justify-content: space-between;
+  margin: 0.75em 0 0 0;
+}
 .tileDateStamp {
   font-size: 0.75rem;
   bottom: 0.75em;
   content: "View More";
-  // position: absolute;
   left: 1.25em;
+  color: $colorGray;
 }
 .tileViewMore {
   font-size: 0.75rem;
   bottom: 0.75em;
   content: "View More";
-  // position: absolute;
   right: 1.25em;
 }
