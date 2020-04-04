@@ -1,11 +1,21 @@
 // MEDIA QUERY SETTINGS ---------------------------------------------------------------------------
-@mixin tablet {
+@mixin w768 {
   @media (min-width: 768px) {
     @content;
   }
 }
-@mixin desktop {
+@mixin w1024 {
   @media (min-width: 1024px) {
+    @content;
+  }
+}
+@mixin w1440 {
+  @media (min-width: 1440px) {
+    @content;
+  }
+}
+@mixin w1920 {
+  @media (min-width: 1920px) {
     @content;
   }
 }

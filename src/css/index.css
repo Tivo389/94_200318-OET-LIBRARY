@@ -336,7 +336,7 @@ h1 + h1, h1 + h2, h1 + h3, h1 + h4, h1 + h5, h1 + h6, h2 + h1, h2 + h2, h2 + h3,
   margin-top: 1em; }
 
 h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
-  color: #847171;
+  color: #8e7b7b;
   display: block;
   font-size: 14px;
   font-weight: initial;
@@ -444,7 +444,7 @@ li {
       padding: 0 44px; } }
 
 .navBarContent {
-  border-top: 1px solid #917e7e;
+  border-top: 1px solid #9a8989;
   color: #dfdfdf;
   display: flex;
   flex-direction: column;
@@ -460,7 +460,7 @@ li {
   transition: 0.3s cubic-bezier(0, 0, 0.9, 1);
   width: 100%; }
   .navBarContent li {
-    border-bottom: 1px solid #917e7e;
+    border-bottom: 1px solid #9a8989;
     padding: 1em 0; }
   @media (min-width: 768px) {
     .navBarContent {
@@ -554,7 +554,7 @@ li {
   color: #e62b0f; }
 
 [class*="Secondary"] {
-  color: #847171; }
+  color: #8e7b7b; }
 
 .callToActionContainer {
   display: flex;
@@ -611,10 +611,10 @@ li {
   border: 2px solid #f9ab9f; }
 
 .ctaTextStandardSecondary::before {
-  background: #e3dede; }
+  background: #d0c8c8; }
 
 .ctaTextStandardSecondary::after {
-  border: 2px solid #e3dede; }
+  border: 2px solid #d0c8c8; }
 
 .ctaTextOnlyPrimary::after, .ctaTextOnlySecondary::after {
   content: " >";
@@ -651,16 +651,47 @@ li {
   text-transform: uppercase; }
 
 .tileContainer {
-  width: 100%; }
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto; }
+  @media (min-width: 768px) {
+    .tileContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; } }
+  @media (min-width: 1024px) {
+    .tileContainer {
+      justify-content: flex-start; } }
 
 .tileText {
-  border: 1px solid #e3dede;
+  border: 1px solid #d0c8c8;
   border-radius: 8px;
-  padding: 1.25em 1.25em 1.15em 1.25em;
+  padding: 1em 1em 0.9em 1em;
   background: white;
   position: relative; }
   .tileText + .tileText {
-    margin-top: 0.75em; }
+    margin-top: 1em; }
+  @media (min-width: 768px) {
+    .tileText {
+      margin-bottom: 1em;
+      max-width: calc(50% - 0.5em);
+      flex: 1 0 auto; }
+      .tileText + .tileText {
+        margin-top: 0; } }
+  @media (min-width: 1024px) {
+    .tileText {
+      max-width: calc(33.333% - 0.667em);
+      margin: 0 1em 1em 0; }
+      .tileText:nth-child(3n) {
+        margin-right: 0; } }
+  @media (min-width: 1440px) {
+    .tileText {
+      max-width: calc(20% - 0.8em);
+      margin: 0 1em 1em 0; }
+      .tileText:nth-child(3n) {
+        margin-right: 1em; }
+      .tileText:nth-child(5n) {
+        margin-right: 0; } }
 
 .tileTextHeader, .tileTextBody {
   font-size: 0.875rem; }
@@ -676,20 +707,23 @@ li {
   margin: 0 0 0.25em 0; }
 
 .tileTextBody {
-  max-height: calc((1.5 * 2em) + 1.35em);
+  max-height: calc(1.5 * 3em);
   overflow: hidden; }
+  @media (min-width: 768px) {
+    .tileTextBody {
+      max-height: calc(1.35 * 3em); } }
 
 .tileTextFooter {
   display: flex;
   justify-content: space-between;
-  margin: 0.75em 0 0 0; }
+  margin: 0.25em 0 0 0; }
 
 .tileDateStamp {
   font-size: 0.75rem;
   bottom: 0.75em;
   content: "View More";
   left: 1.25em;
-  color: #847171; }
+  color: #8e7b7b; }
 
 .tileViewMore {
   font-size: 0.75rem;
@@ -701,7 +735,7 @@ main {
   padding-top: 44px; }
 
 hr {
-  background: #e3dede;
+  background: #d0c8c8;
   border: 0;
   height: 1px;
   margin: 2em 0;
@@ -709,11 +743,11 @@ hr {
 
 .externalLinkIcon {
   font-size: 80% !important;
-  color: #e3dede;
+  color: #d0c8c8;
   margin-left: 0.35em; }
   @media (min-width: 768px) {
     .externalLinkIcon:hover {
-      color: #847171; } }
+      color: #8e7b7b; } }
 
 .linksContainer {
   margin-top: 1em; }

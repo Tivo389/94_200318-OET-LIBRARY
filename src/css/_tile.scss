@@ -1,19 +1,54 @@
 .tileContainer {
   width: 100%;
+  max-width: 1920px;;
+  margin: 0 auto;
+  @include w768 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  @include w1024 {
+    justify-content: flex-start;
+  }
 }
 .tileText {
   border: 1px solid $colorLightGray;
   border-radius: 8px;
-  padding: 1.25em 1.25em 1.15em 1.25em;
+  padding: 1em 1em 0.9em 1em;
   background: $colorWhite;
   position: relative;
   & + .tileText {
-    margin-top: 0.75em;
+    margin-top: 1em;
+  }
+  @include w768 {
+    margin-bottom: 1em;
+    max-width: calc(50% - 0.5em);
+    flex: 1 0 auto;
+    & + .tileText {
+      margin-top: 0;
+    }
+  }
+  @include w1024 {
+    max-width: calc(33.333% - 0.667em);
+    margin: 0 1em 1em 0;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+  @include w1440 {
+    max-width: calc(20% - 0.8em);
+    margin: 0 1em 1em 0;
+    &:nth-child(3n) {
+      margin-right: 1em;
+    }
+    &:nth-child(5n) {
+      margin-right: 0;
+    }
   }
 }
 .tileTextHeader, .tileTextBody {
   font-size: 0.875rem;
-  @include tablet {
+  @include w768 {
     font-size: 1rem;
   }
 }
@@ -25,13 +60,16 @@
   margin: 0 0 0.25em 0;
 }
 .tileTextBody {
-  max-height: calc((#{$mobileLineHeight} * 2em) + 1.35em);
+  max-height: calc(#{$mobileLineHeight} * 3em);
   overflow: hidden;
+  @include w768 {
+    max-height: calc(#{$desktopLineHeight} * 3em);
+  }
 }
 .tileTextFooter {
   display: flex;
   justify-content: space-between;
-  margin: 0.75em 0 0 0;
+  margin: 0.25em 0 0 0;
 }
 .tileDateStamp {
   font-size: 0.75rem;

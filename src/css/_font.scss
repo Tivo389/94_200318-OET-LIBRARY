@@ -1,6 +1,6 @@
 html {
   font-size: 16px;
-  @include tablet {
+  @include w768 {
     font-size: 18px;
   }
 }
@@ -39,7 +39,7 @@ p, a {
   letter-spacing: -0.02em;
   line-height: $mobileLineHeight;
   margin: 0;
-  @include tablet {
+  @include w768 {
     line-height: $desktopLineHeight;
   }
 }
@@ -51,37 +51,37 @@ p + p {
 }
 h1 {
   font-size: $fsH1;
-  @include tablet {
+  @include w768 {
     font-size: calc(#{$fsH1} * 1.2);
   }
 }
 h2 {
   font-size: $fsH2;
-  @include tablet {
+  @include w768 {
     font-size: calc(#{$fsH2} * 1.2);
   }
 }
 h3 {
   font-size: $fsH3;
-  @include tablet {
+  @include w768 {
     font-size: calc(#{$fsH3} * 1.2);
   }
 }
 h4 {
   font-size: $fsH4;
-  @include tablet {
+  @include w768 {
     font-size: calc(#{$fsH4} * 1.2);
   }
 }
 h5 {
   font-size: $fsH5;
-  @include tablet {
+  @include w768 {
     font-size: calc(#{$fsH5} * 1.2);
   }
 }
 h6 {
   font-size: $fsH6;
-  @include tablet {
+  @include w768 {
     font-size: calc(#{$fsH6} * 1.2);
   }
 }
