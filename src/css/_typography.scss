@@ -15,37 +15,37 @@
   }
   h1 {
     font-size: calc(#{$fsH1} * 1.25);
-    @include tablet {
+    @include w768 {
       font-size: calc(#{$fsH1} * 1.25);
     }
   }
   h2 {
     font-size: calc(#{$fsH2} * 1.25);
-    @include tablet {
+    @include w768 {
       font-size: calc(#{$fsH2} * 1.25);
     }
   }
   h3 {
     font-size: calc(#{$fsH3} * 1.25);
-    @include tablet {
+    @include w768 {
       font-size: calc(#{$fsH3} * 1.25);
     }
   }
   h4 {
     font-size: calc(#{$fsH4} * 1.25);
-    @include tablet {
+    @include w768 {
       font-size: calc(#{$fsH4} * 1.25);
     }
   }
   h5 {
     font-size: calc(#{$fsH5} * 1.25);
-    @include tablet {
+    @include w768 {
       font-size: calc(#{$fsH5} * 1.25);
     }
   }
   h6 {
     font-size: calc(#{$fsH6} * 1.25);
-    @include tablet {
+    @include w768 {
       font-size: calc(#{$fsH6} * 1.25);
     }
   }

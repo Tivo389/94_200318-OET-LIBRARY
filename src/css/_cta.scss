@@ -118,7 +118,7 @@
       transform: translateY(-4px);
     }
   }
-  @include tablet {
+  @include w768 {
     width: 96px;
   }
 }
