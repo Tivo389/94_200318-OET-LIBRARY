@@ -1,3 +1,4 @@
+// PRIMARY STYLE
 .tileContainer {
   width: 100%;
   max-width: 1920px;;
@@ -12,13 +13,16 @@
   }
 }
 .tileText {
-  border: 1px solid $colorLightGray;
   border-radius: 8px;
   padding: 1em 1em 0.9em 1em;
   background: $colorWhite;
+  transition-duration: $transitionSM;
   position: relative;
   & + .tileText {
     margin-top: 1em;
+  }
+  @include hover {
+    cursor: pointer;
   }
   @include w768 {
     margin-bottom: 1em;
@@ -37,7 +41,7 @@
   }
   @include w1440 {
     max-width: calc(20% - 0.8em);
-    margin: 0 1em 1em 0;
+    margin: 0 1em 0 0;
     &:nth-child(3n) {
       margin-right: 1em;
     }
@@ -53,10 +57,10 @@
   }
 }
 .tileTextHeader {
+  margin: 0 0 0.25em 0;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  margin: 0 0 0.25em 0;
 }
 .tileTextBody {
   max-height: calc(#{$mobileLineHeight} * 3em);
@@ -82,4 +86,46 @@
   bottom: 0.75em;
   content: "View More";
   right: 1.25em;
+}
+
+
+
+// SECONDARY STYLE
+.tileCard {
+  border: 0;
+  position: relative;
+  &::before, &::after {
+    border-radius: 8px;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: $transitionSM;
+  }
+  &::before {
+    box-shadow: $boxShadowDefault;
+    opacity: 1;
+  }
+  &::after {
+    box-shadow: $boxShadowHover;
+    opacity: 0;
+  }
+  @include hover {
+    transform: translateY(-4px);
+    &::before {
+      opacity: 0;
+    }
+    &::after {
+      opacity: 1;
+    }
+  }
+}
+.tileFlat {
+  border: 1px solid $colorLightGray;
+  @include hover {
+    transform: translateY(-4px);
+  }
 }

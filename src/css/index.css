@@ -601,7 +601,7 @@ li {
     opacity: 1;
     transform: scale(1, 1); }
   @media (hover: hover) {
-    [class*="ctaTextStandard"]:hover::before {
+    [class*="ctaTextStandard"]:hover:hover::before {
       opacity: 1;
       transform: scale(1, 1); } }
 
@@ -622,7 +622,7 @@ li {
   display: inline; }
 
 @media (hover: hover) {
-  .ctaTextOnlyPrimary:hover, .ctaTextOnlySecondary:hover {
+  .ctaTextOnlyPrimary:hover:hover, .ctaTextOnlySecondary:hover:hover {
     text-decoration: underline; } }
 
 .ctaIconPrimary {
@@ -636,7 +636,7 @@ li {
     height: 40px;
     width: 40px; }
   @media (hover: hover) {
-    .ctaIconPrimary:hover {
+    .ctaIconPrimary:hover:hover {
       transform: translateY(-4px); } }
   @media (min-width: 768px) {
     .ctaIconPrimary {
@@ -665,13 +665,16 @@ li {
       justify-content: flex-start; } }
 
 .tileText {
-  border: 1px solid #d0c8c8;
   border-radius: 8px;
   padding: 1em 1em 0.9em 1em;
   background: white;
+  transition-duration: 0.15s;
   position: relative; }
   .tileText + .tileText {
     margin-top: 1em; }
+  @media (hover: hover) {
+    .tileText:hover {
+      cursor: pointer; } }
   @media (min-width: 768px) {
     .tileText {
       margin-bottom: 1em;
@@ -688,7 +691,7 @@ li {
   @media (min-width: 1440px) {
     .tileText {
       max-width: calc(20% - 0.8em);
-      margin: 0 1em 1em 0; }
+      margin: 0 1em 0 0; }
       .tileText:nth-child(3n) {
         margin-right: 1em; }
       .tileText:nth-child(5n) {
@@ -701,10 +704,10 @@ li {
       font-size: 1rem; } }
 
 .tileTextHeader {
+  margin: 0 0 0.25em 0;
   overflow: hidden;
   text-overflow: ellipsis;
-  white-space: nowrap;
-  margin: 0 0 0.25em 0; }
+  white-space: nowrap; }
 
 .tileTextBody {
   max-height: calc(1.5 * 3em);
@@ -730,6 +733,39 @@ li {
   bottom: 0.75em;
   content: "View More";
   right: 1.25em; }
+
+.tileCard {
+  border: 0;
+  position: relative; }
+  .tileCard::before, .tileCard::after {
+    border-radius: 8px;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: 0.15s; }
+  .tileCard::before {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.32);
+    opacity: 1; }
+  .tileCard::after {
+    box-shadow: 0 2px 12px rgba(32, 33, 36, 0.24);
+    opacity: 0; }
+  @media (hover: hover) {
+    .tileCard:hover {
+      transform: translateY(-4px); }
+      .tileCard:hover::before {
+        opacity: 0; }
+      .tileCard:hover::after {
+        opacity: 1; } }
+
+.tileFlat {
+  border: 1px solid #d0c8c8; }
+  @media (hover: hover) {
+    .tileFlat:hover {
+      transform: translateY(-4px); } }
 
 main {
   padding-top: 44px; }

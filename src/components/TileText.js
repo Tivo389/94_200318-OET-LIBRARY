@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 
 class TileText extends Component {
+  classConfig = this.props.tileCard === 'true' ? 'tileText tileCard' : 'tileText tileFlat';
   render() {
     return (
-      <div className="tileText">
+      <div className={this.classConfig}>
         <h6 className="tileTextHeader">{this.props.header}</h6>
         <p className="tileTextBody">{this.props.body}</p>
         <div className="tileTextFooter">
