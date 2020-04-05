@@ -10,7 +10,7 @@
   height: $navBarUnit;
   justify-content: flex-start;
   position: fixed;
-  transition: $transitionM ease-in-out;
+  transition: $transitionMD ease-in-out;
   width: 100%;
   z-index: 9999;
   &.active {
@@ -38,7 +38,7 @@
   padding: 0 $navBarUnit;
   text-align: left;
   transform: translateY(-100vh);
-  transition: $transitionM cubic-bezier(0, 0, 0.9, 1);
+  transition: $transitionMD cubic-bezier(0, 0, 0.9, 1);
   width: 100%;
   & li {
     border-bottom: 1px solid lighten($colorGray, 5%);
