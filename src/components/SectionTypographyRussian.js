@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SectionTypographyEnglish extends Component {
   render() {
     return (
-      <>
+      <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="language"/> RU-RU</code>
         <h1>
           Заголовок Один
@@ -51,7 +51,7 @@ class SectionTypographyEnglish extends Component {
             <p>Абзац (от древнегреческого παράγραφος paragraphos, «писать рядом» или «написано рядом») - это отдельная единица дискурса в письме, касающаяся определенной точки или идеи. Абзац состоит из более чем одного предложения. [1] [2] Хотя синтаксис любого языка не требуется, абзацы обычно являются ожидаемой частью формального письма, используемого для организации более длинной прозы.</p>
           </div>
         </div>
-      </>
+      </section>
     );
   }
 

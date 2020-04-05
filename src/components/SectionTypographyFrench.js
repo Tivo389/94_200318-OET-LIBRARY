@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SectionTypographyEnglish extends Component {
   render() {
     return (
-      <>
+      <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="language"/> FR-FR</code>
         <h1>
           Titre un
@@ -51,7 +51,7 @@ class SectionTypographyEnglish extends Component {
             <p> Un paragraphe (du grec ancien παράγραφος paragraphos, "écrire à côté de" ou "écrit à côté de") est une unité autonome d'un discours écrit traitant d'un point ou d'une idée particulière. Un paragraphe se compose de plusieurs phrases. [1] [2] Bien que n'étant requis par la syntaxe d'aucune langue, les paragraphes sont généralement une partie attendue de l'écriture formelle, utilisée pour organiser une prose plus longue. </p>
           </div>
         </div>
-      </>
+      </section>
     );
   }
 

@@ -5,7 +5,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SectionTile extends Component {
   render() {
     return (
-      <div className="sectionContainer">
+      <>
+      <section className="sectionContainer">
         <code><FontAwesomeIcon icon="file-alt"/> TILES / 200403</code>
         <div className="linksContainer">
           <a
@@ -24,10 +25,9 @@ class SectionTile extends Component {
             <code>Image &amp; Header / Horizontal</code>
           </a>
         </div>
-
-
-
-        {/* Header & Body */}
+      </section>
+      {/* Header & Body */}
+      <section className="sectionContainer">
         <code id="headerAndBody" className="sectionHeader"><FontAwesomeIcon icon="newspaper"/> Header &amp; Body</code>
         <div className="tileContainer">
           <TileText header="B.C. won't be back to 'full normal life' until at least the summer, and another wave is possible: Henry" body="It'll be a few months before things get back to &#34;full normal life&#34;	in B.C., the province's provincial health officer said in her latest update on COVID-19."/>
@@ -36,10 +36,9 @@ class SectionTile extends Component {
           <TileText header="3 Steps All Leaders Must Take To Navigate Corona" body="Over the last few weeks, the challenges that my executive coaching clients have experienced due to corona, fall into two equally high priority buckets."/>
           <TileText header="Indore records 19 corona cases in 24 hours; a police official among new patients" body="Twenty more people tested positive for coronavirus in Madhya Pradesh on Wednesday including a total of 19 new positive cases in Indore. Total tally from Indore has climbed to 63 after 19 new cases emerged in the last 24 hours on Tuesday. One more case was recorded from the neighbouring Khargone district."/>
         </div>
-
-
-
-        {/* Image & Header / Vertical */}
+      </section>
+      {/* Image & Header / Vertical */}
+      <section className="sectionContainer">
         <code id="imageAndHeaderVertical" className="sectionHeader"><FontAwesomeIcon icon="newspaper"/> Image &amp; Header / Vertical</code>
         <div className="tileContainer">
           <TileText header="B.C. won't be back to 'full normal life' until at least the summer, and another wave is possible: Henry" body="It'll be a few months before things get back to &#34;full normal life&#34;	in B.C., the province's provincial health officer said in her latest update on COVID-19."/>
@@ -48,10 +47,9 @@ class SectionTile extends Component {
           <TileText header="3 Steps All Leaders Must Take To Navigate Corona" body="Over the last few weeks, the challenges that my executive coaching clients have experienced due to corona, fall into two equally high priority buckets."/>
           <TileText header="Indore records 19 corona cases in 24 hours; a police official among new patients" body="Twenty more people tested positive for coronavirus in Madhya Pradesh on Wednesday including a total of 19 new positive cases in Indore. Total tally from Indore has climbed to 63 after 19 new cases emerged in the last 24 hours on Tuesday. One more case was recorded from the neighbouring Khargone district."/>
         </div>
-
-
-
-        {/* Image & Header / Horizontal */}
+      </section>
+      {/* Image & Header / Horizontal */}
+      <section className="sectionContainer">
         <code id="imageAndHeaderHorizontal" className="sectionHeader"><FontAwesomeIcon icon="newspaper"/> Image &amp; Header / Horizontal</code>
         <div className="tileContainer">
           <TileText header="B.C. won't be back to 'full normal life' until at least the summer, and another wave is possible: Henry" body="It'll be a few months before things get back to &#34;full normal life&#34;	in B.C., the province's provincial health officer said in her latest update on COVID-19."/>
@@ -60,7 +58,8 @@ class SectionTile extends Component {
           <TileText header="3 Steps All Leaders Must Take To Navigate Corona" body="Over the last few weeks, the challenges that my executive coaching clients have experienced due to corona, fall into two equally high priority buckets."/>
           <TileText header="Indore records 19 corona cases in 24 hours; a police official among new patients" body="Twenty more people tested positive for coronavirus in Madhya Pradesh on Wednesday including a total of 19 new positive cases in Indore. Total tally from Indore has climbed to 63 after 19 new cases emerged in the last 24 hours on Tuesday. One more case was recorded from the neighbouring Khargone district."/>
         </div>
-      </div>
+      </section>
+      </>
     );
   }
 }

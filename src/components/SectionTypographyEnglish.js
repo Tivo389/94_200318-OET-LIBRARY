@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SectionTypographyEnglish extends Component {
   render() {
     return (
-      <>
+      <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="language"/> EN-US</code>
         <h1>
           Heading One
@@ -51,7 +51,7 @@ class SectionTypographyEnglish extends Component {
             <p>A paragraph (from the Ancient Greek παράγραφος paragraphos, "to write beside" or "written beside") is a self-contained unit of a discourse in writing dealing with a particular point or idea. A paragraph consists of more than one sentence. [1][2] Though not required by the syntax of any language, paragraphs are usually an expected part of formal writing, used to organize longer prose.</p>
           </div>
         </div>
-      </>
+      </section>
     );
   }
 

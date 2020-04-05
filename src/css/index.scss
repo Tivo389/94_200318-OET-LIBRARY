@@ -39,8 +39,7 @@ hr {
   }
 }
 .sectionContainer {
-  padding: 24px 16px;
-  min-height: calc(100vh - #{$navBarUnit});
+  padding: $spaceUnitXS;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -51,7 +50,7 @@ hr {
   color: $colorWhite;
   line-height: 1;
   padding: 0.75em 1.25em;
-  margin: 6em -1em 2em -1em;
+  margin: 6rem calc(#{$spaceUnitXS} * -1) 3rem calc(#{$spaceUnitXS} * -1);
 }
 .flexAlignCenter {
   align-items: center;
