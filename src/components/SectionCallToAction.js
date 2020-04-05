@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class CallToAction extends Component {
   render() {
     return (
-      <div className="sectionContainer">
+      <>
+      <section className="sectionContainer">
         <code><FontAwesomeIcon icon="file-alt"/> CALL TO ACTION / 200325</code>
         <div className="linksContainer">
           <a
@@ -23,10 +24,9 @@ class CallToAction extends Component {
             <code>Icon CTA</code>
           </a>
         </div>
-
-
-
-        {/* STANDARD CTAS */}
+      </section>
+      {/* STANDARD CTAS */}
+      <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Standard CTA</code>
         <div id="standardCTA" className="callToActionContainer">
           <a
@@ -64,10 +64,9 @@ class CallToAction extends Component {
             Learn More
           </a>
         </div>
-
-
-
-        {/* TEXT CTAS */}
+      </section>
+      {/* TEXT CTAS */}
+      <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Text CTA</code>
         <div id="textCTA" className="callToActionContainer">
           <a
@@ -105,10 +104,9 @@ class CallToAction extends Component {
             Learn More
           </a>
         </div>
-
-
-
-        {/* ICON CTAS */}
+      </section>
+      {/* ICON CTAS */}
+      <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Icon CTA</code>
         <div id="iconCTA" className="callToActionContainer">
           <a
@@ -157,7 +155,8 @@ class CallToAction extends Component {
             <span className="ctaIconText">Social</span>
           </a>
         </div>
-      </div>
+      </section>
+      </>
     );
   }
   onTouchStart = (e) => {

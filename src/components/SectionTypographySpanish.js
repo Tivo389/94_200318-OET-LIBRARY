@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class SectionTypographyEnglish extends Component {
   render() {
     return (
-      <>
+      <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="language"/> ES-ES</code>
         <h1>
           Encabezando uno
@@ -51,7 +51,7 @@ class SectionTypographyEnglish extends Component {
             <p> Un párrafo (del griego antiguo παράγραφος párrafoos, "escribir al lado" o "escrito al lado") es una unidad autónoma de un discurso escrito que trata un punto o idea en particular. Un párrafo consta de más de una oración. [1] [2] Aunque la sintaxis de cualquier idioma no lo requiere, los párrafos suelen ser una parte esperada de la escritura formal, y se utilizan para organizar una prosa más larga. </p>
           </div>
         </div>
-      </>
+      </section>
     );
   }
 
