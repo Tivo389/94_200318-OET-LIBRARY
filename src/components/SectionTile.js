@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TileText from './TileText';
+import TileImageVertical from './TileImageVertical';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class SectionTile extends Component {
@@ -48,7 +49,21 @@ class SectionTile extends Component {
       {/* Image & Header / Vertical */}
       <section className="sectionContainer">
         <code id="imageAndHeaderVertical" className="sectionHeader"><FontAwesomeIcon icon="newspaper"/> Image &amp; Header / Vertical</code>
-        <h1>Hello World</h1>
+        <div className="tileContainer">
+          <TileImageVertical header="B.C. won't be back to 'full normal life' until at least the summer, and another wave is possible: Henry"/>
+          <TileImageVertical header="US sailors will die unless coronavirus-hit aircraft carrier evacuated, captain warns"/>
+          <TileImageVertical header="Live coronavirus updates: Americans warned that as many as 240,000 may die"/>
+          <TileImageVertical header="3 Steps All Leaders Must Take To Navigate Corona"/>
+          <TileImageVertical header="Indore records 19 corona cases in 24 hours; a police official among new patients"/>
+        </div>
+        <hr></hr>
+        <div className="tileContainer">
+          <TileImageVertical tileCard="true" header="B.C. won't be back to 'full normal life' until at least the summer, and another wave is possible: Henry"/>
+          <TileImageVertical tileCard="true" header="US sailors will die unless coronavirus-hit aircraft carrier evacuated, captain warns"/>
+          <TileImageVertical tileCard="true" header="Live coronavirus updates: Americans warned that as many as 240,000 may die"/>
+          <TileImageVertical tileCard="true" header="3 Steps All Leaders Must Take To Navigate Corona"/>
+          <TileImageVertical tileCard="true" header="Indore records 19 corona cases in 24 hours; a police official among new patients"/>
+        </div>
       </section>
       {/* Image & Header / Horizontal */}
       <section className="sectionContainer">
