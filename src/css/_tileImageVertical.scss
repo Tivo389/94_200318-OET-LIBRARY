@@ -12,13 +12,12 @@
     justify-content: flex-start;
   }
 }
-.tileTextContainer {
+.tileImageVertContainer {
   border-radius: 8px;
-  padding: 1em 1em 0.9em 1em;
   background: $colorWhite;
-  transition-duration: $transitionSM;
   position: relative;
-  & + .tileTextContainer {
+  transition-duration: $transitionSM;
+  & + .tileImageVertContainer {
     margin-top: 1em;
   }
   @include hover {
@@ -28,7 +27,7 @@
     margin-bottom: 1em;
     max-width: calc(50% - 0.5em);
     flex: 1 0 auto;
-    & + .tileTextContainer {
+    & + .tileImageVertContainer {
       margin-top: 0;
     }
   }
@@ -50,26 +49,22 @@
     }
   }
 }
-.tileTextHeader, .tileTextBody {
+.tileImageVert {
+  border-radius: 8px 8px 0 0;
+  display: block;
+}
+.tileImageVertTextContainer {
+  padding: 0.6em 0.8em 0.6em 0.8em;
+}
+.tileImageHeader {
   font-size: 0.875rem;
+  margin: 0 0 0.25em 0;
+  font-weight: 400;
   @include w768 {
     font-size: 1rem;
   }
 }
-.tileTextHeader {
-  margin: 0 0 0.25em 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.tileTextBody {
-  max-height: calc(#{$mobileLineHeight} * 3em);
-  overflow: hidden;
-  @include w768 {
-    max-height: calc(#{$desktopLineHeight} * 3em);
-  }
-}
-.tileTextFooter {
+.tileImageFooter {
   display: flex;
   justify-content: space-between;
   margin: 0.25em 0 0 0;
@@ -90,6 +85,7 @@
   @include noHover {
     display: block;
   }
+
 }
 
 

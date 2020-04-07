@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 class TileText extends Component {
-  classConfig = this.props.tileCard === 'true' ? 'tileText tileCard' : 'tileText tileFlat';
+  classConfig = this.props.tileCard === 'true' ? 'tileTextContainer tileCard' : 'tileTextContainer tileFlat';
   render() {
     return (
       <div className={this.classConfig}>

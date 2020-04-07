@@ -36,4 +36,9 @@
     }
   }
 }
+@mixin noHover {
+  @media (hover: none) {
+      @content;
+  }
+}
 
