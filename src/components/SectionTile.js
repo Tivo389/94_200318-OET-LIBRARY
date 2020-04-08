@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TileText from './TileText';
 import TileImageVertical from './TileImageVertical';
+import TileImageHorizontal from './TileImageHorizontal';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class SectionTile extends Component {
@@ -68,7 +69,21 @@ class SectionTile extends Component {
       {/* Image & Header / Horizontal */}
       <section className="sectionContainer">
         <code id="imageAndHeaderHorizontal" className="sectionHeader"><FontAwesomeIcon icon="newspaper"/> Image &amp; Header / Horizontal</code>
-        <h1>Hello World</h1>
+        <div className="tileContainer">
+          <TileImageHorizontal header="B.C. won't be back to 'full normal life' until at least the summer, and another wave is possible: Henry"/>
+          <TileImageHorizontal header="US sailors will die unless coronavirus-hit aircraft carrier evacuated, captain warns"/>
+          <TileImageHorizontal header="Live coronavirus updates: Americans warned that as many as 240,000 may die"/>
+          <TileImageHorizontal header="3 Steps All Leaders Must Take To Navigate Corona"/>
+          <TileImageHorizontal header="Indore records 19 corona cases in 24 hours; a police official among new patients"/>
+        </div>
+        <hr></hr>
+        <div className="tileContainer">
+          <TileImageHorizontal tileCard="true" header="B.C. won't be back to 'full normal life' until at least the summer, and another wave is possible: Henry"/>
+          <TileImageHorizontal tileCard="true" header="US sailors will die unless coronavirus-hit aircraft carrier evacuated, captain warns"/>
+          <TileImageHorizontal tileCard="true" header="Live coronavirus updates: Americans warned that as many as 240,000 may die"/>
+          <TileImageHorizontal tileCard="true" header="3 Steps All Leaders Must Take To Navigate Corona"/>
+          <TileImageHorizontal tileCard="true" header="Indore records 19 corona cases in 24 hours; a police official among new patients"/>
+        </div>
       </section>
       </>
     );

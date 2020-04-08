@@ -886,6 +886,132 @@ li {
     .tileFlat:hover {
       transform: translateY(-4px); } }
 
+.tileContainer {
+  width: 100%;
+  max-width: 1920px;
+  margin: 0 auto; }
+  @media (min-width: 768px) {
+    .tileContainer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between; } }
+  @media (min-width: 1024px) {
+    .tileContainer {
+      justify-content: flex-start; } }
+
+.tileImageHoriContainer {
+  background: white;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  transition-duration: 0.15s; }
+  .tileImageHoriContainer + .tileImageHoriContainer {
+    margin-top: 1em; }
+  @media (hover: hover) {
+    .tileImageHoriContainer:hover {
+      cursor: pointer; } }
+  @media (min-width: 768px) {
+    .tileImageHoriContainer {
+      margin-bottom: 1em;
+      max-width: calc(50% - 0.5em);
+      flex: 1 0 auto; }
+      .tileImageHoriContainer + .tileImageHoriContainer {
+        margin-top: 0; } }
+  @media (min-width: 1024px) {
+    .tileImageHoriContainer {
+      max-width: calc(33.333% - 0.667em);
+      margin: 0 1em 1em 0; }
+      .tileImageHoriContainer:nth-child(3n) {
+        margin-right: 0; } }
+  @media (min-width: 1440px) {
+    .tileImageHoriContainer {
+      max-width: calc(20% - 0.8em);
+      margin: 0 1em 0 0; }
+      .tileImageHoriContainer:nth-child(3n) {
+        margin-right: 1em; }
+      .tileImageHoriContainer:nth-child(5n) {
+        margin-right: 0; } }
+
+.tileImageHori {
+  width: 35%;
+  height: 35%;
+  border-radius: 0 8px 8px 0; }
+
+.tileImageHoriTextContainer {
+  position: relative;
+  width: 65%; }
+
+.tileImageHoriHeader {
+  font-size: 0.875rem;
+  height: calc(1.5 * 3em);
+  overflow: hidden;
+  padding: 0.6rem 0.6rem 0 0.6rem;
+  font-weight: 400; }
+  @media (min-width: 768px) {
+    .tileImageHoriHeader {
+      font-size: 1rem;
+      height: calc(1.35 * 3em); } }
+
+.tileImageHoriFooter {
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 0 0.6rem 0.4rem 0.6rem;
+  position: absolute;
+  right: 0; }
+
+.tileDateStamp {
+  font-size: 0.75rem;
+  bottom: 0.75em;
+  content: "View More";
+  left: 1.25em;
+  color: #8e7b7b; }
+
+.tileViewMore {
+  font-size: 0.75rem;
+  bottom: 0.75em;
+  content: "View More";
+  right: 1.25em;
+  display: none; }
+  @media (hover: none) {
+    .tileViewMore {
+      display: block; } }
+
+.tileCard {
+  border: 0;
+  position: relative; }
+  .tileCard::before, .tileCard::after {
+    border-radius: 8px;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: 0.15s; }
+  .tileCard::before {
+    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.32);
+    opacity: 1; }
+  .tileCard::after {
+    box-shadow: 0 2px 12px rgba(32, 33, 36, 0.24);
+    opacity: 0; }
+  @media (hover: hover) {
+    .tileCard:hover {
+      transform: translateY(-4px); }
+      .tileCard:hover::before {
+        opacity: 0; }
+      .tileCard:hover::after {
+        opacity: 1; } }
+
+.tileFlat {
+  border: 1px solid #d0c8c8; }
+  @media (hover: hover) {
+    .tileFlat:hover {
+      transform: translateY(-4px); } }
+
 main {
   padding-top: 44px; }
 
