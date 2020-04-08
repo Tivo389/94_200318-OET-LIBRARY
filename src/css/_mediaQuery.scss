@@ -1,4 +1,9 @@
 // MEDIA QUERY SETTINGS ---------------------------------------------------------------------------
+@mixin w544 {
+  @media (min-width: 544px) {
+    @content;
+  }
+}
 @mixin w768 {
   @media (min-width: 768px) {
     @content;
