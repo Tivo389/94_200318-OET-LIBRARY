@@ -19,6 +19,7 @@
   flex-direction: row;
   position: relative;
   transition-duration: $transitionSM;
+  justify-content: space-between;
   & + .tileImageHoriContainer {
     margin-top: 1em;
   }
@@ -52,23 +53,26 @@
   }
 }
 .tileImageHori {
-  width: 35%;
+  max-width: 35%;
   height: 35%;
   border-radius: 0 8px 8px 0;
+  @include w768 {
+    height: initial;
+  }
 }
 .tileImageHoriTextContainer {
-  position: relative;
   width: 65%;
+  position: relative;
 }
 .tileImageHoriHeader {
   font-size: 0.875rem;
-  height: calc(#{$mobileLineHeight} * 3em);
+  height: calc((#{$mobileLineHeight} * 0.875rem) * 3);
   overflow: hidden;
-  padding: 0.6rem 0.6rem 0 0.6rem;
+  padding: 0.6em 0.6em 0 0.6em;
   font-weight: 400;
   @include w768 {
     font-size: 1rem;
-    height: calc(#{$desktopLineHeight} * 3em);
+    height: calc(0.6em + (#{$desktopLineHeight} * 3em));
   }
 }
 .tileImageHoriFooter {
