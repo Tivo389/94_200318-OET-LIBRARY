@@ -651,327 +651,149 @@ li {
   text-align: center;
   text-transform: uppercase; }
 
-.tileContainer {
+.tileCard {
+  border: 0;
+  position: relative; }
+  .tileCard::before, .tileCard::after {
+    border-radius: 8px;
+    bottom: 0;
+    content: "";
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition-duration: 0.15s; }
+  .tileCard::before {
+    box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
+    opacity: 1; }
+  .tileCard::after {
+    box-shadow: 0 2px 12px rgba(32, 32, 32, 0.16);
+    opacity: 0; }
+  @media (hover: hover) {
+    .tileCard:hover {
+      transform: translateY(-4px); }
+      .tileCard:hover::before {
+        opacity: 0; }
+      .tileCard:hover::after {
+        opacity: 1; } }
+
+.tilesContainer {
   width: 100%;
   max-width: 1920px;
   margin: 0 auto; }
   @media (min-width: 768px) {
-    .tileContainer {
+    .tilesContainer {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between; } }
   @media (min-width: 1024px) {
-    .tileContainer {
+    .tilesContainer {
       justify-content: flex-start; } }
 
-.tileTextContainer {
+.tileDateStamp {
+  font-size: 0.75rem;
+  bottom: 0.75em;
+  content: "View More";
+  left: 1.25em;
+  color: #988686; }
+
+.tileElement {
   border-radius: 8px;
-  padding: 1em 1em 0.9em 1em;
   background: white;
   transition-duration: 0.15s;
   position: relative; }
-  .tileTextContainer + .tileTextContainer {
+  .tileElement + .tileElement {
     margin-top: 1em; }
   @media (hover: hover) {
-    .tileTextContainer:hover {
+    .tileElement:hover {
       cursor: pointer; } }
   @media (min-width: 768px) {
-    .tileTextContainer {
+    .tileElement {
       margin-bottom: 1em;
       max-width: calc(50% - 0.5em);
       flex: 1 0 auto; }
-      .tileTextContainer + .tileTextContainer {
+      .tileElement + .tileElement {
         margin-top: 0; } }
   @media (min-width: 1024px) {
-    .tileTextContainer {
+    .tileElement {
       max-width: calc(33.333% - 0.667em);
       margin: 0 1em 1em 0; }
-      .tileTextContainer:nth-child(3n) {
+      .tileElement:nth-child(3n) {
         margin-right: 0; } }
   @media (min-width: 1440px) {
-    .tileTextContainer {
+    .tileElement {
       max-width: calc(20% - 0.8em);
       margin: 0 1em 0 0; }
-      .tileTextContainer:nth-child(3n) {
+      .tileElement:nth-child(3n) {
         margin-right: 1em; }
-      .tileTextContainer:nth-child(5n) {
+      .tileElement:nth-child(5n) {
         margin-right: 0; } }
 
-.tileTextHeader, .tileTextBody {
-  font-size: 0.875rem; }
-  @media (min-width: 768px) {
-    .tileTextHeader, .tileTextBody {
-      font-size: 1rem; } }
-
-.tileTextHeader {
-  margin: 0 0 0.25em 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap; }
-
-.tileTextBody {
-  max-height: calc(1.5 * 3em);
-  overflow: hidden; }
-  @media (min-width: 768px) {
-    .tileTextBody {
-      max-height: calc(1.35 * 3em); } }
-
-.tileTextFooter {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.25em 0 0 0; }
-
-.tileDateStamp {
-  font-size: 0.75rem;
-  bottom: 0.75em;
-  content: "View More";
-  left: 1.25em;
-  color: #988686; }
-
-.tileViewMore {
-  font-size: 0.75rem;
-  bottom: 0.75em;
-  content: "View More";
-  right: 1.25em;
-  display: none; }
-  @media (hover: none) {
-    .tileViewMore {
-      display: block; } }
-
-.tileCard {
-  border: 0;
-  position: relative; }
-  .tileCard::before, .tileCard::after {
-    border-radius: 8px;
-    bottom: 0;
-    content: "";
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition-duration: 0.15s; }
-  .tileCard::before {
-    box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
-    opacity: 1; }
-  .tileCard::after {
-    box-shadow: 0 2px 12px rgba(32, 32, 32, 0.16);
-    opacity: 0; }
-  @media (hover: hover) {
-    .tileCard:hover {
-      transform: translateY(-4px); }
-      .tileCard:hover::before {
-        opacity: 0; }
-      .tileCard:hover::after {
-        opacity: 1; } }
-
-.tileFlat {
-  border: 1px solid #e3dede; }
-  @media (hover: hover) {
-    .tileFlat:hover {
-      transform: translateY(-4px); } }
-
-.tileContainer {
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto; }
-  @media (min-width: 768px) {
-    .tileContainer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between; } }
-  @media (min-width: 1024px) {
-    .tileContainer {
-      justify-content: flex-start; } }
-
-.tileImageVertContainer {
-  border-radius: 8px;
-  background: white;
-  position: relative;
-  transition-duration: 0.15s; }
-  .tileImageVertContainer + .tileImageVertContainer {
-    margin-top: 1em; }
-  @media (hover: hover) {
-    .tileImageVertContainer:hover {
-      cursor: pointer; } }
-  @media (min-width: 768px) {
-    .tileImageVertContainer {
-      margin-bottom: 1em;
-      max-width: calc(50% - 0.5em);
-      flex: 1 0 auto; }
-      .tileImageVertContainer + .tileImageVertContainer {
-        margin-top: 0; } }
-  @media (min-width: 1024px) {
-    .tileImageVertContainer {
-      max-width: calc(33.333% - 0.667em);
-      margin: 0 1em 1em 0; }
-      .tileImageVertContainer:nth-child(3n) {
-        margin-right: 0; } }
-  @media (min-width: 1440px) {
-    .tileImageVertContainer {
-      max-width: calc(20% - 0.8em);
-      margin: 0 1em 0 0; }
-      .tileImageVertContainer:nth-child(3n) {
-        margin-right: 1em; }
-      .tileImageVertContainer:nth-child(5n) {
-        margin-right: 0; } }
-
-.tileImageVert {
-  border-radius: 8px 8px 0 0;
-  display: block; }
-
-.tileImageVertTextContainer {
-  padding: 0.6em 0.8em 0.6em 0.8em; }
-
-.tileImageHeader {
-  font-size: 0.875rem;
-  margin: 0 0 0.25em 0;
-  font-weight: 400; }
-  @media (min-width: 768px) {
-    .tileImageHeader {
-      font-size: 1rem; } }
-
-.tileImageFooter {
-  display: flex;
-  justify-content: space-between;
-  margin: 0.25em 0 0 0; }
-
-.tileDateStamp {
-  font-size: 0.75rem;
-  bottom: 0.75em;
-  content: "View More";
-  left: 1.25em;
-  color: #988686; }
-
-.tileViewMore {
-  font-size: 0.75rem;
-  bottom: 0.75em;
-  content: "View More";
-  right: 1.25em;
-  display: none; }
-  @media (hover: none) {
-    .tileViewMore {
-      display: block; } }
-
-.tileCard {
-  border: 0;
-  position: relative; }
-  .tileCard::before, .tileCard::after {
-    border-radius: 8px;
-    bottom: 0;
-    content: "";
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition-duration: 0.15s; }
-  .tileCard::before {
-    box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
-    opacity: 1; }
-  .tileCard::after {
-    box-shadow: 0 2px 12px rgba(32, 32, 32, 0.16);
-    opacity: 0; }
-  @media (hover: hover) {
-    .tileCard:hover {
-      transform: translateY(-4px); }
-      .tileCard:hover::before {
-        opacity: 0; }
-      .tileCard:hover::after {
-        opacity: 1; } }
-
-.tileFlat {
-  border: 1px solid #e3dede; }
-  @media (hover: hover) {
-    .tileFlat:hover {
-      transform: translateY(-4px); } }
-
-.tileContainer {
-  width: 100%;
-  max-width: 1920px;
-  margin: 0 auto; }
-  @media (min-width: 768px) {
-    .tileContainer {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between; } }
-  @media (min-width: 1024px) {
-    .tileContainer {
-      justify-content: flex-start; } }
-
-.tileImageHoriContainer {
-  background: white;
-  border-radius: 8px;
+.tileElementHorizontal {
   display: flex;
   flex-direction: row;
-  position: relative;
-  transition-duration: 0.15s;
   justify-content: space-between; }
-  .tileImageHoriContainer + .tileImageHoriContainer {
-    margin-top: 1em; }
-  @media (hover: hover) {
-    .tileImageHoriContainer:hover {
-      cursor: pointer; } }
-  @media (min-width: 768px) {
-    .tileImageHoriContainer {
-      margin-bottom: 1em;
-      max-width: calc(50% - 0.5em);
-      flex: 1 0 auto; }
-      .tileImageHoriContainer + .tileImageHoriContainer {
-        margin-top: 0; } }
-  @media (min-width: 1024px) {
-    .tileImageHoriContainer {
-      max-width: calc(33.333% - 0.667em);
-      margin: 0 1em 1em 0; }
-      .tileImageHoriContainer:nth-child(3n) {
-        margin-right: 0; } }
-  @media (min-width: 1440px) {
-    .tileImageHoriContainer {
-      max-width: calc(20% - 0.8em);
-      margin: 0 1em 0 0; }
-      .tileImageHoriContainer:nth-child(3n) {
-        margin-right: 1em; }
-      .tileImageHoriContainer:nth-child(5n) {
-        margin-right: 0; } }
 
-.tileImageHori {
+.tileFlat {
+  border: 1px solid #e3dede; }
+  @media (hover: hover) {
+    .tileFlat:hover {
+      transform: translateY(-4px); } }
+
+.tileFooter {
+  margin: 0.25em 0 0 0;
+  display: flex;
+  justify-content: space-between; }
+
+.tileImageHorizontal {
   max-width: 35%;
   height: 35%;
   border-radius: 0 8px 8px 0; }
   @media (min-width: 768px) {
-    .tileImageHori {
+    .tileImageHorizontal {
       height: initial; } }
 
-.tileImageHoriTextContainer {
-  width: 65%;
-  position: relative; }
+.tileImageVertical {
+  border-radius: 8px 8px 0 0;
+  display: block; }
 
-.tileImageHoriHeader {
+.tileTextBody {
   font-size: 0.875rem;
-  height: calc((1.5 * 0.875rem) * 3);
-  overflow: hidden;
-  padding: 0.6em 0.6em 0 0.6em;
-  font-weight: 400; }
+  max-height: calc(1.5 * 3em);
+  overflow: hidden; }
   @media (min-width: 768px) {
-    .tileImageHoriHeader {
+    .tileTextBody {
       font-size: 1rem;
-      height: calc(0.6em + (1.35 * 3em)); } }
+      max-height: calc(1.35 * 3em); } }
 
-.tileImageHoriFooter {
-  bottom: 0;
+.tileTextContainer {
+  padding: 1em 1em 0.85em 1em; }
+
+.tileTextContainerVerticalFullJustify {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  left: 0;
-  padding: 0 0.6rem 0.4rem 0.6rem;
-  position: absolute;
-  right: 0; }
+  width: 65%; }
 
-.tileDateStamp {
-  font-size: 0.75rem;
-  bottom: 0.75em;
-  content: "View More";
-  left: 1.25em;
-  color: #988686; }
+.tileTextHeader {
+  font-size: 0.875rem;
+  margin: 0 0 0.25em 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap; }
+  @media (min-width: 768px) {
+    .tileTextHeader {
+      font-size: 1rem; } }
+
+.tileTextHeaderHorizontal {
+  height: calc((1.5 * 0.875em) * 2);
+  overflow: hidden;
+  white-space: initial; }
+  @media (min-width: 768px) {
+    .tileTextHeaderHorizontal {
+      font-size: 1rem;
+      height: calc(0.6em + (1.35 * 3)); } }
 
 .tileViewMore {
   font-size: 0.75rem;
@@ -982,39 +804,6 @@ li {
   @media (hover: none) {
     .tileViewMore {
       display: block; } }
-
-.tileCard {
-  border: 0;
-  position: relative; }
-  .tileCard::before, .tileCard::after {
-    border-radius: 8px;
-    bottom: 0;
-    content: "";
-    display: block;
-    left: 0;
-    position: absolute;
-    right: 0;
-    top: 0;
-    transition-duration: 0.15s; }
-  .tileCard::before {
-    box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
-    opacity: 1; }
-  .tileCard::after {
-    box-shadow: 0 2px 12px rgba(32, 32, 32, 0.16);
-    opacity: 0; }
-  @media (hover: hover) {
-    .tileCard:hover {
-      transform: translateY(-4px); }
-      .tileCard:hover::before {
-        opacity: 0; }
-      .tileCard:hover::after {
-        opacity: 1; } }
-
-.tileFlat {
-  border: 1px solid #e3dede; }
-  @media (hover: hover) {
-    .tileFlat:hover {
-      transform: translateY(-4px); } }
 
 main {
   padding-top: 44px; }
