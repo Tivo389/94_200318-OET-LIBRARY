@@ -27,6 +27,11 @@ class Navigation extends Component {
               Tile
           </li>
           <li
+            onClick={() => this.props.setContent("modal")}
+            onMouseUp={this.handleOnMouseUp}>
+              Modal
+          </li>
+          <li
             onClick={() => this.props.setContent("alpha")}
             onMouseUp={this.handleOnMouseUp}>
               Alpha

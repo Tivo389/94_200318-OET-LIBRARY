@@ -10,6 +10,7 @@
 @import '_typography';
 @import '_cta';
 @import '_tile';
+@import '_modal';
 
 main {
   padding-top: $navBarUnit;
@@ -20,6 +21,13 @@ hr {
   height: 1px;
   margin: 2em 0;
   width: 100%;
+}
+ul {
+  margin: 0.5em 0;
+  padding-inline-start: 1em;
+}
+li {
+  margin: 0.25em 0;
 }
 .externalLinkIcon {
   font-size: 80% !important;
