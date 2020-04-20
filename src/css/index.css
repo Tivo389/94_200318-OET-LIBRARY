@@ -805,6 +805,33 @@ li {
     .tileViewMore {
       display: block; } }
 
+.modalContainer {
+  align-items: center;
+  background: rgba(255, 255, 255, 0.75);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  padding: 16px;
+  position: absolute;
+  right: 0;
+  top: 44px;
+  transition-duration: 0.3s;
+  visibility: hidden;
+  z-index: 9999; }
+  .modalContainer.active {
+    opacity: 1;
+    visibility: visible; }
+
+.modalElement {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
+  max-width: 320px;
+  padding: 16px;
+  width: 100%; }
+
 main {
   padding-top: 44px; }
 
@@ -814,6 +841,13 @@ hr {
   height: 1px;
   margin: 2em 0;
   width: 100%; }
+
+ul {
+  margin: 0.5em 0;
+  padding-inline-start: 1em; }
+
+li {
+  margin: 0.25em 0; }
 
 .externalLinkIcon {
   font-size: 80% !important;

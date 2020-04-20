@@ -1,0 +1,28 @@
+.modalContainer {
+  align-items: center;
+  background: rgba(255,255,255,0.75);
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  opacity: 0;
+  padding: 16px;
+  position: absolute;
+  right: 0;
+  top: $navBarUnit;
+  transition-duration: $transitionMD;
+  visibility: hidden;
+  z-index: 9999;
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.modalElement {
+  background: $colorWhite;
+  border-radius: $borderRadius;
+  box-shadow: $boxShadowDefault;
+  max-width: 320px;
+  padding: 16px;
+  width: 100%;
+}

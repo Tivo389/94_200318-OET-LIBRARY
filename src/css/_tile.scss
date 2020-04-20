@@ -2,7 +2,7 @@
   border: 0;
   position: relative;
   &::before, &::after {
-    border-radius: 8px;
+    border-radius: $borderRadius;
     bottom: 0;
     content: "";
     display: block;
@@ -51,7 +51,7 @@
   color: $colorGray;
 }
 .tileElement {
-  border-radius: 8px;
+  border-radius: $borderRadius;
   background: $colorWhite;
   transition-duration: $transitionSM;
   position: relative;
@@ -106,13 +106,13 @@
 .tileImageHorizontal {
   max-width: 35%;
   height: 35%;
-  border-radius: 0 8px 8px 0;
+  border-radius: 0 $borderRadius $borderRadius 0;
   @include w768 {
     height: initial;
   }
 }
 .tileImageVertical {
-  border-radius: 8px 8px 0 0;
+  border-radius: $borderRadius $borderRadius 0 0;
   display: block;
 }
 .tileTextBody {
