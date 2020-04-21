@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import Navigation from './components/Navigation';
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faExternalLinkAlt, faFileAlt, faLanguage, faNewspaper, faVideo, faCalendarAlt, faPlayCircle, faComments, faMapSigns, faWindowRestore } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faExternalLinkAlt, faFileAlt, faLanguage, faNewspaper, faVideo, faCalendarAlt, faPlayCircle, faComments, faMapSigns, faWindowRestore, faTimes } from '@fortawesome/free-solid-svg-icons'
 import SectionPrimary from './components/SectionPrimary';
 
-library.add(faBars, faExternalLinkAlt, faFileAlt, faLanguage, faNewspaper, faVideo, faCalendarAlt, faPlayCircle, faComments, faMapSigns, faWindowRestore);
+library.add(faBars, faExternalLinkAlt, faFileAlt, faLanguage, faNewspaper, faVideo, faCalendarAlt, faPlayCircle, faComments, faMapSigns, faWindowRestore, faTimes);
 
 function App() {
   const [content, setContent] = useState("modal");

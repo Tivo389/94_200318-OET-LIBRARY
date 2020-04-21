@@ -1,28 +1,48 @@
 .modalContainer {
   align-items: center;
-  background: rgba(255,255,255,0.75);
+  background: rgba(0,0,0,0.35);
   bottom: 0;
   display: flex;
   justify-content: center;
   left: 0;
-  opacity: 0;
   padding: 16px;
   position: absolute;
   right: 0;
-  top: $navBarUnit;
-  transition-duration: $transitionMD;
-  visibility: hidden;
+  // top: $navBarUnit;
+  top: 0;
   z-index: 9999;
   &.active {
+    transition-duration: $transitionLG;
     opacity: 1;
     visibility: visible;
+  }
+  &.inactive {
+    transition-duration: $transitionSM;
+    opacity: 0;
+    visibility: hidden;
   }
 }
 .modalElement {
   background: $colorWhite;
   border-radius: $borderRadius;
   box-shadow: $boxShadowDefault;
-  max-width: 320px;
-  padding: 16px;
+  max-width: 480px;
+  padding: 32px 34px;
   width: 100%;
+  position: relative;
+}
+.modalCloseIcon {
+  align-items: center;
+  color: $colorGray;
+  display: flex;
+  font-size: 1.2rem;
+  height: 1.2rem;
+  justify-content: center;
+  position: absolute;
+  right: 0.25em;
+  top: 0.275em;
+  width: 1.2rem;
+  @include hover {
+    color: $colorDarkGray;
+  }
 }
