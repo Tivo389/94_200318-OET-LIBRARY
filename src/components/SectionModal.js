@@ -32,7 +32,7 @@ class Modal extends Component {
           <a
             className="ctaTextStandardPrimary"
             href="./"
-            onClick={this.onClick}
+            onClick={this.onClickStandardCTA}
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
             onTouchCancel={this.onTouchCancel}>
@@ -40,18 +40,43 @@ class Modal extends Component {
           </a>
         </div>
       </section>
-      <div className="modalContainer">
+      <div className="modalContainer inactive">
         <div className="modalElement">
-          <p>Hello World</p>
-          <p>999 Will need to consider modal ctas as standards use z-index</p>
+          <div className="modalHeader">
+            <div className="modalCloseIcon" onClick={this.onClickModalCloseIcon}>
+              <FontAwesomeIcon icon="times"/>
+            </div>
+          </div>
+          <div className="modalContent">
+            <p>Thank you for displaying this modal. The quick brown fox jumped over the lazy dog. I'm not certain what to display here just yet so here's Betty Botter.</p>
+            <p>Betty Botter bought a bit of butter;</p>
+            <p>“But,” she said, “this butter's bitter!</p>
+            <p>If I put it in my batter</p>
+            <p>It will make my batter bitter.</p>
+            <p>But a bit o’ better butter</p>
+            <p>Will make my batter better.”</p>
+            <p>Then she bought a bit o’ butter</p>
+            <p>Better than the bitter butter,</p>
+            <p>Made her bitter batter better.</p>
+            <p>So ’twas better Betty Botter</p>
+            <p>Bought a bit o’ better butter.</p>
+          </div>
+          <div className="modalFooter">
+            {/* 999 CONTINUE HERE */}
+          </div>
         </div>
       </div>
       </>
     );
   }
-  onClick = (e) => {
+  onClickModalCloseIcon = () => {
+    document.querySelector('.modalContainer').classList.remove('active');
+    document.querySelector('.modalContainer').classList.add('inactive');
+  };
+  onClickStandardCTA = (e) => {
     e.preventDefault();
     document.querySelector('.modalContainer').classList.add('active');
+    document.querySelector('.modalContainer').classList.remove('inactive');
   };
   onTouchStart = (e) => {
     e.currentTarget.classList.add('active');
