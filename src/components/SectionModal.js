@@ -24,6 +24,19 @@ class Modal extends Component {
         <ul>
           <li>Modals require the user to respond before proceeding.</li>
           <li>Modeless are available for use at any time but permit other user activities.</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
+          <li>DUMMY</li>
         </ul>
       </section>
       <section className="sectionContainer">
@@ -43,9 +56,7 @@ class Modal extends Component {
       <div className="modalContainer inactive">
         <div className="modalElement">
           <div className="modalHeader">
-            <div className="modalCloseIcon" onClick={this.onClickModalCloseIcon}>
-              <FontAwesomeIcon icon="times"/>
-            </div>
+            <h6>Modal Header</h6>
           </div>
           <div className="modalContent">
             <p>Thank you for displaying this modal. The quick brown fox jumped over the lazy dog. I'm not certain what to display here just yet so here's Betty Botter.</p>
@@ -62,19 +73,22 @@ class Modal extends Component {
             <p>Bought a bit o’ better butter.</p>
           </div>
           <div className="modalFooter">
-            {/* 999 CONTINUE HERE */}
+            <p onClick={this.onClickCloseModal}>CANCEL</p>
+            <p onClick={this.onClickCloseModal}>ACCEPT</p>
           </div>
         </div>
       </div>
       </>
     );
   }
-  onClickModalCloseIcon = () => {
-    document.querySelector('.modalContainer').classList.remove('active');
+  onClickCloseModal = () => {
     document.querySelector('.modalContainer').classList.add('inactive');
+    document.querySelector('.modalContainer').classList.remove('active');
+    document.querySelector('body').classList.remove('modalOpen');
   };
   onClickStandardCTA = (e) => {
     e.preventDefault();
+    document.querySelector('body').classList.add('modalOpen');
     document.querySelector('.modalContainer').classList.add('active');
     document.querySelector('.modalContainer').classList.remove('inactive');
   };

@@ -357,7 +357,7 @@ p {
   color: #101010; }
 
 p + p {
-  margin: 0.65em 0 0 0; }
+  margin: 0.5em 0 0 0; }
 
 h1 {
   font-size: calc(1rem * 3.00); }
@@ -390,10 +390,10 @@ h5 {
       font-size: calc(calc(1rem * 1.40) * 1.2); } }
 
 h6 {
-  font-size: calc(1rem * 1.00); }
+  font-size: calc(1rem * 1.40); }
   @media (min-width: 768px) {
     h6 {
-      font-size: calc(calc(1rem * 1.00) * 1.2); } }
+      font-size: calc(calc(1rem * 1.40) * 1.2); } }
 
 p, a {
   font-size: 1rem; }
@@ -533,10 +533,10 @@ li {
       .locale_AR-AR h5 {
         font-size: calc(calc(1rem * 1.40) * 1.25); } }
   .locale_AR-AR h6 {
-    font-size: calc(calc(1rem * 1.00) * 1.25); }
+    font-size: calc(calc(1rem * 1.40) * 1.25); }
     @media (min-width: 768px) {
       .locale_AR-AR h6 {
-        font-size: calc(calc(1rem * 1.00) * 1.25); } }
+        font-size: calc(calc(1rem * 1.40) * 1.25); } }
   .locale_AR-AR p, .locale_AR-AR a {
     font-size: calc(1rem * 1.15); }
 
@@ -805,15 +805,18 @@ li {
     .tileViewMore {
       display: block; } }
 
+.modalOpen {
+  overflow: hidden; }
+
 .modalContainer {
   align-items: center;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0, 0, 0, 0.65);
   bottom: 0;
   display: flex;
   justify-content: center;
   left: 0;
   padding: 16px;
-  position: absolute;
+  position: fixed;
   right: 0;
   top: 0;
   z-index: 9999; }
@@ -831,24 +834,21 @@ li {
   border-radius: 8px;
   box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
   max-width: 480px;
-  padding: 32px 34px;
+  max-height: 65vh;
+  padding: 16px;
   width: 100%;
-  position: relative; }
+  overflow: scroll; }
 
-.modalCloseIcon {
-  align-items: center;
-  color: #988686;
+.modalHeader {
+  margin: 0 0 0.5rem 0; }
+
+.modalFooter {
+  margin: 2rem 0 0 0;
   display: flex;
-  font-size: 1.2rem;
-  height: 1.2rem;
-  justify-content: center;
-  position: absolute;
-  right: 0.25em;
-  top: 0.275em;
-  width: 1.2rem; }
-  @media (hover: hover) {
-    .modalCloseIcon:hover {
-      color: #423838; } }
+  flex-direction: row;
+  justify-content: flex-end; }
+  .modalFooter p + p {
+    margin: 0 0 0 1.5em; }
 
 main {
   padding-top: 44px; }
