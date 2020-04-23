@@ -810,6 +810,7 @@ li {
 
 .modalContainer {
   align-items: center;
+  backdrop-filter: blur(4px);
   background: rgba(0, 0, 0, 0.65);
   bottom: 0;
   display: flex;
@@ -819,25 +820,26 @@ li {
   position: fixed;
   right: 0;
   top: 0;
+  transition-duration: 0.15s;
   z-index: 9999; }
   .modalContainer.active {
-    transition-duration: 0.45s;
     opacity: 1;
     visibility: visible; }
   .modalContainer.inactive {
-    transition-duration: 0.15s;
     opacity: 0;
+    pointer-events: none;
+    user-select: none;
     visibility: hidden; }
 
 .modalElement {
   background: white;
   border-radius: 8px;
   box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
-  max-width: 480px;
   max-height: 65vh;
+  max-width: 480px;
+  overflow: scroll;
   padding: 16px;
-  width: 100%;
-  overflow: scroll; }
+  width: 100%; }
 
 .modalHeader {
   margin: 0 0 0.5rem 0; }

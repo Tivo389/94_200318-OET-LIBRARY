@@ -22,21 +22,29 @@ class Modal extends Component {
           </a>
         </div>
         <ul>
-          <li>Modals require the user to respond before proceeding.</li>
-          <li>Modeless are available for use at any time but permit other user activities.</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
-          <li>DUMMY</li>
+          <li>A modal that requires user to respond before proceeding can be categorized as a "Modal Dialogue".</li>
+          <ul>
+              <li>For example, "Do you want to save changes to the document before closing?" and "Are you sure you want to send this email without a subject?" would be a modal that requires dialogue; a response.</li>
+              <li>A modal dialogue should be applied for critical tasks, such as error prevention or correction or when critical information requests.</li>
+              <li>Due to its nature, a modal dialogue will interrupt the user journey.</li>
+          </ul>
+          <li>Non-modal dialogue is more appropriate when the task is not critical.</li>
+          <ul>
+              <li>For example, selecting a font-size or font-weight is an example of a Non-modal dialogue, it does not block the user.</li>
+              <li>A non-modal dialogue should be applied for non-critical tasks.</li>
+              <li>Due to it's nature, the non-modal dialogue can blend better with the user journey.</li>
+          </ul>
+          <li>Placing content into a modal reduces vertical space. However, I get the impression this approach is incorrect. / 200423</li>
+          <ul>
+            <li>If we define a modal as "a feature to prompt the user for critical/non-critical action", placing content inside of it deviates from this feature's objective.</li>
+            <li>If the benefit we are trying to achieve is "reducing vertical scroll amount", this should be achieved by a different component.</li>
+            <li>I'll need to keep the following in mind to develop a solution. Just as a note, the dynamic content component might be a potential.</li>
+            <ul>
+              <li>The solution is content oriented.</li>
+              <li>The solution should not require the user to open/close a modal.</li>
+              <li>The solution should allow easy navigation to other content.</li>
+            </ul>
+          </ul>
         </ul>
       </section>
       <section className="sectionContainer">
@@ -59,18 +67,7 @@ class Modal extends Component {
             <h6>Modal Header</h6>
           </div>
           <div className="modalContent">
-            <p>Thank you for displaying this modal. The quick brown fox jumped over the lazy dog. I'm not certain what to display here just yet so here's Betty Botter.</p>
-            <p>Betty Botter bought a bit of butter;</p>
-            <p>“But,” she said, “this butter's bitter!</p>
-            <p>If I put it in my batter</p>
-            <p>It will make my batter bitter.</p>
-            <p>But a bit o’ better butter</p>
-            <p>Will make my batter better.”</p>
-            <p>Then she bought a bit o’ butter</p>
-            <p>Better than the bitter butter,</p>
-            <p>Made her bitter batter better.</p>
-            <p>So ’twas better Betty Botter</p>
-            <p>Bought a bit o’ better butter.</p>
+            <p>Thank you for displaying this modal. The quick brown fox jumped over the lazy dog.</p>
           </div>
           <div className="modalFooter">
             <p onClick={this.onClickCloseModal}>CANCEL</p>
