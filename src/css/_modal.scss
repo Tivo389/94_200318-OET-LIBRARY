@@ -3,6 +3,7 @@
 }
 .modalContainer {
   align-items: center;
+  backdrop-filter: blur(4px);
   background: rgba(0,0,0,0.65);
   bottom: 0;
   display: flex;
@@ -12,15 +13,16 @@
   position: fixed;
   right: 0;
   top: 0;
+  transition-duration: $transitionSM;
   z-index: 9999;
   &.active {
-    transition-duration: $transitionLG;
     opacity: 1;
     visibility: visible;
   }
   &.inactive {
-    transition-duration: $transitionSM;
     opacity: 0;
+    pointer-events: none;
+    user-select: none;
     visibility: hidden;
   }
 }
@@ -28,11 +30,11 @@
   background: $colorWhite;
   border-radius: $borderRadius;
   box-shadow: $boxShadowDefault;
-  max-width: 480px;
   max-height: 65vh;
+  max-width: 480px;
+  overflow: scroll;
   padding: 16px;
   width: 100%;
-  overflow: scroll;
 }
 .modalHeader {
   margin: 0 0 0.5rem 0;
