@@ -51,6 +51,9 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  &:last-of-type {
+    padding-bottom: $spaceUnitXL;
+  }
 }
 .sectionHeader {
   display: block;
