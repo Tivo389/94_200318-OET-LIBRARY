@@ -108,7 +108,7 @@ class CallToAction extends Component {
       {/* ICON CTAS */}
       <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Icon CTA</code>
-        <div id="iconCTA" className="callToActionContainer">
+        <div id="iconCTA" className="ctaIconContainer">
           <a
             className="ctaIconPrimary"
             href="./"
