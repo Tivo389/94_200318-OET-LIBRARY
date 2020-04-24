@@ -11,3 +11,14 @@ html {
 a {
   user-select: none;
 }
+
+button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  user-select: none;
+  &:focus {
+    outline: none;
+  }
+}

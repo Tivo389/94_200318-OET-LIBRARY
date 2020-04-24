@@ -17,7 +17,6 @@ code {
 h1, h2, h3, h4, h5, h6 {
   color: $colorBlack;
   line-height: $desktopLineHeight;
-  letter-spacing: -0.02em;
   margin: 0;
 }
 h1, h2, h3, h4, h5, h6 {
@@ -83,7 +82,7 @@ h5 {
 h6 {
   font-size: $fsH6;
   @include w768 {
-    font-size: calc(#{$fsH6} * 1.2);
+    font-size: calc(#{$fsH6} * 1.0);
   }
 }
 p, a {

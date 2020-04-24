@@ -2,12 +2,19 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class Modal extends Component {
+  targetModal = '';
   render() {
     return (
       <>
       <section className="sectionContainer">
         <code><FontAwesomeIcon icon="file-alt"/> Modal / 200419</code>
         <div className="linksContainer">
+          <a
+            href="https://material.io/components/dialogs"
+            rel="noopener noreferrer"
+            target="_blank">
+            <code>Material Design <FontAwesomeIcon icon="star"/></code>
+          </a>
           <a
             href="https://docs.microsoft.com/en-us/cpp/mfc/modal-and-modeless-dialog-boxes?view=vs-2019"
             rel="noopener noreferrer"
@@ -36,7 +43,7 @@ class Modal extends Component {
           </ul>
           <li>Placing content into a modal reduces vertical space. However, I get the impression this approach is incorrect. / 200423</li>
           <ul>
-            <li>If we define a modal as "a feature to prompt the user for critical/non-critical action", placing content inside of it deviates from this feature's objective.</li>
+            <li>If we define a modal as "a component that prompts the user for critical/non-critical action", placing content inside of it deviates from this component's objective.</li>
             <li>If the benefit we are trying to achieve is "reducing vertical scroll amount", this should be achieved by a different component.</li>
             <li>I'll need to keep the following in mind to develop a solution. Just as a note, the dynamic content component might be a potential.</li>
             <ul>
@@ -49,29 +56,30 @@ class Modal extends Component {
       </section>
       <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="window-restore"/> Modal</code>
-        <div id="standardCTA" className="callToActionContainer ctaLayoutVertical">
+        <div id="standardCTA" className="callToActionContainer">
           <a
             className="ctaTextStandardPrimary"
             href="./"
-            onClick={this.onClickStandardCTA}
+            modalid="alertDialogue"
+            onClick={this.onClickOpenModal}
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
             onTouchCancel={this.onTouchCancel}>
-            Display Modal
+            Alert Dialogue
           </a>
         </div>
       </section>
-      <div className="modalContainer inactive">
+      <div id="alertDialogue" className="modalContainer inactive">
         <div className="modalElement">
           <div className="modalHeader">
-            <h6>Modal Header</h6>
+            <h6>Initiate Self-destruct?</h6>
           </div>
           <div className="modalContent">
-            <p>Thank you for displaying this modal. The quick brown fox jumped over the lazy dog.</p>
+            <p>Are you sure you want to initiate the Self-destruct? This action cannot be reversed.</p>
           </div>
           <div className="modalFooter">
-            <p onClick={this.onClickCloseModal}>CANCEL</p>
-            <p onClick={this.onClickCloseModal}>ACCEPT</p>
+            <button className="modalButton" onClick={this.onClickCloseModal}>CANCEL</button>
+            <button className="modalButton" onClick={this.onClickCloseModal}>INITIATE</button>
           </div>
         </div>
       </div>
@@ -79,15 +87,16 @@ class Modal extends Component {
     );
   }
   onClickCloseModal = () => {
-    document.querySelector('.modalContainer').classList.add('inactive');
-    document.querySelector('.modalContainer').classList.remove('active');
+    document.querySelector(`#${this.targetModal}`).classList.add('inactive');
+    document.querySelector(`#${this.targetModal}`).classList.remove('active');
     document.querySelector('body').classList.remove('modalOpen');
   };
-  onClickStandardCTA = (e) => {
+  onClickOpenModal = (e) => {
     e.preventDefault();
+    this.targetModal = e.currentTarget.getAttribute('modalid');
     document.querySelector('body').classList.add('modalOpen');
-    document.querySelector('.modalContainer').classList.add('active');
-    document.querySelector('.modalContainer').classList.remove('inactive');
+    document.querySelector(`#${this.targetModal}`).classList.add('active');
+    document.querySelector(`#${this.targetModal}`).classList.remove('inactive');
   };
   onTouchStart = (e) => {
     e.currentTarget.classList.add('active');

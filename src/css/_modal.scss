@@ -3,7 +3,6 @@
 }
 .modalContainer {
   align-items: center;
-  backdrop-filter: blur(4px);
   background: rgba(0,0,0,0.65);
   bottom: 0;
   display: flex;
@@ -13,23 +12,23 @@
   position: fixed;
   right: 0;
   top: 0;
-  transition-duration: $transitionSM;
   z-index: 9999;
   &.active {
     opacity: 1;
-    visibility: visible;
+    transition-duration: $transitionLG;
   }
   &.inactive {
     opacity: 0;
     pointer-events: none;
+    transition-duration: $transitionMD;
     user-select: none;
-    visibility: hidden;
   }
 }
 .modalElement {
   background: $colorWhite;
   border-radius: $borderRadius;
   box-shadow: $boxShadowDefault;
+  cursor: default;
   max-height: 65vh;
   max-width: 480px;
   overflow: scroll;
@@ -40,11 +39,17 @@
   margin: 0 0 0.5rem 0;
 }
 .modalFooter {
-  margin: 2rem 0 0 0;
+  margin: 1rem 0 0 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  p + p {
+}
+.modalButton {
+  cursor: pointer;
+  & + .modalButton {
     margin: 0 0 0 1.5em;
+  }
+  @include hover {
+    text-decoration: underline;
   }
 }

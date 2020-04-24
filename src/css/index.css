@@ -307,6 +307,15 @@ html {
 a {
   user-select: none; }
 
+button {
+  -webkit-appearance: none;
+  background: transparent;
+  border: none;
+  padding: 0;
+  user-select: none; }
+  button:focus {
+    outline: none; }
+
 html {
   font-size: 16px; }
   @media (min-width: 768px) {
@@ -326,7 +335,6 @@ code {
 h1, h2, h3, h4, h5, h6 {
   color: #101010;
   line-height: 1.35;
-  letter-spacing: -0.02em;
   margin: 0; }
 
 h1, h2, h3, h4, h5, h6 {
@@ -390,10 +398,10 @@ h5 {
       font-size: calc(calc(1rem * 1.40) * 1.2); } }
 
 h6 {
-  font-size: calc(1rem * 1.40); }
+  font-size: calc(1rem * 1.00); }
   @media (min-width: 768px) {
     h6 {
-      font-size: calc(calc(1rem * 1.40) * 1.2); } }
+      font-size: calc(calc(1rem * 1.00) * 1.0); } }
 
 p, a {
   font-size: 1rem; }
@@ -533,10 +541,10 @@ li {
       .locale_AR-AR h5 {
         font-size: calc(calc(1rem * 1.40) * 1.25); } }
   .locale_AR-AR h6 {
-    font-size: calc(calc(1rem * 1.40) * 1.25); }
+    font-size: calc(calc(1rem * 1.00) * 1.25); }
     @media (min-width: 768px) {
       .locale_AR-AR h6 {
-        font-size: calc(calc(1rem * 1.40) * 1.25); } }
+        font-size: calc(calc(1rem * 1.00) * 1.25); } }
   .locale_AR-AR p, .locale_AR-AR a {
     font-size: calc(1rem * 1.15); }
 
@@ -810,7 +818,6 @@ li {
 
 .modalContainer {
   align-items: center;
-  backdrop-filter: blur(4px);
   background: rgba(0, 0, 0, 0.65);
   bottom: 0;
   display: flex;
@@ -820,21 +827,21 @@ li {
   position: fixed;
   right: 0;
   top: 0;
-  transition-duration: 0.15s;
   z-index: 9999; }
   .modalContainer.active {
     opacity: 1;
-    visibility: visible; }
+    transition-duration: 0.45s; }
   .modalContainer.inactive {
     opacity: 0;
     pointer-events: none;
-    user-select: none;
-    visibility: hidden; }
+    transition-duration: 0.3s;
+    user-select: none; }
 
 .modalElement {
   background: white;
   border-radius: 8px;
   box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
+  cursor: default;
   max-height: 65vh;
   max-width: 480px;
   overflow: scroll;
@@ -845,12 +852,18 @@ li {
   margin: 0 0 0.5rem 0; }
 
 .modalFooter {
-  margin: 2rem 0 0 0;
+  margin: 1rem 0 0 0;
   display: flex;
   flex-direction: row;
   justify-content: flex-end; }
-  .modalFooter p + p {
+
+.modalButton {
+  cursor: pointer; }
+  .modalButton + .modalButton {
     margin: 0 0 0 1.5em; }
+  @media (hover: hover) {
+    .modalButton:hover {
+      text-decoration: underline; } }
 
 main {
   padding-top: 44px; }
@@ -888,6 +901,8 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: flex-start; }
+  .sectionContainer:last-of-type {
+    padding-bottom: 5rem; }
 
 .sectionHeader {
   display: block;
