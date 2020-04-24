@@ -102,13 +102,36 @@
   }
 }
 // CTA ICON
+.ctaIconContainer {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  margin: 0 auto;
+  @include w768 {
+    width: 100%;
+    min-width: 240px;
+    max-width: 480px;
+    padding: 0 16px;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  @include w1440 {
+    padding: 0;
+    min-width: initial;
+    max-width: 1024px;
+  }
+}
+
 .ctaIconPrimary {
   align-items: center;
   display: flex;
   transition: $transitionSM ease-in-out;
-  flex-direction: column;
-  width: 33.333%;
-  margin: 0 0 2em 0;
+  flex-direction: row;
+  & + .ctaIconPrimary {
+    margin: 1.25em 0 0 0;
+  }
   & .ctaIconIcon {
     height: 40px;
     width: 40px;
@@ -119,15 +142,21 @@
     }
   }
   @include w768 {
-    width: 96px;
+    width: calc(50% - 16px);
+    & + .ctaIconPrimary {
+      margin: 0 0 24px 0;
+    }
+  }
+  @include w1440 {
+    width: calc(20% - 16px);
   }
 }
 .ctaIconText {
   font-family: $ffBodyCondensed;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.035em;
-  margin: 0.25em 0 0 0;
+  letter-spacing: 0.025em;
+  margin: 0 0 0 0.75em;
   text-align: center;
   text-transform: uppercase;
 }

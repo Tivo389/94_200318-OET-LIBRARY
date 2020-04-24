@@ -633,13 +633,34 @@ li {
   .ctaTextOnlyPrimary:hover:hover, .ctaTextOnlySecondary:hover:hover {
     text-decoration: underline; } }
 
+.ctaIconContainer {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  margin: 0 auto; }
+  @media (min-width: 768px) {
+    .ctaIconContainer {
+      width: 100%;
+      min-width: 240px;
+      max-width: 480px;
+      padding: 0 16px;
+      flex-direction: row;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap; } }
+  @media (min-width: 1440px) {
+    .ctaIconContainer {
+      padding: 0;
+      min-width: initial;
+      max-width: 1024px; } }
+
 .ctaIconPrimary {
   align-items: center;
   display: flex;
   transition: 0.15s ease-in-out;
-  flex-direction: column;
-  width: 33.333%;
-  margin: 0 0 2em 0; }
+  flex-direction: row; }
+  .ctaIconPrimary + .ctaIconPrimary {
+    margin: 1.25em 0 0 0; }
   .ctaIconPrimary .ctaIconIcon {
     height: 40px;
     width: 40px; }
@@ -648,14 +669,19 @@ li {
       transform: translateY(-4px); } }
   @media (min-width: 768px) {
     .ctaIconPrimary {
-      width: 96px; } }
+      width: calc(50% - 16px); }
+      .ctaIconPrimary + .ctaIconPrimary {
+        margin: 0 0 24px 0; } }
+  @media (min-width: 1440px) {
+    .ctaIconPrimary {
+      width: calc(20% - 16px); } }
 
 .ctaIconText {
   font-family: "Roboto Condensed", "HelveticaNeue-CondensedBold", sans-serif;
   font-size: 14px;
   font-weight: 600;
-  letter-spacing: 0.035em;
-  margin: 0.25em 0 0 0;
+  letter-spacing: 0.025em;
+  margin: 0 0 0 0.75em;
   text-align: center;
   text-transform: uppercase; }
 
