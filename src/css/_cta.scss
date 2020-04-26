@@ -123,7 +123,6 @@
     max-width: 1024px;
   }
 }
-
 .ctaIconPrimary {
   align-items: center;
   display: flex;
@@ -142,13 +141,17 @@
     }
   }
   @include w768 {
+    flex-direction: column;
     width: calc(50% - 16px);
     & + .ctaIconPrimary {
-      margin: 0 0 24px 0;
+      margin: 0 0 32px 0;
     }
   }
   @include w1440 {
     width: calc(20% - 16px);
+    & + .ctaIconPrimary {
+      margin: 0;
+    }
   }
 }
 .ctaIconText {
@@ -159,4 +162,7 @@
   margin: 0 0 0 0.75em;
   text-align: center;
   text-transform: uppercase;
+  @include w768 {
+    margin: 0.75em 0 0 0;
+  }
 }
