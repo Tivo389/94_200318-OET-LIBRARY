@@ -32,14 +32,9 @@ class Navigation extends Component {
               Modal
           </li>
           <li
-            onClick={() => this.props.setContent("alpha")}
+            onClick={() => this.props.setContent("carousel")}
             onMouseUp={this.handleOnMouseUp}>
-              Alpha
-          </li>
-          <li
-            onClick={() => this.props.setContent("beta")}
-            onMouseUp={this.handleOnMouseUp}>
-              Beta
+              Carousel
           </li>
         </ul>
       </nav>
