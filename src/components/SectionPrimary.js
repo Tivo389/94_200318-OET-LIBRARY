@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import Alpha from "./TestAlpha";
-import Beta from "./TestBeta";
 import Typography from "./SectionTypography";
 import CallToAction from "./SectionCallToAction";
 import Tile from "./SectionTile";
 import Modal from "./SectionModal";
+import Carousel from "./SectionCarousel";
 
 class SectionPrimary extends Component {
   content = {
@@ -12,8 +11,7 @@ class SectionPrimary extends Component {
     callToAction: CallToAction,
     tile: Tile,
     modal: Modal,
-    alpha: Alpha,
-    beta: Beta
+    carousel: Carousel
   };
 
   render() {
