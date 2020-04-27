@@ -897,6 +897,23 @@ li {
     .modalButton:hover {
       text-decoration: underline; } }
 
+.carouselElement {
+  border: 1px solid red;
+  height: calc(100vw + 44px); }
+  @media (min-width: 1024px) {
+    .carouselElement {
+      height: 37.5vw; } }
+  .carouselElement:last-of-type {
+    margin-bottom: 5rem; }
+
+.carouselContent {
+  border: 1px solid green;
+  height: 100vw; }
+
+.carouselNavigation {
+  border: 1px solid blue;
+  height: 44px; }
+
 main {
   padding-top: 44px; }
 
@@ -935,6 +952,8 @@ li {
   justify-content: flex-start; }
   .sectionContainer:last-of-type {
     padding-bottom: 5rem; }
+  .sectionContainer.noPaddingBottom {
+    padding-bottom: 0; }
 
 .sectionHeader {
   display: block;

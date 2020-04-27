@@ -11,6 +11,7 @@
 @import '_cta';
 @import '_tile';
 @import '_modal';
+@import '_carousel';
 
 main {
   padding-top: $navBarUnit;
@@ -53,6 +54,9 @@ li {
   justify-content: flex-start;
   &:last-of-type {
     padding-bottom: $spaceUnitXL;
+  }
+  &.noPaddingBottom {
+    padding-bottom: 0;
   }
 }
 .sectionHeader {
