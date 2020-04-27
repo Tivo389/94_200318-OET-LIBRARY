@@ -25,12 +25,13 @@ class SectionCarousel extends Component {
             </ul>
           </div>
         </section>
-        <section className="sectionContainer">
+        <section className="sectionContainer noPaddingBottom">
           <code className="sectionHeader"><FontAwesomeIcon icon="horse-head"/> Carousel</code>
-          <div>
-            <h2>999 / Hello World Put the component here</h2>
-          </div>
         </section>
+        <div className="carouselElement">
+          <div className="carouselContent"></div>
+          <div className="carouselNavigation"></div>
+        </div>
       </>
     );
   }

@@ -1,0 +1,21 @@
+$carouselNavHeightMobile: 44px;
+$carouselContentHeightMobile: 100vw;
+.carouselElement {
+  border: 1px solid red;
+  height: calc(100vw + #{$carouselNavHeightMobile});
+  @include w1024 {
+    height: 37.5vw;
+  }
+  &:last-of-type {
+    margin-bottom: $spaceUnitXL;
+  }
+}
+.carouselContent {
+  border: 1px solid green;
+  height: $carouselContentHeightMobile;
+
+}
+.carouselNavigation {
+  border: 1px solid blue;
+  height: $carouselNavHeightMobile;
+}
