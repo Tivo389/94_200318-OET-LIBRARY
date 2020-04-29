@@ -499,6 +499,7 @@ li {
   display: flex;
   height: 44px;
   justify-content: center;
+  margin: 0;
   width: 44px; }
   .navBarIcon > svg {
     transform: scaleX(1.4); }
@@ -899,7 +900,10 @@ li {
 
 .carouselElement {
   border: 1px solid red;
-  height: calc(100vw + 44px); }
+  height: 120vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; }
   @media (min-width: 1024px) {
     .carouselElement {
       height: 37.5vw; } }
@@ -907,12 +911,27 @@ li {
     margin-bottom: 5rem; }
 
 .carouselContent {
-  border: 1px solid green;
-  height: 100vw; }
+  border: 1px solid green; }
 
 .carouselNavigation {
-  border: 1px solid blue;
-  height: 44px; }
+  display: flex;
+  flex-direction: row;
+  padding: calc(64px / 4);
+  overflow: scroll; }
+  .carouselNavigation::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: calc(64px / 4); }
+
+.carouselNavgationItem {
+  background-color: #baceff;
+  height: 64px;
+  width: 64px;
+  border-radius: calc(64px / 2);
+  flex: 0 0 auto; }
+  .carouselNavgationItem + .carouselNavgationItem {
+    margin-left: calc(64px / 4); }
 
 main {
   padding-top: 44px; }
