@@ -1,8 +1,12 @@
-$carouselNavHeightMobile: 44px;
-$carouselContentHeightMobile: 100vw;
+$carouselNavigationItemUnit: 64px;
+$carouselNavigationSpacer: calc(#{$carouselNavigationItemUnit} / 4);
+
 .carouselElement {
   border: 1px solid red;
-  height: calc(100vw + #{$carouselNavHeightMobile});
+  height: 120vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   @include w1024 {
     height: 37.5vw;
   }
@@ -12,10 +16,27 @@ $carouselContentHeightMobile: 100vw;
 }
 .carouselContent {
   border: 1px solid green;
-  height: $carouselContentHeightMobile;
 
 }
 .carouselNavigation {
-  border: 1px solid blue;
-  height: $carouselNavHeightMobile;
+  display: flex;
+  flex-direction: row;
+  padding: $carouselNavigationSpacer;
+  overflow: scroll;
+  &::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: $carouselNavigationSpacer;
+  }
+}
+.carouselNavgationItem {
+  background-color: rgb(186, 206, 255);
+  height: $carouselNavigationItemUnit;
+  width: $carouselNavigationItemUnit;
+  border-radius: calc(#{$carouselNavigationItemUnit} / 2);
+  flex: 0 0 auto;
+  & + .carouselNavgationItem {
+    margin-left: $carouselNavigationSpacer;
+  }
 }

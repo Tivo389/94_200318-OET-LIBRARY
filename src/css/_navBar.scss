@@ -74,6 +74,7 @@
   display: flex;
   height: $navBarUnit;
   justify-content: center;
+  margin: 0;
   width: $navBarUnit;
   & > svg {
     transform: scaleX(1.4);
