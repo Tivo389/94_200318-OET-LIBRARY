@@ -36,6 +36,11 @@ class Navigation extends Component {
             onMouseUp={this.handleOnMouseUp}>
               Carousel
           </li>
+          <li
+            onClick={() => this.props.setContent("modalCarousel")}
+            onMouseUp={this.handleOnMouseUp}>
+              Modal Carousel
+          </li>
         </ul>
       </nav>
     );
