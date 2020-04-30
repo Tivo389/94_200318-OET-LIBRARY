@@ -1,4 +1,4 @@
-$carouselNavigationItemUnit: 64px;
+$carouselNavigationItemUnit: 44px;
 $carouselNavigationSpacer: calc(#{$carouselNavigationItemUnit} / 4);
 
 .carouselElement {
@@ -16,6 +16,7 @@ $carouselNavigationSpacer: calc(#{$carouselNavigationItemUnit} / 4);
 }
 .carouselContent {
   border: 1px solid green;
+  padding: 0 16px;
 
 }
 .carouselNavigation {

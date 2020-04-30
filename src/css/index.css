@@ -911,27 +911,28 @@ li {
     margin-bottom: 5rem; }
 
 .carouselContent {
-  border: 1px solid green; }
+  border: 1px solid green;
+  padding: 0 16px; }
 
 .carouselNavigation {
   display: flex;
   flex-direction: row;
-  padding: calc(64px / 4);
+  padding: calc(44px / 4);
   overflow: scroll; }
   .carouselNavigation::after {
     content: '';
     display: block;
     flex: 0 0 auto;
-    width: calc(64px / 4); }
+    width: calc(44px / 4); }
 
 .carouselNavgationItem {
   background-color: #baceff;
-  height: 64px;
-  width: 64px;
-  border-radius: calc(64px / 2);
+  height: 44px;
+  width: 44px;
+  border-radius: calc(44px / 2);
   flex: 0 0 auto; }
   .carouselNavgationItem + .carouselNavgationItem {
-    margin-left: calc(64px / 4); }
+    margin-left: calc(44px / 4); }
 
 main {
   padding-top: 44px; }

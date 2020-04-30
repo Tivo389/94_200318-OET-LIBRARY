@@ -47,6 +47,23 @@ class SectionCarousel extends Component {
                 <li>Rounding up is 1.20</li>
               </ul>
             </ul>
+            <hr></hr>
+            <ul>
+              <li>Considered 100vh but this doesn't account for OS bar and Browser Bars.</li>
+              <li>In addition, the lack of a crop is more confusing.</li>
+              <li>For a content-oriented scenario, the objective of mobile and desktop should be considered separately, due to the difference in available space.</li>
+              <li>Considered a 'search' oriented UI which involved scroll-tap.</li>
+              <ul>
+                <li>This can be better in scenarios where the user is 'searching'.</li>
+                <li>The user doesn't need to scroll the unnecessary in order to reach their destination.</li>
+              </ul>
+              <li>However a 'scan' oriented UI reduces interaction to just scroll.</li>
+              <ul>
+                <li>This can be better for scenarios where the user is 'scanning'.</li>
+                <li>The user will need to scroll more, but when the mind-set is closer to a state of 'window-shopping' this approach would be more appropriate.</li>
+              </ul>
+              <li>Good opportunity, will make UI Spreadsheet</li>
+            </ul>
           </div>
         </section>
         <section className="sectionContainer noPaddingBottom">
@@ -55,13 +72,9 @@ class SectionCarousel extends Component {
         <div className="carouselElement">
           <div className="carouselContent">
             <h6>Hello World</h6>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam temporibus ratione itaque iure sint? Incidunt earum veniam repudiandae. Expedita omnis laudantium eum dolores! Reiciendis officiis quia excepturi. Voluptates, fuga at.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam temporibus ratione itaque iure sint? Incidunt earum venam.</p>
           </div>
           <div className="carouselNavigation">
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
             <div className="carouselNavgationItem"></div>
             <div className="carouselNavgationItem"></div>
             <div className="carouselNavgationItem"></div>
