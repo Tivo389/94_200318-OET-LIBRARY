@@ -1,43 +1,72 @@
-$carouselNavigationItemUnit: 44px;
-$carouselNavigationSpacer: calc(#{$carouselNavigationItemUnit} / 4);
+$carouselNavigationItemUnit: 64px;
+$carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 6);
 
 .carouselElement {
-  border: 1px solid red;
+  // border: 1px solid red;
   height: 120vw;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  position: relative;
   @include w1024 {
     height: 37.5vw;
   }
   &:last-of-type {
-    margin-bottom: $spaceUnitXL;
+    margin: $spaceUnitXS 0;
   }
 }
 .carouselContent {
-  border: 1px solid green;
-  padding: 0 16px;
-
+  // border: 1px solid green;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  &::before, &::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: 5vw;
+  }
+}
+.carouselContentItem {
+  flex: 0 0 auto;
+  width: 90vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  // padding: 0 0 calc(#{$carouselNavigationItemUnit} + #{$carouselNavigationItemUnitSpacer} + #{$carouselNavigationItemUnitSpacer}) 0;
+  &:nth-child(odd) {
+    background-color: rgb(186,206,255);
+  }
+  &:nth-child(even) {
+    background-color: rgb(255,206,186);
+  }
+  & + .carouselContentItem {
+    margin-left: 10vw;
+  }
 }
 .carouselNavigation {
   display: flex;
   flex-direction: row;
-  padding: $carouselNavigationSpacer;
   overflow: scroll;
-  &::after {
+  padding: 0 0 $carouselNavigationItemUnitSpacer 0;
+  position: absolute;
+  width: 100%;
+  &::before, &::after {
     content: '';
     display: block;
     flex: 0 0 auto;
-    width: $carouselNavigationSpacer;
+    width: $carouselNavigationItemUnit;
   }
 }
 .carouselNavgationItem {
-  background-color: rgb(186, 206, 255);
   height: $carouselNavigationItemUnit;
   width: $carouselNavigationItemUnit;
-  border-radius: calc(#{$carouselNavigationItemUnit} / 2);
+  border-radius: $carouselNavigationItemUnit;
   flex: 0 0 auto;
+  background-color: rgb(128,128,128);
   & + .carouselNavgationItem {
-    margin-left: $carouselNavigationSpacer;
+    margin-left: $carouselNavigationItemUnitSpacer;
   }
 }
