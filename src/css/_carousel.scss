@@ -1,5 +1,5 @@
-$carouselNavigationItemUnit: 64px;
-$carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 6);
+$carouselNavigationItemUnit: 72px;
+$carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
 
 .carouselElement {
   // border: 1px solid red;
@@ -29,12 +29,12 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 6);
   }
 }
 .carouselContentItem {
-  flex: 0 0 auto;
-  width: 90vw;
-  display: flex;
-  justify-content: center;
   align-items: center;
   border-radius: 16px;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  width: 90vw;
   // padding: 0 0 calc(#{$carouselNavigationItemUnit} + #{$carouselNavigationItemUnitSpacer} + #{$carouselNavigationItemUnitSpacer}) 0;
   &:nth-child(odd) {
     background-color: rgb(186,206,255);
@@ -47,11 +47,14 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 6);
   }
 }
 .carouselNavigation {
+  bottom: 0;
   display: flex;
   flex-direction: row;
+  left: 0;
   overflow: scroll;
   padding: 0 0 $carouselNavigationItemUnitSpacer 0;
   position: absolute;
+  right: 0;
   width: 100%;
   &::before, &::after {
     content: '';
@@ -61,11 +64,13 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 6);
   }
 }
 .carouselNavgationItem {
-  height: $carouselNavigationItemUnit;
-  width: $carouselNavigationItemUnit;
+  background-color: rgb(128,128,128);
+  background-size: contain;
+  background-position: center center;
   border-radius: $carouselNavigationItemUnit;
   flex: 0 0 auto;
-  background-color: rgb(128,128,128);
+  height: $carouselNavigationItemUnit;
+  width: $carouselNavigationItemUnit;
   & + .carouselNavgationItem {
     margin-left: $carouselNavigationItemUnitSpacer;
   }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import CarouselNavigationItem from "./CarouselNavigationItem"
 
 class SectionCarousel extends Component {
   render() {
@@ -122,18 +123,18 @@ class SectionCarousel extends Component {
             </div>
           </div>
           <div className="carouselNavigation">
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
-            <div className="carouselNavgationItem"></div>
+            <CarouselNavigationItem key="1" character="bangalore"/>
+            <CarouselNavigationItem key="2" character="bloodhound"/>
+            <CarouselNavigationItem key="3" character="caustic"/>
+            <CarouselNavigationItem key="4" character="crypto"/>
+            <CarouselNavigationItem key="5" character="gibraltar"/>
+            <CarouselNavigationItem key="6" character="lifeline"/>
+            <CarouselNavigationItem key="7" character="mirage"/>
+            <CarouselNavigationItem key="8" character="octane"/>
+            <CarouselNavigationItem key="9" character="pathfinder"/>
+            <CarouselNavigationItem key="10" character="revenant"/>
+            <CarouselNavigationItem key="11" character="wattson"/>
+            <CarouselNavigationItem key="12" character="wraith"/>
           </div>
         </div>
       </>
