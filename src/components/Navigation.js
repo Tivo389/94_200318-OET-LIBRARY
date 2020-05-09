@@ -32,14 +32,29 @@ class Navigation extends Component {
               Modal
           </li>
           <li
-            onClick={() => this.props.setContent("carousel")}
+            onClick={() => this.props.setContent("carouselNotes")}
             onMouseUp={this.handleOnMouseUp}>
-              Carousel
+              Carousel<span> / Notes</span>
           </li>
           <li
-            onClick={() => this.props.setContent("modalCarousel")}
+            onClick={() => this.props.setContent("carouselSwipe")}
             onMouseUp={this.handleOnMouseUp}>
-              Modal Carousel
+              Carousel<span> / Swipe Only</span>
+          </li>
+          <li
+            onClick={() => this.props.setContent("carouselScrollable")}
+            onMouseUp={this.handleOnMouseUp}>
+              Carousel<span> / Scrollable-Nav Only</span>
+          </li>
+          <li
+            onClick={() => this.props.setContent("carouselScrollableSwipe")}
+            onMouseUp={this.handleOnMouseUp}>
+              Carousel<span> / Scrollable-Nav &amp; Swipe</span>
+          </li>
+          <li
+            onClick={() => this.props.setContent("tabs")}
+            onMouseUp={this.handleOnMouseUp}>
+              Tabs
           </li>
         </ul>
       </nav>

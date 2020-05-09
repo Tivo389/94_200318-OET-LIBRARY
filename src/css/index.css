@@ -471,6 +471,9 @@ li {
   .navBarContent li {
     border-bottom: 1px solid #a49494;
     padding: 1em 0; }
+  .navBarContent li span {
+    font-size: 75%;
+    letter-spacing: 0.04em; }
   @media (min-width: 768px) {
     .navBarContent {
       border-top: none;

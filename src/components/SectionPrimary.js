@@ -3,7 +3,9 @@ import Typography from "./SectionTypography";
 import CallToAction from "./SectionCallToAction";
 import Tile from "./SectionTile";
 import Modal from "./SectionModal";
-import Carousel from "./SectionCarousel";
+import CarouselNotes from "./SectionCarouselNotes";
+import CarouselSwipe from "./SectionCarouselSwipe";
+import CarouselScrollableSwipe from "./SectionCarouselScrollableSwipe";
 
 class SectionPrimary extends Component {
   content = {
@@ -11,7 +13,11 @@ class SectionPrimary extends Component {
     callToAction: CallToAction,
     tile: Tile,
     modal: Modal,
-    carousel: Carousel
+    carouselNotes: CarouselNotes,
+    carouselSwipe: CarouselSwipe,
+    // carouselScrollable: CarouselScrollable,
+    carouselScrollableSwipe: CarouselScrollableSwipe,
+    // tabs: Tabs
   };
 
   render() {
