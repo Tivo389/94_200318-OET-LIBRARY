@@ -17,6 +17,13 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
     flex: 0 0 auto;
     width: 5vw;
   }
+  @include w768 {
+    flex-wrap: wrap;
+    overflow: auto;
+    &::before, &::after {
+      display: none;
+    }
+  }
 }
 .carouselContentItem {
   align-items: flex-end;
@@ -25,13 +32,42 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 8px;
+  cursor: pointer;
   display: flex;
   flex: 0 0 auto;
   justify-content: flex-start;
-  width: 90vw;
   overflow: hidden;
+  transition-duration: $transitionSM;
+  width: 90vw;
   & + .carouselContentItem {
     margin-left: 10vw;
+  }
+  @include hover {
+    transform: translateY(4px);
+  }
+  @include w768 {
+    margin-bottom: 2.5vw;
+    margin-left: 2.5vw;
+    width: 30vw;
+    height: 60vw;
+    max-height: 400px;
+    & + .carouselContentItem {
+      margin-left: 2.5vw;
+    }
+  }
+  @include w1024 {
+    height: 40vw;
+    max-height: 480px;
+  }
+  @include w1440 {
+    width: calc((100% / 6) - (24px + (24px / 6)));
+    margin-bottom: 24px;
+    margin-left: 24px;
+    height: 30vw;
+    max-height: 560px;
+    & + .carouselContentItem {
+      margin-left: 24px;
+    }
   }
 }
 .carouselContentItemContent {
@@ -39,6 +75,12 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   width: 100%;
   padding: 144px 12px 36px 12px;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.50) 65%, rgba(0,0,0,0) 100%);
+  @include w768 {
+    padding: 120px 12px 12px 12px;
+  }
+  @include w1024 {
+    padding: 96px 12px 12px 12px;
+  }
 }
 .carouselContentItemQuote, .carouselContentItemName, .carouselContentItemClass {
   color: inherit;
@@ -61,11 +103,13 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   flex-direction: column;
   justify-content: flex-end;
   position: relative;
-  @include w1024 {
-    height: 37.5vw;
-  }
+  max-width: 1920px;
+  margin: 0 auto;
   &:last-of-type {
-    margin: $spaceUnitXS 0;
+    margin-bottom: 64px;
+  }
+  @include w768 {
+    height: auto;
   }
 }
 .carouselNavigation {
@@ -106,6 +150,9 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   right: calc(5vw + 12px);
   left: calc(5vw + 12px);
   bottom: 12px;
+  @include w768 {
+    display: none;
+  }
 }
 .carouselProgressIndicator {
   height: 4px;
