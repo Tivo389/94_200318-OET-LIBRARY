@@ -1,8 +1,61 @@
 $carouselNavigationItemUnit: 72px;
 $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
 
+.carouselContent {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  &::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px;
+  }
+  &::before, &::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: 5vw;
+  }
+}
+.carouselContentItem {
+  align-items: flex-end;
+  background-color: rgb(128,128,128);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  width: 90vw;
+  overflow: hidden;
+  & + .carouselContentItem {
+    margin-left: 10vw;
+  }
+}
+.carouselContentItemContent {
+  color: $colorWhite;
+  width: 100%;
+  padding: 144px 12px 36px 12px;
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.50) 65%, rgba(0,0,0,0) 100%);
+}
+.carouselContentItemQuote, .carouselContentItemName, .carouselContentItemClass {
+  color: inherit;
+}
+.carouselContentItemQuote {
+  font-style: italic;
+}
+.carouselContentItemClass {
+  font-size: 0.75em;
+  font-weight: bolder;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.carouselContentItemName {
+  text-transform: capitalize;
+}
 .carouselElement {
-  // border: 1px solid red;
   height: 120vw;
   display: flex;
   flex-direction: column;
@@ -13,37 +66,6 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   }
   &:last-of-type {
     margin: $spaceUnitXS 0;
-  }
-}
-.carouselContent {
-  // border: 1px solid green;
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  &::before, &::after {
-    content: '';
-    display: block;
-    flex: 0 0 auto;
-    width: 5vw;
-  }
-}
-.carouselContentItem {
-  align-items: center;
-  border-radius: 16px;
-  display: flex;
-  flex: 0 0 auto;
-  justify-content: center;
-  width: 90vw;
-  // padding: 0 0 calc(#{$carouselNavigationItemUnit} + #{$carouselNavigationItemUnitSpacer} + #{$carouselNavigationItemUnitSpacer}) 0;
-  &:nth-child(odd) {
-    background-color: rgb(186,206,255);
-  }
-  &:nth-child(even) {
-    background-color: rgb(255,206,186);
-  }
-  & + .carouselContentItem {
-    margin-left: 10vw;
   }
 }
 .carouselNavigation {
@@ -65,13 +87,35 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
 }
 .carouselNavgationItem {
   background-color: rgb(128,128,128);
-  background-size: contain;
   background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
   border-radius: $carouselNavigationItemUnit;
   flex: 0 0 auto;
   height: $carouselNavigationItemUnit;
   width: $carouselNavigationItemUnit;
   & + .carouselNavgationItem {
     margin-left: $carouselNavigationItemUnitSpacer;
+  }
+}
+.carouselProgressIndicatorContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  right: calc(5vw + 12px);
+  left: calc(5vw + 12px);
+  bottom: 12px;
+}
+.carouselProgressIndicator {
+  height: 4px;
+  border-radius: 4px;
+  flex: 1 0 auto;
+  background: $colorGray;
+  & +.carouselProgressIndicator {
+    margin-left: 4px;
+  }
+  &.active {
+    background: $colorWhite;
   }
 }
