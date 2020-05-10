@@ -371,31 +371,31 @@ h1 {
   font-size: calc(1rem * 3.00); }
   @media (min-width: 768px) {
     h1 {
-      font-size: calc(calc(1rem * 3.00) * 1.2); } }
+      font-size: calc(calc(1rem * 3.00) * 1.15); } }
 
 h2 {
   font-size: calc(1rem * 2.60); }
   @media (min-width: 768px) {
     h2 {
-      font-size: calc(calc(1rem * 2.60) * 1.2); } }
+      font-size: calc(calc(1rem * 2.60) * 1.15); } }
 
 h3 {
   font-size: calc(1rem * 2.20); }
   @media (min-width: 768px) {
     h3 {
-      font-size: calc(calc(1rem * 2.20) * 1.2); } }
+      font-size: calc(calc(1rem * 2.20) * 1.15); } }
 
 h4 {
   font-size: calc(1rem * 1.80); }
   @media (min-width: 768px) {
     h4 {
-      font-size: calc(calc(1rem * 1.80) * 1.2); } }
+      font-size: calc(calc(1rem * 1.80) * 1.15); } }
 
 h5 {
   font-size: calc(1rem * 1.40); }
   @media (min-width: 768px) {
     h5 {
-      font-size: calc(calc(1rem * 1.40) * 1.2); } }
+      font-size: calc(calc(1rem * 1.40) * 1.15); } }
 
 h6 {
   font-size: calc(1rem * 1.00); }
@@ -913,6 +913,12 @@ li {
     display: block;
     flex: 0 0 auto;
     width: 5vw; }
+  @media (min-width: 768px) {
+    .carouselContent {
+      flex-wrap: wrap;
+      overflow: auto; }
+      .carouselContent::before, .carouselContent::after {
+        display: none; } }
 
 .carouselContentItem {
   align-items: flex-end;
@@ -921,19 +927,52 @@ li {
   background-repeat: no-repeat;
   background-size: cover;
   border-radius: 8px;
+  cursor: pointer;
   display: flex;
   flex: 0 0 auto;
   justify-content: flex-start;
-  width: 90vw;
-  overflow: hidden; }
+  overflow: hidden;
+  transition-duration: 0.15s;
+  width: 90vw; }
   .carouselContentItem + .carouselContentItem {
     margin-left: 10vw; }
+  @media (hover: hover) {
+    .carouselContentItem:hover {
+      transform: translateY(4px); } }
+  @media (min-width: 768px) {
+    .carouselContentItem {
+      margin-bottom: 2.5vw;
+      margin-left: 2.5vw;
+      width: 30vw;
+      height: 60vw;
+      max-height: 400px; }
+      .carouselContentItem + .carouselContentItem {
+        margin-left: 2.5vw; } }
+  @media (min-width: 1024px) {
+    .carouselContentItem {
+      height: 40vw;
+      max-height: 480px; } }
+  @media (min-width: 1440px) {
+    .carouselContentItem {
+      width: calc((100% / 6) - (24px + (24px / 6)));
+      margin-bottom: 24px;
+      margin-left: 24px;
+      height: 30vw;
+      max-height: 560px; }
+      .carouselContentItem + .carouselContentItem {
+        margin-left: 24px; } }
 
 .carouselContentItemContent {
   color: white;
   width: 100%;
   padding: 144px 12px 36px 12px;
   background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0) 100%); }
+  @media (min-width: 768px) {
+    .carouselContentItemContent {
+      padding: 120px 12px 12px 12px; } }
+  @media (min-width: 1024px) {
+    .carouselContentItemContent {
+      padding: 96px 12px 12px 12px; } }
 
 .carouselContentItemQuote, .carouselContentItemName, .carouselContentItemClass {
   color: inherit; }
@@ -955,12 +994,14 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  position: relative; }
-  @media (min-width: 1024px) {
-    .carouselElement {
-      height: 37.5vw; } }
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto; }
   .carouselElement:last-of-type {
-    margin: 1rem 0; }
+    margin-bottom: 64px; }
+  @media (min-width: 768px) {
+    .carouselElement {
+      height: auto; } }
 
 .carouselNavigation {
   bottom: 0;
@@ -998,6 +1039,9 @@ li {
   right: calc(5vw + 12px);
   left: calc(5vw + 12px);
   bottom: 12px; }
+  @media (min-width: 768px) {
+    .carouselProgressIndicatorContainer {
+      display: none; } }
 
 .carouselProgressIndicator {
   height: 4px;

@@ -52,31 +52,31 @@ p + p {
 h1 {
   font-size: $fsH1;
   @include w768 {
-    font-size: calc(#{$fsH1} * 1.2);
+    font-size: calc(#{$fsH1} * 1.15);
   }
 }
 h2 {
   font-size: $fsH2;
   @include w768 {
-    font-size: calc(#{$fsH2} * 1.2);
+    font-size: calc(#{$fsH2} * 1.15);
   }
 }
 h3 {
   font-size: $fsH3;
   @include w768 {
-    font-size: calc(#{$fsH3} * 1.2);
+    font-size: calc(#{$fsH3} * 1.15);
   }
 }
 h4 {
   font-size: $fsH4;
   @include w768 {
-    font-size: calc(#{$fsH4} * 1.2);
+    font-size: calc(#{$fsH4} * 1.15);
   }
 }
 h5 {
   font-size: $fsH5;
   @include w768 {
-    font-size: calc(#{$fsH5} * 1.2);
+    font-size: calc(#{$fsH5} * 1.15);
   }
 }
 h6 {
