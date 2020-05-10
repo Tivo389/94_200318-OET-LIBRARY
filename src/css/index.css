@@ -447,10 +447,6 @@ li {
     height: 100%; }
     .navBar.active .navBarContent {
       transform: translateY(0); }
-  @media (min-width: 768px) {
-    .navBar {
-      justify-content: center;
-      padding: 0 44px; } }
 
 .navBarContent {
   border-top: 1px solid #a49494;
@@ -470,32 +466,34 @@ li {
   width: 100%; }
   .navBarContent li {
     border-bottom: 1px solid #a49494;
-    padding: 1em 0; }
+    padding: 1em 0;
+    transition-duration: 0.15s; }
+    @media (hover: hover) {
+      .navBarContent li:hover {
+        transform: translateY(-4px);
+        cursor: pointer; } }
   .navBarContent li span {
     font-size: 75%;
     letter-spacing: 0.04em; }
   @media (min-width: 768px) {
     .navBarContent {
-      border-top: none;
       flex-direction: row;
-      font-size: 14px;
-      justify-content: center;
-      padding: 0;
-      transform: none; }
+      flex-wrap: wrap;
+      justify-content: space-between; }
       .navBarContent li {
-        border-bottom: none;
-        padding: calc((44px - 1em) / 2) 1em; }
-        .navBarContent li:hover {
-          color: white;
-          cursor: pointer; } }
+        width: 47.5%; } }
+  @media (min-width: 1024px) {
+    .navBarContent li {
+      width: 30%; } }
+  @media (min-width: 1440px) {
+    .navBarContent li {
+      width: 22.5%; } }
 
 .navBarIcons {
   list-style: none;
   margin: 0;
-  padding: 0; }
-  @media (min-width: 768px) {
-    .navBarIcons {
-      display: none; } }
+  padding: 0;
+  width: 100%; }
 
 .navBarIcon {
   align-items: center;
@@ -901,6 +899,57 @@ li {
     .modalButton:hover {
       text-decoration: underline; } }
 
+.carouselContent {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden; }
+  .carouselContent::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
+  .carouselContent::before, .carouselContent::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: 5vw; }
+
+.carouselContentItem {
+  align-items: flex-end;
+  background-color: gray;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 8px;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: flex-start;
+  width: 90vw;
+  overflow: hidden; }
+  .carouselContentItem + .carouselContentItem {
+    margin-left: 10vw; }
+
+.carouselContentItemContent {
+  color: white;
+  width: 100%;
+  padding: 144px 12px 36px 12px;
+  background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0) 100%); }
+
+.carouselContentItemQuote, .carouselContentItemName, .carouselContentItemClass {
+  color: inherit; }
+
+.carouselContentItemQuote {
+  font-style: italic; }
+
+.carouselContentItemClass {
+  font-size: 0.75em;
+  font-weight: bolder;
+  letter-spacing: 0.06em;
+  text-transform: uppercase; }
+
+.carouselContentItemName {
+  text-transform: capitalize; }
+
 .carouselElement {
   height: 120vw;
   display: flex;
@@ -912,31 +961,6 @@ li {
       height: 37.5vw; } }
   .carouselElement:last-of-type {
     margin: 1rem 0; }
-
-.carouselContent {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: row;
-  overflow: hidden; }
-  .carouselContent::before, .carouselContent::after {
-    content: '';
-    display: block;
-    flex: 0 0 auto;
-    width: 5vw; }
-
-.carouselContentItem {
-  align-items: center;
-  border-radius: 16px;
-  display: flex;
-  flex: 0 0 auto;
-  justify-content: center;
-  width: 90vw; }
-  .carouselContentItem:nth-child(odd) {
-    background-color: #baceff; }
-  .carouselContentItem:nth-child(even) {
-    background-color: #ffceba; }
-  .carouselContentItem + .carouselContentItem {
-    margin-left: 10vw; }
 
 .carouselNavigation {
   bottom: 0;
@@ -956,14 +980,34 @@ li {
 
 .carouselNavgationItem {
   background-color: gray;
-  background-size: contain;
   background-position: center center;
+  background-size: contain;
+  background-repeat: no-repeat;
   border-radius: 72px;
   flex: 0 0 auto;
   height: 72px;
   width: 72px; }
   .carouselNavgationItem + .carouselNavgationItem {
     margin-left: calc(72px / 5); }
+
+.carouselProgressIndicatorContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  right: calc(5vw + 12px);
+  left: calc(5vw + 12px);
+  bottom: 12px; }
+
+.carouselProgressIndicator {
+  height: 4px;
+  border-radius: 4px;
+  flex: 1 0 auto;
+  background: #988686; }
+  .carouselProgressIndicator + .carouselProgressIndicator {
+    margin-left: 4px; }
+  .carouselProgressIndicator.active {
+    background: white; }
 
 main {
   padding-top: 44px; }

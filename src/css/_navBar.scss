@@ -19,10 +19,6 @@
       transform: translateY(0);
     }
   }
-  @include w768 {
-    justify-content: center;
-    padding: 0 $navBarUnit;
-  }
 }
 .navBarContent {
   border-top: 1px solid lighten($colorGray, 5%);
@@ -43,25 +39,32 @@
   & li {
     border-bottom: 1px solid lighten($colorGray, 5%);
     padding: 1em 0;
+    transition-duration: $transitionSM;
+    @include hover {
+      transform: translateY(-4px);
+      cursor: pointer;
+    }
   }
   & li span {
     font-size: 75%;
     letter-spacing: 0.04em;
   }
   @include w768 {
-    border-top: none;
     flex-direction: row;
-    font-size: 14px;
-    justify-content: center;
-    padding: 0;
-    transform: none;
+    flex-wrap: wrap;
+    justify-content: space-between;
     & li {
-      border-bottom: none;
-      padding: calc((#{$navBarUnit} - 1em) / 2) 1em;
-      &:hover {
-        color: $colorWhite;
-        cursor: pointer;
-      }
+      width: 47.5%;
+    }
+  }
+  @include w1024 {
+    & li {
+      width: 30%;
+    }
+  }
+  @include w1440 {
+    & li {
+      width: 22.5%;
     }
   }
 }
@@ -69,9 +72,7 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  @include w768 {
-    display: none;
-  }
+  width: 100%;;
 }
 .navBarIcon {
   align-items: center;
