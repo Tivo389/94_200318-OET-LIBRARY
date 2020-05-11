@@ -996,7 +996,8 @@ li {
   position: relative;
   max-width: 1920px;
   margin: 0 auto;
-  overflow: hidden; }
+  overflow: hidden;
+  touch-action: pan-y; }
   .carouselElement:last-of-type {
     margin-bottom: 64px; }
   @media (min-width: 768px) {
