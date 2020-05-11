@@ -902,8 +902,7 @@ li {
 .carouselContent {
   flex: 1 0 auto;
   display: flex;
-  flex-direction: row;
-  overflow: hidden; }
+  flex-direction: row; }
   .carouselContent::-webkit-scrollbar {
     background: transparent;
     display: none;
@@ -996,7 +995,8 @@ li {
   justify-content: flex-end;
   position: relative;
   max-width: 1920px;
-  margin: 0 auto; }
+  margin: 0 auto;
+  overflow: hidden; }
   .carouselElement:last-of-type {
     margin-bottom: 64px; }
   @media (min-width: 768px) {
