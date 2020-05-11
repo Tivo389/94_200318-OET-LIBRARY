@@ -3,23 +3,23 @@ import CarouselContentItem from './CarouselContentItem';
 
 class CarouselSwipe extends Component {
   // STATES
-  currentSlideInView = 0;
-  xAxisCarouselElement = 0;
-  xAxisTouchStart = 0;
-  // xAxisCarouselStart = 0;
-  // xCoordinateTouchEnd = 0;
-  // carouselItemWidth = 0;
-  // carouselItemPseudoElementWidth = 0;
-  // carouselItemFullWidth = 0;
-  // scrollSnapTriggered = false;
+  translateXAxis = 0;
+  translateXAxisStart = 0;
+  touchStartXAxis = 0;
+  carouselElementWidth = 0;
+  carouselItemInView = 0;
+  carouselItemFullWidth = 0;
+  carouselItemWidth = 0;
+  carouselItemPseudoElementWidth = 0;
 
   // LIFECYCLE METHODS
-  // componentDidMount() {
-  //   const domCarouselContentItem = document.querySelector('.carouselContentItem');
-  //   this.carouselItemWidth = domCarouselContentItem.getBoundingClientRect().width;
-  //   this.carouselItemPseudoElementWidth = domCarouselContentItem.getBoundingClientRect().x;
-  //   this.carouselItemFullWidth = this.carouselItemWidth + (this.carouselItemPseudoElementWidth * 2);
-  // }
+  componentDidMount() {
+    const domCarouselContentItem = document.querySelector('.carouselContentItem');
+    this.carouselItemWidth = domCarouselContentItem.getBoundingClientRect().width;
+    this.carouselItemPseudoElementWidth = domCarouselContentItem.getBoundingClientRect().x;
+    this.carouselItemFullWidth = this.carouselItemWidth + (this.carouselItemPseudoElementWidth * 2);
+    this.carouselElementWidth = document.querySelector('.carouselContent').scrollWidth - this.carouselItemFullWidth;
+  }
 
   // RENDER
   render() {
@@ -28,8 +28,7 @@ class CarouselSwipe extends Component {
         <div
           className="carouselElement"
           onTouchStart={this.handleOnTouchStart}
-          onTouchMove={this.handleOnTouchMove}
-          onTouchEnd={this.handleOnTouchEnd}>
+          onTouchMove={this.handleOnTouchMove}>
           <div className="carouselContent" style={{transform: 'translateX(0)'}}>
             <CarouselContentItem
               key="1"
@@ -111,34 +110,24 @@ class CarouselSwipe extends Component {
 
   // PRIMARY EVENT FUNCTIONS
   handleOnTouchStart = (e) => {
-    this.currentSlideInView = this.getCurrentSlideInView();
-    this.xAxisCarouselElement = this.getCarouselElementXAxis(e);
-    this.xAxisTouchStart = this.getXAxis(e);
+    this.carouselItemInView = this.getCurrentSlideInView();
+    this.touchStartXAxis = this.getTouchXAxis(e);
+    this.translateXAxisStart = this.getTranslateXAxis(e);
   };
   handleOnTouchMove = (e) => {
-    // if (this.scrollSnapTriggered === false) {
-    //   if (this.getXAxis(e) - this.xAxisTouchStart <= -132) {
-    //     // console.log('Scroll Left');
-    //     // 01: The scroll snap should activate, moving next item into position.
-    //     this.carouselScrollSnap(e);
-    //     // this.sideScroll(domCarouselContent,'left',300,320,10);
-    //     // 02: Any subsequent touch movements should not affect the content.
-    //     this.scrollSnapTriggered = true;
-    //   } else if (this.getXAxis(e) - this.xAxisTouchStart >= 132) {
-    //     // console.log('Scroll Right');
-    //   } else {
-    //     return;
-    //   }
-    // }
-    // return;
+    const domCarouselContent = document.querySelector('.carouselContent');
+    const xAxisChange = (this.getTouchXAxis(e) - this.touchStartXAxis) * 1;
+    let translateXValue = this.translateXAxisStart + xAxisChange;
+    if (translateXValue <= (this.carouselElementWidth * -1)) {
+      translateXValue = this.carouselElementWidth * -1;
+    } else if (translateXValue > 0) {
+      translateXValue = 0;
+    };
+    domCarouselContent.style.transform = `translateX(${translateXValue}px)`
   }
-  handleOnTouchEnd = (e) => {
-    // this.scrollSnapTriggered = false;
-    // this.xCoordinateTouchEnd = this.getXAxis(e);
-  };
 
   // PRIMARY FUNCTIONS
-  getXAxis = (e) => {
+  getTouchXAxis = (e) => {
     if (e.touches && e.touches.length > 1) {
       return;
     } else if (window.PointerEvent) {
@@ -151,28 +140,28 @@ class CarouselSwipe extends Component {
       return Math.round(e.clientX);
     }
   };
-  getCarouselElementXAxis = (e) => {
+  getTranslateXAxis = (e) => {
     const input = e.currentTarget.querySelector('.carouselContent').style.transform;
-    const regex = /\d/;
+    const regex = /-?\d+/;
     return parseInt(input.match(regex)[0]);
   };
   getCurrentSlideInView = () => {
-    if (this.xAxisCarouselStart <= this.carouselItemFullWidth) {
+    if (this.translateXAxisStart <= this.carouselItemFullWidth) {
       return 1;
     } else {
-      return Math.ceil(this.xAxisCarouselStart / this.carouselItemFullWidth);
+      return Math.ceil(this.translateXAxisStart / this.carouselItemFullWidth);
     }
   };
 
   // SECONDARY FUNCTIONS
   // carouselScrollSnap = (e) => {
   //   const domCarouselContent = e.currentTarget.querySelector('.carouselContent');
-  //   if (this.currentSlideInView === 1) {
+  //   if (this.carouselItemInView === 1) {
   //     console.log(111)
   //     domCarouselContent.scrollLeft = this.carouselItemFullWidth;
   //   } else {
   //     console.log(222)
-  //     domCarouselContent.scrollLeft = (this.currentSlideInView + 1) * this.carouselItemFullWidth;
+  //     domCarouselContent.scrollLeft = (this.carouselItemInView + 1) * this.carouselItemFullWidth;
   //   }
   // };
   // sideScroll = (element, direction, speed, distance, step) => {
