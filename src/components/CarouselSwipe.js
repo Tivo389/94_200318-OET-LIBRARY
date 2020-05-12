@@ -4,7 +4,6 @@ import CarouselContentItem from './CarouselContentItem';
 class CarouselSwipe extends Component {
   // STATES
   translateXAxis = 0;
-  translateXAxisStart = 0;
   touchStartXAxis = 0;
   carouselElementWidth = 0;
   carouselItemInView = 0;
@@ -102,6 +101,8 @@ class CarouselSwipe extends Component {
             <div className="carouselProgressIndicator" key="8"></div>
             <div className="carouselProgressIndicator" key="9"></div>
             <div className="carouselProgressIndicator" key="10"></div>
+            <div className="carouselProgressIndicator" key="11"></div>
+            <div className="carouselProgressIndicator" key="12"></div>
           </div>
         </div>
       </>
@@ -110,23 +111,37 @@ class CarouselSwipe extends Component {
 
   // PRIMARY EVENT FUNCTIONS
   handleOnTouchStart = (e) => {
-    this.carouselItemInView = this.getCurrentSlideInView();
     this.touchStartXAxis = this.getTouchXAxis(e);
-    this.translateXAxisStart = this.getTranslateXAxis(e);
+    this.translateXAxis = this.getTranslateXAxis(e);
   };
   handleOnTouchMove = (e) => {
-    const domCarouselContent = document.querySelector('.carouselContent');
-    const xAxisChange = (this.getTouchXAxis(e) - this.touchStartXAxis) * 1;
-    let translateXValue = this.translateXAxisStart + xAxisChange;
-    if (translateXValue <= (this.carouselElementWidth * -1)) {
-      translateXValue = this.carouselElementWidth * -1;
-    } else if (translateXValue > 0) {
-      translateXValue = 0;
-    };
-    domCarouselContent.style.transform = `translateX(${translateXValue}px)`
+    const domCarouselProgressIndicator = e.currentTarget.querySelectorAll('.carouselProgressIndicator')
+    let nextSlide = 0;
+    this.applyTranslateX(e);
+    this.carouselItemInView = this.getCurrentSlideInView(e);
+    console.log(`this.touchStartXAxis: ${this.touchStartXAxis}`);
+    console.log(`this.getTouchXAxis(e): ${this.getTouchXAxis(e)}`);
+    // 999 Continue here. Need to make it so the move left and right is based on the previous movement not the last variable.
+    // if (this.translateXAxis > this.getTranslateXAxis(e)) {
+    //   nextSlide = this.carouselItemInView - 1; console.log('Moving Left');
+    // } else {
+    //   nextSlide = this.carouselItemInView + 1; console.log('Moving Right');
+    // }
+    // if (!domCarouselProgressIndicator[this.carouselItemInView].classList.contains('active')) {
+    //   domCarouselProgressIndicator[this.carouselItemInView].classList.toggle('active');
+    //   domCarouselProgressIndicator[nextSlide].classList.toggle('active');
+    // }
   }
 
   // PRIMARY FUNCTIONS
+  getCurrentSlideInView = (e) => {
+    return Math.round((this.getTranslateXAxis(e) * -1) / this.carouselItemFullWidth);
+  };
+  getTranslateXAxis = (e) => {
+    const input = e.currentTarget.querySelector('.carouselContent').style.transform;
+    const regex = /-?\d+/;
+    return parseInt(input.match(regex)[0]);
+  };
   getTouchXAxis = (e) => {
     if (e.touches && e.touches.length > 1) {
       return;
@@ -140,17 +155,15 @@ class CarouselSwipe extends Component {
       return Math.round(e.clientX);
     }
   };
-  getTranslateXAxis = (e) => {
-    const input = e.currentTarget.querySelector('.carouselContent').style.transform;
-    const regex = /-?\d+/;
-    return parseInt(input.match(regex)[0]);
-  };
-  getCurrentSlideInView = () => {
-    if (this.translateXAxisStart <= this.carouselItemFullWidth) {
-      return 1;
-    } else {
-      return Math.ceil(this.translateXAxisStart / this.carouselItemFullWidth);
-    }
+  applyTranslateX = (e) => {
+    const xAxisChange = (this.getTouchXAxis(e) - this.touchStartXAxis) * 1;
+    let translateXValue = this.translateXAxis + xAxisChange;
+    if (translateXValue <= (this.carouselElementWidth * -1)) {
+      translateXValue = this.carouselElementWidth * -1;
+    } else if (translateXValue > 0) {
+      translateXValue = 0;
+    };
+    document.querySelector('.carouselContent').style.transform = `translateX(${translateXValue}px)`
   };
 
   // SECONDARY FUNCTIONS
