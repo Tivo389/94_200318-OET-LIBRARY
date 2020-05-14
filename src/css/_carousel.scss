@@ -5,6 +5,7 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   flex: 1 0 auto;
   display: flex;
   flex-direction: row;
+  transition-duration: $transitionMD;
   &::-webkit-scrollbar {
     background: transparent;
     display: none;
@@ -159,11 +160,14 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   height: 4px;
   border-radius: 4px;
   flex: 1 0 auto;
-  background: $colorGray;
+  background: $colorDarkGray;
   & +.carouselProgressIndicator {
     margin-left: 4px;
   }
   &.active {
     background: $colorWhite;
   }
+}
+.scrollSnapActive {
+  transition-duration: $transitionMD;
 }

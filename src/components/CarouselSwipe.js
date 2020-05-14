@@ -12,15 +12,18 @@ class CarouselSwipe extends Component {
   carouselItemFullWidth = 0;
   carouselItemWidth = 0;
   carouselItemPseudoElementWidth = 0;
+  xAxisChange = 0;
+  domCarouselContent;
+  domCarouselContentItem;
 
   // LIFECYCLE METHODS
   componentDidMount() {
-    const domCarouselContent = document.querySelector('.carouselContent');
-    const domCarouselContentItem = document.querySelector('.carouselContentItem');
-    this.carouselItemWidth = domCarouselContentItem.getBoundingClientRect().width;
-    this.carouselItemPseudoElementWidth = domCarouselContentItem.getBoundingClientRect().x;
+    this.domCarouselContent = document.querySelector('.carouselContent');
+    this.domCarouselContentItem = document.querySelector('.carouselContentItem');
+    this.carouselItemWidth = this.domCarouselContentItem.getBoundingClientRect().width;
+    this.carouselItemPseudoElementWidth = this.domCarouselContentItem.getBoundingClientRect().x;
     this.carouselItemFullWidth = this.carouselItemWidth + (this.carouselItemPseudoElementWidth * 2);
-    this.carouselElementWidth = domCarouselContent.scrollWidth - this.carouselItemFullWidth;
+    this.carouselElementWidth = this.domCarouselContent.scrollWidth - this.carouselItemFullWidth;
   }
 
   // RENDER
@@ -114,23 +117,43 @@ class CarouselSwipe extends Component {
 
   // PRIMARY EVENT FUNCTIONS
   handleOnTouchStart = (e) => {
+    // Get me the XAxis of where the touch began
     this.touchStartXAxis = this.getTouchXAxis(e);
-    this.translateXAxis = this.getTranslateXAxis(e);
+    // Get me the Carousel's translateX value from the inline style
+    this.translateXAxis = this.getCarouselTranslateXAxis(e);
   };
   handleOnTouchMove = (e) => {
-    this.carouselItemInView = this.getCurrentSlideInView(e);
-    this.applyTranslateX(e);
+    // Get me the value of change from the initial xAxis to the current xAxis
+    this.getXAxisChange(e);
+    // Apply the value to the Carousel's translateX style
+    this.getTranslateX(e);
+    // Update the active indicator
     this.updateActiveIndicator(e);
+    // Get me the index of the current slide that is in view
+    this.carouselItemInView = this.getCurrentSlideInView(e);
+    // If the user has scrolled a certain amount, activate scroll snap
+    this.activateScrollSnap(e);
   }
 
-  // PRIMARY FUNCTIONS
+  // GET FUNCTIONS
   getCurrentSlideInView = (e) => {
-    return Math.round((this.getTranslateXAxis(e) * -1) / this.carouselItemFullWidth);
+    return Math.round((this.getCarouselTranslateXAxis(e) * -1) / this.carouselItemFullWidth);
   };
-  getTranslateXAxis = (e) => {
+  getCarouselTranslateXAxis = (e) => {
     const input = e.currentTarget.querySelector('.carouselContent').style.transform;
     const regex = /-?\d+/;
     return parseInt(input.match(regex)[0]);
+  };
+  getTranslateX = (e) => {
+    let translateXValue = this.translateXAxis + this.xAxisChange;
+    if (translateXValue <= this.carouselElementWidth * -1) {
+      // Avoid going past last carousel element
+      translateXValue = this.carouselElementWidth * -1;
+    } else if (translateXValue > 0) {
+      // Avoid going before first carousel element
+      translateXValue = 0;
+    };
+    this.updateCarouselTranslateXAxis(translateXValue);
   };
   getTouchXAxis = (e) => {
     if (e.touches && e.touches.length > 1) {
@@ -145,15 +168,13 @@ class CarouselSwipe extends Component {
       return Math.round(e.clientX);
     }
   };
-  applyTranslateX = (e) => {
-    const xAxisChange = (this.getTouchXAxis(e) - this.touchStartXAxis) * 1;
-    let translateXValue = this.translateXAxis + xAxisChange;
-    if (translateXValue <= (this.carouselElementWidth * -1)) {
-      translateXValue = this.carouselElementWidth * -1;
-    } else if (translateXValue > 0) {
-      translateXValue = 0;
-    };
-    document.querySelector('.carouselContent').style.transform = `translateX(${translateXValue}px)`
+  getXAxisChange = (e) => {
+    this.xAxisChange = this.getTouchXAxis(e) - this.touchStartXAxis;
+  };
+
+  // UPDATE & ACTIVATE FUNCTIONS
+  updateCarouselTranslateXAxis = (translateXValue) => {
+    this.domCarouselContent.style.transform = `translateX(${translateXValue}px)`
   };
   updateActiveIndicator = (e) => {
     const domIndicators = e.currentTarget.querySelectorAll('.carouselProgressIndicator')
@@ -165,34 +186,26 @@ class CarouselSwipe extends Component {
       };
     });
   };
+  activateScrollSnap = (e) => {
+    const triggerValue = 44;
+    const triggerIsInitiated = Math.abs(this.xAxisChange) >= triggerValue;
+    const notFirstCarouselElement = this.carouselItemInView !== 0;
+    let scrollSnapIsActive = false;
+    if (triggerIsInitiated && !scrollSnapIsActive && notFirstCarouselElement) {
+      scrollSnapIsActive = true;
+      let translateXValue = (this.carouselItemInView * this.carouselItemFullWidth) * -1;
+      this.domCarouselContent.classList.add('scrollSnapActive');
+      // 999 Iget the impression it looks gltich because we're tryng to go 0 > 44 > 0 > 320
+      // 999 Also it might be worth separating this into SCROLL ONLY
+      // 999 Different comparison sounds goood.....
+      this.updateCarouselTranslateXAxis(translateXValue);
+      setTimeout(() => this.domCarouselContent.classList.remove('scrollSnapActive'), 450);
+    }
+    scrollSnapIsActive = false;
+  };
 
-  // SECONDARY FUNCTIONS
-  // carouselScrollSnap = (e) => {
-  //   const domCarouselContent = e.currentTarget.querySelector('.carouselContent');
-  //   if (this.carouselItemInView === 1) {
-  //     console.log(111)
-  //     domCarouselContent.scrollLeft = this.carouselItemFullWidth;
-  //   } else {
-  //     console.log(222)
-  //     domCarouselContent.scrollLeft = (this.carouselItemInView + 1) * this.carouselItemFullWidth;
-  //   }
-  // };
-  // sideScroll = (element, direction, speed, distance, step) => {
-  //   let scrollAmount = element.scrollLeft;
-  //   const slideTimer = setInterval( function() {
-  //       if (direction === 'left') {
-  //           element.scrollLeft += step;
-  //       } else if (direction === 'right') {
-  //           element.scrollLeft -= step;
-  //       } else {
-  //         console.log('ERROR');
-  //       }
-  //       scrollAmount += step;
-  //       if(scrollAmount >= distance){
-  //           window.clearInterval(slideTimer);
-  //       }
-  //   }, speed);
-  // }
+
+
 }
 
 export default CarouselSwipe;
