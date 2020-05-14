@@ -902,7 +902,8 @@ li {
 .carouselContent {
   flex: 1 0 auto;
   display: flex;
-  flex-direction: row; }
+  flex-direction: row;
+  transition-duration: 0.3s; }
   .carouselContent::-webkit-scrollbar {
     background: transparent;
     display: none;
@@ -1048,11 +1049,14 @@ li {
   height: 4px;
   border-radius: 4px;
   flex: 1 0 auto;
-  background: #988686; }
+  background: #423838; }
   .carouselProgressIndicator + .carouselProgressIndicator {
     margin-left: 4px; }
   .carouselProgressIndicator.active {
     background: white; }
+
+.scrollSnapActive {
+  transition-duration: 0.3s; }
 
 main {
   padding-top: 44px; }
