@@ -7,6 +7,7 @@ import CarouselNotes from "./SectionCarouselNotes";
 import CarouselScroll from "./SectionCarouselScroll";
 // import CarouselSwipe from "./SectionCarouselSwipe";
 // import CarouselPaddle from "./SectionCarouselPaddle";
+// import CarouselContentNav from "./SectionCarouselContentNav";
 
 class SectionPrimary extends Component {
   content = {
@@ -18,6 +19,7 @@ class SectionPrimary extends Component {
     carouselScroll: CarouselScroll
     // carouselSwipe: CarouselSwipe,
     // carouselPaddle: CarouselPaddle,
+    // carouselContentNav: CarouselContentNav,
     // tabs: Tabs
   };
 

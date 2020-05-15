@@ -915,7 +915,8 @@ li {
   @media (min-width: 768px) {
     .carouselContent {
       flex-wrap: wrap;
-      overflow: auto; }
+      overflow: auto;
+      padding-top: 4px; }
       .carouselContent::before, .carouselContent::after {
         display: none; } }
 
@@ -937,7 +938,7 @@ li {
     margin-left: 10vw; }
   @media (hover: hover) {
     .carouselContentItem:hover {
-      transform: translateY(4px); } }
+      transform: translateY(-4px); } }
   @media (min-width: 768px) {
     .carouselContentItem {
       margin-bottom: 2.5vw;
@@ -964,7 +965,7 @@ li {
 .carouselContentItemContent {
   color: white;
   width: 100%;
-  padding: 144px 12px 36px 12px;
+  padding: 144px 12px 24px 12px;
   background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0) 100%); }
   @media (min-width: 768px) {
     .carouselContentItemContent {
@@ -997,7 +998,7 @@ li {
   max-width: 1920px;
   margin: 0 auto;
   overflow: scroll;
-  touch-action: pan-y; }
+  touch-action: pan-x pan-y; }
   .carouselElement:last-of-type {
     margin-bottom: 64px; }
   .carouselElement::-webkit-scrollbar {
@@ -1012,10 +1013,11 @@ li {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  position: absolute;
+  position: sticky;
+  width: calc(100% - 10vw - 24px);
   right: calc(5vw + 12px);
   left: calc(5vw + 12px);
-  bottom: 12px; }
+  bottom: 16px; }
   @media (min-width: 768px) {
     .carouselProgressIndicatorContainer {
       display: none; } }
@@ -1024,7 +1026,8 @@ li {
   height: 4px;
   border-radius: 4px;
   flex: 1 0 auto;
-  background: #423838; }
+  background: #423838;
+  transition-duration: 0.3s; }
   .carouselProgressIndicator + .carouselProgressIndicator {
     margin-left: 4px; }
   .carouselProgressIndicator.active {
@@ -1048,7 +1051,8 @@ ul {
   padding-inline-start: 1em; }
 
 li {
-  margin: 0.25em 0; }
+  margin: 0.65em 0;
+  line-height: 1.35; }
 
 .externalLinkIcon {
   font-size: 80% !important;
