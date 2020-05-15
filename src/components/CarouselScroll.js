@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CarouselContentItem from './CarouselContentItem';
-import { throttle } from './Helper';
 
 
 class CarouselScroll extends Component {
@@ -33,7 +32,7 @@ class CarouselScroll extends Component {
         <div
           className="carouselElement"
           onTouchStart={this.handleOnTouchStart}
-          onTouchMove={throttle(this.handleOnTouchMove, 8)}>
+          onTouchMove={this.handleOnTouchMove}>
           <div className="carouselContent" style={{transform: 'translateX(0)'}}>
             <CarouselContentItem
               key="1"
@@ -131,8 +130,6 @@ class CarouselScroll extends Component {
     this.updateActiveIndicator(e);
     // Get me the index of the current slide that is in view
     this.carouselItemInView = this.getCurrentSlideInView(e);
-    // If the user has scrolled a certain amount, activate scroll snap
-    this.activateScrollSnap(e);
   }
 
   // GET FUNCTIONS
@@ -186,26 +183,6 @@ class CarouselScroll extends Component {
       };
     });
   };
-  activateScrollSnap = (e) => {
-    const triggerValue = 44;
-    const triggerIsInitiated = Math.abs(this.xAxisChange) >= triggerValue;
-    const notFirstCarouselElement = this.carouselItemInView !== 0;
-    let scrollSnapIsActive = false;
-    if (triggerIsInitiated && !scrollSnapIsActive && notFirstCarouselElement) {
-      scrollSnapIsActive = true;
-      let translateXValue = (this.carouselItemInView * this.carouselItemFullWidth) * -1;
-      this.domCarouselContent.classList.add('scrollSnapActive');
-      // 999 Iget the impression it looks gltich because we're tryng to go 0 > 44 > 0 > 320
-      // 999 Also it might be worth separating this into SCROLL ONLY
-      // 999 Different comparison sounds goood.....
-      this.updateCarouselTranslateXAxis(translateXValue);
-      setTimeout(() => this.domCarouselContent.classList.remove('scrollSnapActive'), 450);
-    }
-    scrollSnapIsActive = false;
-  };
-
-
-
 }
 
 export default CarouselScroll;

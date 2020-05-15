@@ -902,8 +902,7 @@ li {
 .carouselContent {
   flex: 1 0 auto;
   display: flex;
-  flex-direction: row;
-  transition-duration: 0.3s; }
+  flex-direction: row; }
   .carouselContent::-webkit-scrollbar {
     background: transparent;
     display: none;
@@ -997,41 +996,17 @@ li {
   position: relative;
   max-width: 1920px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: scroll;
   touch-action: pan-y; }
   .carouselElement:last-of-type {
     margin-bottom: 64px; }
+  .carouselElement::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
   @media (min-width: 768px) {
     .carouselElement {
       height: auto; } }
-
-.carouselNavigation {
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  left: 0;
-  overflow: scroll;
-  padding: 0 0 calc(72px / 5) 0;
-  position: absolute;
-  right: 0;
-  width: 100%; }
-  .carouselNavigation::before, .carouselNavigation::after {
-    content: '';
-    display: block;
-    flex: 0 0 auto;
-    width: 72px; }
-
-.carouselNavgationItem {
-  background-color: gray;
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 72px;
-  flex: 0 0 auto;
-  height: 72px;
-  width: 72px; }
-  .carouselNavgationItem + .carouselNavgationItem {
-    margin-left: calc(72px / 5); }
 
 .carouselProgressIndicatorContainer {
   display: flex;
