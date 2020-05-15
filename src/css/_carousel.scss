@@ -5,7 +5,6 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   flex: 1 0 auto;
   display: flex;
   flex-direction: row;
-  transition-duration: $transitionMD;
   &::-webkit-scrollbar {
     background: transparent;
     display: none;
@@ -105,43 +104,18 @@ $carouselNavigationItemUnitSpacer: calc(#{$carouselNavigationItemUnit} / 5);
   position: relative;
   max-width: 1920px;
   margin: 0 auto;
-  overflow: hidden;
+  overflow: scroll;
   touch-action: pan-y;
   &:last-of-type {
     margin-bottom: 64px;
   }
+  &::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px;
+  }
   @include w768 {
     height: auto;
-  }
-}
-.carouselNavigation {
-  bottom: 0;
-  display: flex;
-  flex-direction: row;
-  left: 0;
-  overflow: scroll;
-  padding: 0 0 $carouselNavigationItemUnitSpacer 0;
-  position: absolute;
-  right: 0;
-  width: 100%;
-  &::before, &::after {
-    content: '';
-    display: block;
-    flex: 0 0 auto;
-    width: $carouselNavigationItemUnit;
-  }
-}
-.carouselNavgationItem {
-  background-color: rgb(128,128,128);
-  background-position: center center;
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: $carouselNavigationItemUnit;
-  flex: 0 0 auto;
-  height: $carouselNavigationItemUnit;
-  width: $carouselNavigationItemUnit;
-  & + .carouselNavgationItem {
-    margin-left: $carouselNavigationItemUnitSpacer;
   }
 }
 .carouselProgressIndicatorContainer {

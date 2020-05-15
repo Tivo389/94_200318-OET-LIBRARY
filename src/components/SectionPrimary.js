@@ -4,8 +4,9 @@ import CallToAction from "./SectionCallToAction";
 import Tile from "./SectionTile";
 import Modal from "./SectionModal";
 import CarouselNotes from "./SectionCarouselNotes";
-import CarouselSwipe from "./SectionCarouselSwipe";
-import CarouselScrollableSwipe from "./SectionCarouselScrollableSwipe";
+import CarouselScroll from "./SectionCarouselScroll";
+// import CarouselSwipe from "./SectionCarouselSwipe";
+// import CarouselPaddle from "./SectionCarouselPaddle";
 
 class SectionPrimary extends Component {
   content = {
@@ -14,9 +15,9 @@ class SectionPrimary extends Component {
     tile: Tile,
     modal: Modal,
     carouselNotes: CarouselNotes,
-    carouselSwipe: CarouselSwipe,
-    // carouselScrollable: CarouselScrollable,
-    carouselScrollableSwipe: CarouselScrollableSwipe,
+    carouselScroll: CarouselScroll
+    // carouselSwipe: CarouselSwipe,
+    // carouselPaddle: CarouselPaddle,
     // tabs: Tabs
   };
 
