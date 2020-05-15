@@ -1,39 +1,25 @@
 import React, { Component } from 'react';
 import CarouselContentItem from './CarouselContentItem';
 
-
 class CarouselScroll extends Component {
   // STATES
-  translateXAxis = 0;
-  touchStartXAxis = 0;
-  carouselElementWidth = 0;
   carouselItemInView = 0;
   carouselItemFullWidth = 0;
-  carouselItemWidth = 0;
-  carouselItemPseudoElementWidth = 0;
-  xAxisChange = 0;
-  domCarouselContent;
-  domCarouselContentItem;
 
   // LIFECYCLE METHODS
   componentDidMount() {
-    this.domCarouselContent = document.querySelector('.carouselContent');
-    this.domCarouselContentItem = document.querySelector('.carouselContentItem');
-    this.carouselItemWidth = this.domCarouselContentItem.getBoundingClientRect().width;
-    this.carouselItemPseudoElementWidth = this.domCarouselContentItem.getBoundingClientRect().x;
-    this.carouselItemFullWidth = this.carouselItemWidth + (this.carouselItemPseudoElementWidth * 2);
-    this.carouselElementWidth = this.domCarouselContent.scrollWidth - this.carouselItemFullWidth;
+    const domCarouselContentItem = document.querySelector('.carouselContentItem');
+    const carouselItemWidth = domCarouselContentItem.getBoundingClientRect().width;
+    const carouselItemPseudoElementWidth = domCarouselContentItem.getBoundingClientRect().x;
+    this.carouselItemFullWidth = carouselItemWidth + (carouselItemPseudoElementWidth * 2);
   }
 
   // RENDER
   render() {
     return (
       <>
-        <div
-          className="carouselElement"
-          onTouchStart={this.handleOnTouchStart}
-          onTouchMove={this.handleOnTouchMove}>
-          <div className="carouselContent" style={{transform: 'translateX(0)'}}>
+        <div className="carouselElement" onScroll={this.handleOnScroll}>
+          <div className="carouselContent">
             <CarouselContentItem
               key="1"
               character="bangalore"
@@ -115,67 +101,26 @@ class CarouselScroll extends Component {
   }
 
   // PRIMARY EVENT FUNCTIONS
-  handleOnTouchStart = (e) => {
-    // Get me the XAxis of where the touch began
-    this.touchStartXAxis = this.getTouchXAxis(e);
-    // Get me the Carousel's translateX value from the inline style
-    this.translateXAxis = this.getCarouselTranslateXAxis(e);
-  };
-  handleOnTouchMove = (e) => {
-    // Get me the value of change from the initial xAxis to the current xAxis
-    this.getXAxisChange(e);
-    // Apply the value to the Carousel's translateX style
-    this.getTranslateX(e);
-    // Update the active indicator
-    this.updateActiveIndicator(e);
+  handleOnScroll = (e) => {
+    // Get current scrollLeft value
+    this.getCarouselScrollLeftValue(e);
     // Get me the index of the current slide that is in view
     this.carouselItemInView = this.getCurrentSlideInView(e);
-  }
+    // Update the active indicator
+    this.updateActiveIndicator(e);
+  };
 
   // GET FUNCTIONS
+  getCarouselScrollLeftValue = (e) => {
+    return e.currentTarget.scrollLeft;
+  };
   getCurrentSlideInView = (e) => {
-    return Math.round((this.getCarouselTranslateXAxis(e) * -1) / this.carouselItemFullWidth);
-  };
-  getCarouselTranslateXAxis = (e) => {
-    const input = e.currentTarget.querySelector('.carouselContent').style.transform;
-    const regex = /-?\d+/;
-    return parseInt(input.match(regex)[0]);
-  };
-  getTranslateX = (e) => {
-    let translateXValue = this.translateXAxis + this.xAxisChange;
-    if (translateXValue <= this.carouselElementWidth * -1) {
-      // Avoid going past last carousel element
-      translateXValue = this.carouselElementWidth * -1;
-    } else if (translateXValue > 0) {
-      // Avoid going before first carousel element
-      translateXValue = 0;
-    };
-    this.updateCarouselTranslateXAxis(translateXValue);
-  };
-  getTouchXAxis = (e) => {
-    if (e.touches && e.touches.length > 1) {
-      return;
-    } else if (window.PointerEvent) {
-      if (e.targetTouches) {
-        return Math.round(e.changedTouches[0].clientX);
-      } else {
-        return Math.round(e.clientX);
-      }
-    } else {
-      return Math.round(e.clientX);
-    }
-  };
-  getXAxisChange = (e) => {
-    this.xAxisChange = this.getTouchXAxis(e) - this.touchStartXAxis;
+    return Math.round(Math.abs(this.getCarouselScrollLeftValue(e)) / this.carouselItemFullWidth);
   };
 
   // UPDATE & ACTIVATE FUNCTIONS
-  updateCarouselTranslateXAxis = (translateXValue) => {
-    this.domCarouselContent.style.transform = `translateX(${translateXValue}px)`
-  };
   updateActiveIndicator = (e) => {
-    const domIndicators = e.currentTarget.querySelectorAll('.carouselProgressIndicator')
-    domIndicators.forEach((indicator, i) => {
+    e.currentTarget.querySelectorAll('.carouselProgressIndicator').forEach((indicator, i) => {
       if (parseInt(i) === this.carouselItemInView) {
         indicator.classList.add('active');
       } else {
@@ -183,6 +128,7 @@ class CarouselScroll extends Component {
       };
     });
   };
+
 }
 
 export default CarouselScroll;

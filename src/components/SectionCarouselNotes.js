@@ -77,6 +77,43 @@ class SectionCarousel extends Component {
               </ul>
               <li>Good opportunity, will make UI Spreadsheet</li>
             </ul>
+            <hr></hr>
+            <ul>
+              <li>200514</li>
+              <li>I'm writing this after completing the Carousel / Scroll. Some thoughts, discoveries, etc.</li>
+              <li>In terms of responsiveness, I initially tried to keep the UI consistent across mobile and desktop. However, a set of thoughts lead to some questions.</li>
+              <li>My initial thoughts were focused on trying to understand 'what a Carousel is intended for'.</li>
+              <ul>
+                <li>"A Carousel is a component oriented towards displaying content within a limited space."</li>
+                <li>"A Carousel is a component that offers to display certain content above the fold."</li>
+                <ul>
+                  <li>However, this 2nd reason, in my opinion is flawed for most Carousels. Excluding the 1st element of the carousel, all other carousel elements in exchange for being placed above the horizontal-fold, are now hidden; fully or partially, behind a vertical-fold.</li>
+                  <li><b>The only difference here is that what was once 'below the fold' is now 'beyond the edge'.</b></li>
+                  <li><b>An analogy, you want to expose the user to sun light. However a sun that is below the horizon, and a sun is above the horizon but behind a mountain are both unable to offer exposure.</b></li>
+                  <li>If exposure to content is the objective, it MUST be visible.</li>
+                </ul>
+              </ul>
+              <li>Presuming the 2 observations above; or at least the 1st, are acceptable, it raised a question.</li>
+              <ul>
+                <li>"Does UI need to be consistent across desktop and mobile?"</li>
+                <li>My current response to this as of 200515 is, "It does not have to be consistent, particularly for content-oriented components".</li>
+              </ul>
+              <li>In the cases of Blizzard, Nintendo, and Logitech, their Carousel's UI were consistent across mobile and desktop. The way they looked, worked, and could be interacted with were pretty much consistent.</li>
+              <li>However, when we consider the difference in available space and user interaction (i.e. touch vs cursor), I fail to see a reason for this consistency.</li>
+              <ul>
+                <li>Consistency helps avoid confusion. However, <b>what confusion are we protecting the user from in this scenario (Carousel Component)?</b></li>
+                <li><b>How does offering consistent UI across different devices help the user?</b></li>
+                <li>The <b>important factor here is that the Carousel is a content-oriented component.</b> It is not a function-oriented component that is intended of help the user complete a specific task, like a date-picker or value-input.</li>
+                <li>To clarify, this is specifically for content-oriented component. If this was a function-oriented component, for example a 'calender event', consistent UI between different devices makes sense.</li>
+                <ul>
+                  <li>For example, when you make a new event with Google Calendar the UI is consistent between devices. How you input the name of the event, how you select the date, whether the event is an all-day event or not. All the UI; how the user interacts to complete each task, is consistent. Respectively, they are type-input, date-selection, and toggle-input.</li>
+                </ul>
+              </ul>
+              <li><b>For a function-oriented component, the interaction a user performs to add an event to a calendar should not be different between device.</b></li>
+              <li><b>For a content-oriented component, the interaction a user performs to gain exposure to the content should be the primary focus, not UI consistency.</b></li>
+              <li>The above thought-flow lead to the approach of 'carousel-in-mobile, grid-in-desktop'.</li>
+              <li>I didn't implement it for this one (might for the paddle-version), but for mobile the user will be navigated to a different page on tap. For desktop, a modal will open.</li>
+            </ul>
           </div>
         </section>
       </>
