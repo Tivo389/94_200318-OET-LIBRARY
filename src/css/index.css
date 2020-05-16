@@ -454,19 +454,22 @@ li {
   display: flex;
   flex-direction: column;
   font-size: 1rem;
-  justify-content: center;
+  justify-content: flex-start;
   letter-spacing: 0.02em;
   line-height: 1;
   list-style: none;
   margin: 0;
-  padding: 0 44px;
+  max-height: 100vh;
+  overflow: scroll;
+  padding: 0 44px 44px 44px;
   text-align: left;
   transform: translateY(-100vh);
   transition: 0.3s cubic-bezier(0, 0, 0.9, 1);
   width: 100%; }
   .navBarContent li {
     border-bottom: 1px solid #a49494;
-    padding: 1em 0;
+    margin: 0;
+    padding: 1.5em 0;
     transition-duration: 0.15s; }
     @media (hover: hover) {
       .navBarContent li:hover {
