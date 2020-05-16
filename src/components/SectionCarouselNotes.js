@@ -87,8 +87,7 @@ class SectionCarousel extends Component {
                 <li>"A Carousel is a component oriented towards displaying content within a limited space."</li>
                 <li>"A Carousel is a component that offers to display certain content above the fold."</li>
                 <ul>
-                  <li>However, this 2nd reason, in my opinion is flawed for most Carousels. Excluding the 1st element of the carousel, all other carousel elements in exchange for being placed above the horizontal-fold, are now hidden; fully or partially, behind a vertical-fold.</li>
-                  <li><b>The only difference here is that what was once 'below the fold' is now 'beyond the edge'.</b></li>
+                  <li>However, this 2nd reason, in my opinion is flawed for most Carousels. Excluding the 1st element of the carousel, all other carousel elements in exchange for being placed 'above the fold' are now hidden 'behind the edge'.</li>
                   <li><b>An analogy, you want to expose the user to sun light. However a sun that is below the horizon, and a sun is above the horizon but behind a mountain are both unable to offer exposure.</b></li>
                   <li>If exposure to content is the objective, it MUST be visible.</li>
                 </ul>

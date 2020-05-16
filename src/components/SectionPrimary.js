@@ -5,7 +5,7 @@ import Tile from "./SectionTile";
 import Modal from "./SectionModal";
 import CarouselNotes from "./SectionCarouselNotes";
 import CarouselScroll from "./SectionCarouselScroll";
-// import CarouselSwipe from "./SectionCarouselSwipe";
+import CarouselSwipe from "./SectionCarouselSwipe";
 // import CarouselPaddle from "./SectionCarouselPaddle";
 // import CarouselContentNav from "./SectionCarouselContentNav";
 
@@ -16,8 +16,8 @@ class SectionPrimary extends Component {
     tile: Tile,
     modal: Modal,
     carouselNotes: CarouselNotes,
-    carouselScroll: CarouselScroll
-    // carouselSwipe: CarouselSwipe,
+    carouselScroll: CarouselScroll,
+    carouselSwipe: CarouselSwipe
     // carouselPaddle: CarouselPaddle,
     // carouselContentNav: CarouselContentNav,
     // tabs: Tabs
