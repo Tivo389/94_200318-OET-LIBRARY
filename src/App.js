@@ -7,7 +7,7 @@ import SectionPrimary from './components/SectionPrimary';
 library.add(faBars, faExternalLinkAlt, faFileAlt, faLanguage, faNewspaper, faVideo, faCalendarAlt, faPlayCircle, faComments, faMapSigns, faWindowRestore, faTimes, faStar, faHorseHead);
 
 function App() {
-  const [content, setContent] = useState("carouselScroll");
+  const [content, setContent] = useState("carouselSwipe");
   return (
     <div className="App">
       <Navigation setContent={setContent}/>
