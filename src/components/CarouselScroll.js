@@ -18,8 +18,8 @@ class CarouselScroll extends Component {
   render() {
     return (
       <>
-        <div className="carouselElement" onScroll={this.handleOnScroll}>
-          <div className="carouselContent">
+        <div className="carouselScrollElement" onScroll={this.handleOnScroll}>
+          <div className="carouselScrollContent">
             <CarouselContentItem
               key="1"
               character="bangalore"

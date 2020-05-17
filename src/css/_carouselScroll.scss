@@ -1,0 +1,46 @@
+.carouselScrollContent {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  &::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px;
+  }
+  &::before, &::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: 5vw;
+  }
+  @include w768 {
+    flex-wrap: wrap;
+    overflow: auto;
+    padding-top: 4px; // To cater for hover
+    &::before, &::after {
+      display: none;
+    }
+  }
+}
+.carouselScrollElement {
+  height: 120vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: scroll;
+  touch-action: pan-x pan-y;
+  &:last-of-type {
+    margin-bottom: 64px;
+  }
+  &::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px;
+  }
+  @include w768 {
+    height: auto;
+  }
+}

@@ -8,6 +8,7 @@ class CarouselScroll extends Component {
   translateXAxis = 0;
   touchStartXAxis = 0;
   carouselElementWidth = 0;
+  carouselContentItemCount = 0;
   carouselItemInView = 0;
   carouselItemFullWidth = 0;
   carouselItemWidth = 0;
@@ -18,8 +19,9 @@ class CarouselScroll extends Component {
 
   // LIFECYCLE METHODS
   componentDidMount() {
-    this.domCarouselContent = document.querySelector('.carouselContent');
+    this.domCarouselContent = document.querySelector('.carouselSwipeContent');
     this.domCarouselContentItem = document.querySelector('.carouselContentItem');
+    this.carouselContentItemCount = this.domCarouselContent.childElementCount - 1; // Index-adj
     this.carouselItemWidth = this.domCarouselContentItem.getBoundingClientRect().width;
     this.carouselItemPseudoElementWidth = this.domCarouselContentItem.getBoundingClientRect().x;
     this.carouselItemFullWidth = this.carouselItemWidth + (this.carouselItemPseudoElementWidth * 2);
@@ -31,10 +33,11 @@ class CarouselScroll extends Component {
     return (
       <>
         <div
-          className="carouselElement"
+          className="carouselSwipeElement"
           onTouchStart={this.handleOnTouchStart}
-          onTouchMove={throttle(this.handleOnTouchMove, 8)}>
-          <div className="carouselContent" style={{transform: 'translateX(0)'}}>
+          onTouchMove={throttle(this.handleOnTouchMove, 8)}
+          onTouchEnd={this.handleOnTouchEnd}>
+          <div className="carouselSwipeContent" style={{transform: 'translateX(0)'}}>
             <CarouselContentItem
               key="1"
               character="bangalore"
@@ -125,35 +128,24 @@ class CarouselScroll extends Component {
   handleOnTouchMove = (e) => {
     // Get me the value of change from the initial xAxis to the current xAxis
     this.getXAxisChange(e);
-    // Apply the value to the Carousel's translateX style
-    this.getTranslateX(e);
-    // Update the active indicator
-    this.updateActiveIndicator(e);
-    // Get me the index of the current slide that is in view
-    this.carouselItemInView = this.getCurrentSlideInView(e);
     // If the user has scrolled a certain amount, activate scroll snap
     this.activateScrollSnap(e);
   }
+  handleOnTouchEnd = (e) => {
+    // Get me the index of the current slide that is in view
+    this.carouselItemInView = this.getCurrentSlideInView(e);
+    // Update the active indicator
+    this.updateActiveIndicator(e);
+  };
 
   // GET FUNCTIONS
   getCurrentSlideInView = (e) => {
     return Math.round((this.getCarouselTranslateXAxis(e) * -1) / this.carouselItemFullWidth);
   };
   getCarouselTranslateXAxis = (e) => {
-    const input = e.currentTarget.querySelector('.carouselContent').style.transform;
+    const input = e.currentTarget.querySelector('.carouselSwipeContent').style.transform;
     const regex = /-?\d+/;
     return parseInt(input.match(regex)[0]);
-  };
-  getTranslateX = (e) => {
-    let translateXValue = this.translateXAxis + this.xAxisChange;
-    if (translateXValue <= this.carouselElementWidth * -1) {
-      // Avoid going past last carousel element
-      translateXValue = this.carouselElementWidth * -1;
-    } else if (translateXValue > 0) {
-      // Avoid going before first carousel element
-      translateXValue = 0;
-    };
-    this.updateCarouselTranslateXAxis(translateXValue);
   };
   getTouchXAxis = (e) => {
     if (e.touches && e.touches.length > 1) {
@@ -187,25 +179,27 @@ class CarouselScroll extends Component {
     });
   };
   activateScrollSnap = (e) => {
-    const triggerValue = 44;
+    const triggerValue = 66;
     const triggerIsInitiated = Math.abs(this.xAxisChange) >= triggerValue;
-    const notFirstCarouselElement = this.carouselItemInView !== 0;
+    const onFirstCarouselItem = this.carouselItemInView === 0;
+    const onLastCarouselItem = this.carouselItemInView === this.carouselContentItemCount;
+    const swipeLeft = this.xAxisChange < 0;
+    const swipeRight = this.xAxisChange > 0;
     let scrollSnapIsActive = false;
-    if (triggerIsInitiated && !scrollSnapIsActive && notFirstCarouselElement) {
+    let translateXValue;
+    if (!scrollSnapIsActive && triggerIsInitiated) {
       scrollSnapIsActive = true;
-      let translateXValue = (this.carouselItemInView * this.carouselItemFullWidth) * -1;
-      this.domCarouselContent.classList.add('scrollSnapActive');
-      // 999 Iget the impression it looks gltich because we're tryng to go 0 > 44 > 0 > 320
-      // 999 Also it might be worth separating this into SCROLL ONLY
-      // 999 Different comparison sounds goood.....
-      this.updateCarouselTranslateXAxis(translateXValue);
-      setTimeout(() => this.domCarouselContent.classList.remove('scrollSnapActive'), 450);
+      if ((onLastCarouselItem && swipeLeft) || (onFirstCarouselItem && swipeRight)) {
+        return;
+      } if (swipeLeft) {
+        translateXValue = ((this.carouselItemInView + 1) * this.carouselItemFullWidth) * -1;
+      } if (swipeRight) {
+        translateXValue = ((this.carouselItemInView - 1) * this.carouselItemFullWidth) * -1;
+      }
     }
+    this.updateCarouselTranslateXAxis(translateXValue);
     scrollSnapIsActive = false;
   };
-
-
-
 }
 
 export default CarouselScroll;

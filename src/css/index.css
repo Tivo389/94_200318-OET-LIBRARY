@@ -902,27 +902,6 @@ li {
     .modalButton:hover {
       text-decoration: underline; } }
 
-.carouselContent {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: row; }
-  .carouselContent::-webkit-scrollbar {
-    background: transparent;
-    display: none;
-    width: 0px; }
-  .carouselContent::before, .carouselContent::after {
-    content: '';
-    display: block;
-    flex: 0 0 auto;
-    width: 5vw; }
-  @media (min-width: 768px) {
-    .carouselContent {
-      flex-wrap: wrap;
-      overflow: auto;
-      padding-top: 4px; }
-      .carouselContent::before, .carouselContent::after {
-        display: none; } }
-
 .carouselContentItem {
   align-items: flex-end;
   background-color: gray;
@@ -977,7 +956,9 @@ li {
     .carouselContentItemContent {
       padding: 96px 12px 12px 12px; } }
 
-.carouselContentItemQuote, .carouselContentItemName, .carouselContentItemClass {
+.carouselContentItemQuote,
+.carouselContentItemName,
+.carouselContentItemClass {
   color: inherit; }
 
 .carouselContentItemQuote {
@@ -991,26 +972,6 @@ li {
 
 .carouselContentItemName {
   text-transform: capitalize; }
-
-.carouselElement {
-  height: 120vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  position: relative;
-  max-width: 1920px;
-  margin: 0 auto;
-  overflow: scroll;
-  touch-action: pan-x pan-y; }
-  .carouselElement:last-of-type {
-    margin-bottom: 64px; }
-  .carouselElement::-webkit-scrollbar {
-    background: transparent;
-    display: none;
-    width: 0px; }
-  @media (min-width: 768px) {
-    .carouselElement {
-      height: auto; } }
 
 .carouselProgressIndicatorContainer {
   display: flex;
@@ -1030,14 +991,94 @@ li {
   border-radius: 4px;
   flex: 1 0 auto;
   background: #423838;
-  transition-duration: 0.3s; }
+  transition: 0.3s ease-in-out; }
   .carouselProgressIndicator + .carouselProgressIndicator {
     margin-left: 4px; }
   .carouselProgressIndicator.active {
     background: white; }
 
-.scrollSnapActive {
-  transition-duration: 0.3s; }
+.carouselScrollContent {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row; }
+  .carouselScrollContent::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
+  .carouselScrollContent::before, .carouselScrollContent::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: 5vw; }
+  @media (min-width: 768px) {
+    .carouselScrollContent {
+      flex-wrap: wrap;
+      overflow: auto;
+      padding-top: 4px; }
+      .carouselScrollContent::before, .carouselScrollContent::after {
+        display: none; } }
+
+.carouselScrollElement {
+  height: 120vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: scroll;
+  touch-action: pan-x pan-y; }
+  .carouselScrollElement:last-of-type {
+    margin-bottom: 64px; }
+  .carouselScrollElement::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
+  @media (min-width: 768px) {
+    .carouselScrollElement {
+      height: auto; } }
+
+.carouselSwipeContent {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  transition: 0.3s ease-in-out; }
+  .carouselSwipeContent::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
+  .carouselSwipeContent::before, .carouselSwipeContent::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: 5vw; }
+  @media (min-width: 768px) {
+    .carouselSwipeContent {
+      flex-wrap: wrap;
+      overflow: auto;
+      padding-top: 4px; }
+      .carouselSwipeContent::before, .carouselSwipeContent::after {
+        display: none; } }
+
+.carouselSwipeElement {
+  height: 120vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden;
+  touch-action: pan-x pan-y; }
+  .carouselSwipeElement:last-of-type {
+    margin-bottom: 64px; }
+  .carouselSwipeElement::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
+  @media (min-width: 768px) {
+    .carouselSwipeElement {
+      height: auto; } }
 
 main {
   padding-top: 44px; }

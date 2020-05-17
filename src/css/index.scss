@@ -12,6 +12,8 @@
 @import '_tile';
 @import '_modal';
 @import '_carousel';
+@import '_carouselScroll';
+@import '_carouselSwipe';
 
 main {
   padding-top: $navBarUnit;
