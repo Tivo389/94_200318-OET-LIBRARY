@@ -6,8 +6,7 @@ import Modal from "./SectionModal";
 import CarouselNotes from "./SectionCarouselNotes";
 import CarouselScroll from "./SectionCarouselScroll";
 import CarouselSwipe from "./SectionCarouselSwipe";
-// import CarouselPaddle from "./SectionCarouselPaddle";
-// import CarouselContentNav from "./SectionCarouselContentNav";
+import CarouselPaddle from "./SectionCarouselPaddle";
 
 class SectionPrimary extends Component {
   content = {
@@ -17,9 +16,8 @@ class SectionPrimary extends Component {
     modal: Modal,
     carouselNotes: CarouselNotes,
     carouselScroll: CarouselScroll,
-    carouselSwipe: CarouselSwipe
-    // carouselPaddle: CarouselPaddle,
-    // carouselContentNav: CarouselContentNav,
+    carouselSwipe: CarouselSwipe,
+    carouselPaddle: CarouselPaddle
     // tabs: Tabs
   };
 

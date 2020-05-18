@@ -1078,6 +1078,47 @@ li {
     .carouselSwipeElement {
       height: auto; } }
 
+.carouselPaddleContent {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: row;
+  transition: 0.3s ease-in-out; }
+  .carouselPaddleContent::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
+  .carouselPaddleContent::before, .carouselPaddleContent::after {
+    content: '';
+    display: block;
+    flex: 0 0 auto;
+    width: 5vw; }
+  @media (min-width: 768px) {
+    .carouselPaddleContent {
+      flex-wrap: wrap;
+      overflow: auto;
+      padding-top: 4px; }
+      .carouselPaddleContent::before, .carouselPaddleContent::after {
+        display: none; } }
+
+.carouselPaddleElement {
+  height: 120vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden; }
+  .carouselPaddleElement:last-of-type {
+    margin-bottom: 512px; }
+  .carouselPaddleElement::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
+  @media (min-width: 768px) {
+    .carouselPaddleElement {
+      height: auto; } }
+
 main {
   padding-top: 44px; }
 
