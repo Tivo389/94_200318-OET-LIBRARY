@@ -14,6 +14,8 @@ class CarouselScroll extends Component {
   carouselItemWidth = 0;
   carouselItemPseudoElementWidth = 0;
   xAxisChange = 0;
+  yAxisChange = 0;
+  activatePanYIsActive = false;
   domCarouselContent;
   domCarouselContentItem;
 
@@ -118,25 +120,37 @@ class CarouselScroll extends Component {
     );
   }
 
+
+
   // PRIMARY EVENT FUNCTIONS
   handleOnTouchStart = (e) => {
     // Get me the XAxis of where the touch began
     this.touchStartXAxis = this.getTouchXAxis(e);
+    // Get me the YAxis of where the touch began
+    this.touchStartYAxis = this.getTouchYAxis(e);
     // Get me the Carousel's translateX value from the inline style
     this.translateXAxis = this.getCarouselTranslateXAxis(e);
   };
   handleOnTouchMove = (e) => {
     // Get me the value of change from the initial xAxis to the current xAxis
     this.getXAxisChange(e);
-    // If the user has scrolled a certain amount, activate scroll snap
-    this.activateScrollSnap(e);
+    // Get me the value of change from the initial yAxis to the current yAxis
+    this.getYAxisChange(e);
+    // If the user has scrolled a certain x-value, activate scroll snap
+    this.activateScrollSnap();
+    // If the user has scrolled a certain y-value, activate bodyOverflow
+    this.activateBodyOverflow(); // Deactivate to experience sans-angle-detection
   }
   handleOnTouchEnd = (e) => {
     // Get me the index of the current slide that is in view
     this.carouselItemInView = this.getCurrentSlideInView(e);
     // Update the active indicator
     this.updateActiveIndicator(e);
+    // Deactivate the bodyOverflow
+    this.deactivateBodyOverflow(); // Deactivate to experience sans-angle-detection
   };
+
+
 
   // GET FUNCTIONS
   getCurrentSlideInView = (e) => {
@@ -160,9 +174,27 @@ class CarouselScroll extends Component {
       return Math.round(e.clientX);
     }
   };
+  getTouchYAxis = (e) => {
+    if (e.touches && e.touches.length > 1) {
+      return;
+    } else if (window.PointerEvent) {
+      if (e.targetTouches) {
+        return Math.round(e.changedTouches[0].clientY);
+      } else {
+        return Math.round(e.clientY);
+      }
+    } else {
+      return Math.round(e.clientY);
+    }
+  };
   getXAxisChange = (e) => {
     this.xAxisChange = this.getTouchXAxis(e) - this.touchStartXAxis;
   };
+  getYAxisChange = (e) => {
+    this.yAxisChange = this.getTouchYAxis(e) - this.touchStartYAxis;
+  };
+
+
 
   // UPDATE & ACTIVATE FUNCTIONS
   updateCarouselTranslateXAxis = (translateXValue) => {
@@ -178,8 +210,8 @@ class CarouselScroll extends Component {
       };
     });
   };
-  activateScrollSnap = (e) => {
-    const triggerValue = 66;
+  activateScrollSnap = () => {
+    const triggerValue = 44;
     const triggerIsInitiated = Math.abs(this.xAxisChange) >= triggerValue;
     const onFirstCarouselItem = this.carouselItemInView === 0;
     const onLastCarouselItem = this.carouselItemInView === this.carouselContentItemCount;
@@ -200,6 +232,18 @@ class CarouselScroll extends Component {
     this.updateCarouselTranslateXAxis(translateXValue);
     scrollSnapIsActive = false;
   };
+  activateBodyOverflow = () => {
+    const radian = Math.atan2(Math.abs(this.xAxisChange), Math.abs(this.yAxisChange));
+    const angle = Math.round(radian * (180 / Math.PI));
+    const triggerAngle = 45;
+    const triggerAngleIsInitiated = angle >= triggerAngle;
+    if (triggerAngleIsInitiated) {
+      document.querySelector('body').style = 'overflow: hidden';
+    }
+  };
+  deactivateBodyOverflow = () => {
+    document.querySelector('body').style = 'overflow: visible';
+  }
 }
 
 export default CarouselScroll;
