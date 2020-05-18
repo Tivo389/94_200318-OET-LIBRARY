@@ -32,9 +32,8 @@
   max-width: 1920px;
   margin: 0 auto;
   overflow: hidden;
-  touch-action: pan-x pan-y;
   &:last-of-type {
-    margin-bottom: 64px;
+    margin-bottom: 512px;
   }
   &::-webkit-scrollbar {
     background: transparent;

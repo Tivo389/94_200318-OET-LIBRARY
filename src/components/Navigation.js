@@ -10,7 +10,7 @@ class Navigation extends Component {
             <FontAwesomeIcon icon="bars"/>
           </li>
         </ul>
-        <ul className="navBarContent">
+        <ul className="navBarContent" style={{maxHeight: window.innerHeight - 44}}>
           <li
             onClick={() => this.props.setContent("typography")}
             onMouseUp={this.handleOnMouseUp}>
