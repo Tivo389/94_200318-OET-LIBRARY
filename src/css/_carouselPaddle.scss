@@ -23,6 +23,16 @@
     }
   }
 }
+.carouselPaddlePaddleContainer {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+  left: 5vw;
+  right: 5vw;
+}
 .carouselPaddleElement {
   height: 120vw;
   display: flex;
@@ -33,7 +43,7 @@
   margin: 0 auto;
   overflow: hidden;
   &:last-of-type {
-    margin-bottom: 512px;
+    margin-bottom: 64px;
   }
   &::-webkit-scrollbar {
     background: transparent;
@@ -43,4 +53,15 @@
   @include w768 {
     height: auto;
   }
+}
+.paddleLeft, .paddleRight {
+  padding: 8px 16px 8px 8px;
+  height: 44px;
+  & path.paddleCaret {
+    fill: $colorWhite;
+    opacity: 0.65;
+  }
+}
+.paddleRight {
+  transform: scaleX(-1);
 }

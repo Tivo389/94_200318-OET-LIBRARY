@@ -1100,6 +1100,16 @@ li {
       .carouselPaddleContent::before, .carouselPaddleContent::after {
         display: none; } }
 
+.carouselPaddlePaddleContainer {
+  position: absolute;
+  bottom: 50%;
+  transform: translateY(50%);
+  display: flex;
+  width: 90vw;
+  justify-content: space-between;
+  left: 5vw;
+  right: 5vw; }
+
 .carouselPaddleElement {
   height: 120vw;
   display: flex;
@@ -1110,7 +1120,7 @@ li {
   margin: 0 auto;
   overflow: hidden; }
   .carouselPaddleElement:last-of-type {
-    margin-bottom: 512px; }
+    margin-bottom: 64px; }
   .carouselPaddleElement::-webkit-scrollbar {
     background: transparent;
     display: none;
@@ -1118,6 +1128,16 @@ li {
   @media (min-width: 768px) {
     .carouselPaddleElement {
       height: auto; } }
+
+.paddleLeft, .paddleRight {
+  padding: 8px 16px 8px 8px;
+  height: 44px; }
+  .paddleLeft path.paddleCaret, .paddleRight path.paddleCaret {
+    fill: white;
+    opacity: 0.65; }
+
+.paddleRight {
+  transform: scaleX(-1); }
 
 main {
   padding-top: 44px; }
