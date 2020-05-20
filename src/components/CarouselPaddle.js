@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CarouselContentItem from './CarouselContentItem';
 import { throttle } from './Helper';
+import { ReactComponent as PaddleCaret } from '../images/caret-left.svg';
 
 
 class CarouselPaddle extends Component {
@@ -101,7 +102,11 @@ class CarouselPaddle extends Component {
               class="Interdimensional Skirmisher"
               quote="There’s a thin line between life and death. You’ll find me there."/>
           </div>
-          {/* 999 Continue here add paddle svg */}
+
+          <div className="carouselPaddlePaddleContainer">
+            <PaddleCaret className="paddleLeft"/>
+            <PaddleCaret className="paddleRight"/>
+          </div>
           <div className="carouselProgressIndicatorContainer">
             <div className="carouselProgressIndicator active" key="1"></div>
             <div className="carouselProgressIndicator" key="2"></div>
