@@ -1105,10 +1105,13 @@ li {
   bottom: 50%;
   transform: translateY(50%);
   display: flex;
-  width: 90vw;
-  justify-content: space-between;
-  left: 5vw;
-  right: 5vw; }
+  width: calc(100% + 20px);
+  left: -10px;
+  right: -10px;
+  justify-content: space-between; }
+  @media (min-width: 768px) {
+    .carouselPaddlePaddleContainer {
+      display: none; } }
 
 .carouselPaddleElement {
   height: 120vw;
@@ -1130,14 +1133,24 @@ li {
       height: auto; } }
 
 .paddleLeft, .paddleRight {
-  padding: 8px 16px 8px 8px;
-  height: 44px; }
-  .paddleLeft path.paddleCaret, .paddleRight path.paddleCaret {
-    fill: white;
-    opacity: 0.65; }
+  padding: 4px;
+  height: 56px; }
+  .paddleLeft.active, .paddleRight.active {
+    transform: scale(2.5);
+    transform-origin: center center; }
+    .paddleLeft.active path.base, .paddleRight.active path.base {
+      opacity: 0.4; }
+  .paddleLeft.deactivated, .paddleRight.deactivated {
+    opacity: 0;
+    pointer-events: none; }
+  .paddleLeft path.base, .paddleRight path.base {
+    fill: #101010;
+    opacity: 0.8; }
 
 .paddleRight {
   transform: scaleX(-1); }
+  .paddleRight.active {
+    transform: scaleX(-1) scale(2.5); }
 
 main {
   padding-top: 44px; }
