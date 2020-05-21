@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CarouselContentItem from './CarouselContentItem';
 import { throttle } from './Helper';
-import { ReactComponent as PaddleCaret } from '../images/caret-left.svg';
+import { ReactComponent as PaddleCaret } from '../images/caret-button-left.svg';
 
 
 class CarouselPaddle extends Component {
@@ -104,8 +104,14 @@ class CarouselPaddle extends Component {
           </div>
 
           <div className="carouselPaddlePaddleContainer">
-            <PaddleCaret className="paddleLeft"/>
-            <PaddleCaret className="paddleRight"/>
+            <PaddleCaret
+              className="paddleLeft deactivated"
+              onTouchStart={this.paddleOnTouchStart}
+              onTouchEnd={this.paddleOnTouchEnd}/>
+            <PaddleCaret
+              className="paddleRight"
+              onTouchStart={this.paddleOnTouchStart}
+              onTouchEnd={this.paddleOnTouchEnd}/>
           </div>
           <div className="carouselProgressIndicatorContainer">
             <div className="carouselProgressIndicator active" key="1"></div>
@@ -146,7 +152,7 @@ class CarouselPaddle extends Component {
     // this.activateScro1llSnap();
     // If the user has scrolled a certain y-value, activate bodyOverflow
     // this.activateBodyOverflow(); // Deactivate to experience sans-angle-detection
-  }
+  };
   handleOnTouchEnd = (e) => {
     // Get me the index of the current slide that is in view
     // this.carouselItemInView = this.getCurrentSlideInView(e);
@@ -154,6 +160,12 @@ class CarouselPaddle extends Component {
     // this.updateActiveIndicator(e);
     // Deactivate the bodyOverflow
     // this.deactivateBodyOverflow(); // Deactivate to experience sans-angle-detection
+  };
+  paddleOnTouchStart = (e) => {
+    e.currentTarget.classList.add('active');
+  };
+  paddleOnTouchEnd = (e) => {
+    e.currentTarget.classList.remove('active');
   };
 
 
@@ -202,7 +214,15 @@ class CarouselPaddle extends Component {
 
 
 
-  // UPDATE & ACTIVATE FUNCTIONS
+  // UPDATE & ACTIVATE & DEACTIVATE FUNCTIONS
+  activatePaddleHover = (e) => {
+    e.currentTarget.querySelector('.paddleLeft').classList.add('active');
+    e.currentTarget.querySelector('.paddleRight').classList.add('active');
+  };
+  deactivatePaddleHover = (e) => {
+    e.currentTarget.querySelector('.paddleLeft').classList.remove('active');
+    e.currentTarget.querySelector('.paddleRight').classList.remove('active');
+  };
   updateCarouselTranslateXAxis = (translateXValue) => {
     this.domCarouselContent.style.transform = `translateX(${translateXValue}px)`
   };
