@@ -14,8 +14,24 @@
     flex: 0 0 auto;
     width: 5vw;
   }
+  & .carouselContentItem {
+    align-items: flex-start;
+  }
+  & .carouselContentItemContent {
+    padding: 40px 12px 144px 12px;
+    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.50) 65%, rgba(0,0,0,0) 100%);
+    @include w768 {
+      padding: 12px 12px 120px 12px;
+    }
+    @include w1024 {
+      padding: 12px 12px 96px 12px;
+    }
+  }
 }
 .carouselPaddleElement {
+  & .carouselProgressIndicatorContainer {
+    bottom: calc(120vw - 24px);
+  }
   @include w768 {
     flex-wrap: wrap;
     overflow: auto;
@@ -27,7 +43,7 @@
 }
 .carouselPaddlePaddleContainer {
   position: absolute;
-  bottom: 50%;
+  bottom: 35%;
   transform: translateY(50%);
   display: flex;
   width: calc(100% + 24px);
