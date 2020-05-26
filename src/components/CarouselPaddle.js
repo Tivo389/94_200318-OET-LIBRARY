@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CarouselContentItem from './CarouselContentItem';
-import { throttle } from './Helper';
 import { ReactComponent as PaddleCaret } from '../images/caret-button-left.svg';
 
 
@@ -19,11 +18,15 @@ class CarouselPaddle extends Component {
   activatePanYIsActive = false;
   domCarouselContent;
   domCarouselContentItem;
+  domPaddleLeft;
+  domPaddleRight;
 
   // LIFECYCLE METHODS
   componentDidMount() {
     this.domCarouselContent = document.querySelector('.carouselPaddleContent');
     this.domCarouselContentItem = document.querySelector('.carouselContentItem');
+    this.domPaddleLeft = document.querySelector('.paddleLeft');
+    this.domPaddleRight = document.querySelector('.paddleRight');
     this.carouselContentItemCount = this.domCarouselContent.childElementCount - 1; // Index-adj
     this.carouselItemWidth = this.domCarouselContentItem.getBoundingClientRect().width;
     this.carouselItemPseudoElementWidth = this.domCarouselContentItem.getBoundingClientRect().x;
@@ -35,11 +38,7 @@ class CarouselPaddle extends Component {
   render() {
     return (
       <>
-        <div
-          className="carouselPaddleElement"
-          onTouchStart={this.handleOnTouchStart}
-          onTouchMove={throttle(this.handleOnTouchMove, 8)}
-          onTouchEnd={this.handleOnTouchEnd}>
+        <div className="carouselPaddleElement">
           <div className="carouselPaddleContent" style={{transform: 'translateX(0)'}}>
             <CarouselContentItem
               key="1"
@@ -105,7 +104,7 @@ class CarouselPaddle extends Component {
 
           <div className="carouselPaddlePaddleContainer">
             <PaddleCaret
-              className="paddleLeft deactivated"
+              className="paddleLeft inactive"
               onTouchStart={this.paddleOnTouchStart}
               onTouchEnd={this.paddleOnTouchEnd}/>
             <PaddleCaret
@@ -132,102 +131,55 @@ class CarouselPaddle extends Component {
     );
   }
 
-
-
   // PRIMARY EVENT FUNCTIONS
-  handleOnTouchStart = (e) => {
-    // Get me the XAxis of where the touch began
-    // this.touchStartXAxis = this.getTouchXAxis(e);
-    // Get me the YAxis of where the touch began
-    // this.touchStartYAxis = this.getTouchYAxis(e);
-    // Get me the Carousel's translateX value from the inline style
-    // this.translateXAxis = this.getCarouselTranslateXAxis(e);
-  };
-  handleOnTouchMove = (e) => {
-    // Get me the value of change from the initial xAxis to the current xAxis
-    // this.getXAxisChange(e);
-    // Get me the value of change from the initial yAxis to the current yAxis
-    // this.getYAxisChange(e);
-    // If the user has scrolled a certain x-value, activate scroll snap
-    // this.activateScro1llSnap();
-    // If the user has scrolled a certain y-value, activate bodyOverflow
-    // this.activateBodyOverflow(); // Deactivate to experience sans-angle-detection
-  };
-  handleOnTouchEnd = (e) => {
-    // Get me the index of the current slide that is in view
-    // this.carouselItemInView = this.getCurrentSlideInView(e);
-    // Update the active indicator
-    // this.updateActiveIndicator(e);
-    // Deactivate the bodyOverflow
-    // this.deactivateBodyOverflow(); // Deactivate to experience sans-angle-detection
-  };
   paddleOnTouchStart = (e) => {
     e.currentTarget.classList.add('active');
+    // Get me the Carousel's translateX value from the inline style
+    this.translateXAxis = this.getCarouselTranslateXAxis();
+    // Get me the index of the current slide that is in view
+    this.carouselItemInView = this.getCurrentSlideInView(e);
+    // Activate the scroll snap to the next/previous slide
+    this.activateScrollSnap(e);
   };
   paddleOnTouchEnd = (e) => {
     e.currentTarget.classList.remove('active');
+    // Get me the index of the current slide that is in view
+    this.carouselItemInView = this.getCurrentSlideInView(e);
+    // Update the active indicator
+    this.updateActiveIndicator();
+    // Update the paddle status if necessary
+    this.updatePaddleStatus(e);
   };
-
-
 
   // GET FUNCTIONS
   getCurrentSlideInView = (e) => {
     return Math.round((this.getCarouselTranslateXAxis(e) * -1) / this.carouselItemFullWidth);
   };
-  getCarouselTranslateXAxis = (e) => {
-    const input = e.currentTarget.querySelector('.carouselPaddleContent').style.transform;
+  getCarouselTranslateXAxis = () => {
+    const input = document.querySelector('.carouselPaddleContent').style.transform;
     const regex = /-?\d+/;
     return parseInt(input.match(regex)[0]);
   };
-  getTouchXAxis = (e) => {
-    if (e.touches && e.touches.length > 1) {
-      return;
-    } else if (window.PointerEvent) {
-      if (e.targetTouches) {
-        return Math.round(e.changedTouches[0].clientX);
-      } else {
-        return Math.round(e.clientX);
-      }
-    } else {
-      return Math.round(e.clientX);
-    }
-  };
-  getTouchYAxis = (e) => {
-    if (e.touches && e.touches.length > 1) {
-      return;
-    } else if (window.PointerEvent) {
-      if (e.targetTouches) {
-        return Math.round(e.changedTouches[0].clientY);
-      } else {
-        return Math.round(e.clientY);
-      }
-    } else {
-      return Math.round(e.clientY);
-    }
-  };
-  getXAxisChange = (e) => {
-    this.xAxisChange = this.getTouchXAxis(e) - this.touchStartXAxis;
-  };
-  getYAxisChange = (e) => {
-    this.yAxisChange = this.getTouchYAxis(e) - this.touchStartYAxis;
-  };
-
-
 
   // UPDATE & ACTIVATE & DEACTIVATE FUNCTIONS
-  activatePaddleHover = (e) => {
-    e.currentTarget.querySelector('.paddleLeft').classList.add('active');
-    e.currentTarget.querySelector('.paddleRight').classList.add('active');
+  activateScrollSnap = (e) => {
+    const userClickedLeft = e.currentTarget.classList.contains('paddleLeft');
+    const userClickedRight = e.currentTarget.classList.contains('paddleRight');
+    let scrollSnapIsActive = false;
+    let translateXValue;
+    if (!scrollSnapIsActive) {
+      scrollSnapIsActive = true;
+      if (userClickedLeft) {
+        translateXValue = ((this.carouselItemInView - 1) * this.carouselItemFullWidth) * -1;
+      } if (userClickedRight) {
+        translateXValue = ((this.carouselItemInView + 1) * this.carouselItemFullWidth) * -1;
+      }
+    }
+    this.updateCarouselTranslateXAxis(translateXValue);
+    scrollSnapIsActive = false;
   };
-  deactivatePaddleHover = (e) => {
-    e.currentTarget.querySelector('.paddleLeft').classList.remove('active');
-    e.currentTarget.querySelector('.paddleRight').classList.remove('active');
-  };
-  updateCarouselTranslateXAxis = (translateXValue) => {
-    this.domCarouselContent.style.transform = `translateX(${translateXValue}px)`
-  };
-  updateActiveIndicator = (e) => {
-    const domIndicators = e.currentTarget.querySelectorAll('.carouselProgressIndicator')
+  updateActiveIndicator = () => {
+    const domIndicators = document.querySelectorAll('.carouselProgressIndicator');
     domIndicators.forEach((indicator, i) => {
       if (parseInt(i) === this.carouselItemInView) {
         indicator.classList.add('active');
@@ -236,40 +188,21 @@ class CarouselPaddle extends Component {
       };
     });
   };
-  activateScrollSnap = () => {
-    const triggerValue = 44;
-    const triggerIsInitiated = Math.abs(this.xAxisChange) >= triggerValue;
+  updateCarouselTranslateXAxis = (translateXValue) => {
+    this.domCarouselContent.style.transform = `translateX(${translateXValue}px)`
+  };
+  updatePaddleStatus = (e) => {
     const onFirstCarouselItem = this.carouselItemInView === 0;
     const onLastCarouselItem = this.carouselItemInView === this.carouselContentItemCount;
-    const swipeLeft = this.xAxisChange < 0;
-    const swipeRight = this.xAxisChange > 0;
-    let scrollSnapIsActive = false;
-    let translateXValue;
-    if (!scrollSnapIsActive && triggerIsInitiated) {
-      scrollSnapIsActive = true;
-      if ((onLastCarouselItem && swipeLeft) || (onFirstCarouselItem && swipeRight)) {
-        return;
-      } if (swipeLeft) {
-        translateXValue = ((this.carouselItemInView + 1) * this.carouselItemFullWidth) * -1;
-      } if (swipeRight) {
-        translateXValue = ((this.carouselItemInView - 1) * this.carouselItemFullWidth) * -1;
-      }
-    }
-    this.updateCarouselTranslateXAxis(translateXValue);
-    scrollSnapIsActive = false;
-  };
-  activateBodyOverflow = () => {
-    const radian = Math.atan2(Math.abs(this.xAxisChange), Math.abs(this.yAxisChange));
-    const angle = Math.round(radian * (180 / Math.PI));
-    const triggerAngle = 45;
-    const triggerAngleIsInitiated = angle >= triggerAngle;
-    if (triggerAngleIsInitiated) {
-      document.querySelector('body').style = 'overflow: hidden';
+    if (onFirstCarouselItem) {
+      this.domPaddleLeft.classList.add('inactive');
+    } else if (onLastCarouselItem) {
+      this.domPaddleRight.classList.add('inactive');
+    } else if (!onFirstCarouselItem || !onLastCarouselItem) {
+      this.domPaddleRight.classList.remove('inactive');
+      this.domPaddleLeft.classList.remove('inactive');
     }
   };
-  deactivateBodyOverflow = () => {
-    document.querySelector('body').style = 'overflow: visible';
-  }
 }
 
 export default CarouselPaddle;

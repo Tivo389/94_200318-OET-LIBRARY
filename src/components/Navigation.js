@@ -49,7 +49,12 @@ class Navigation extends Component {
           <li
             onClick={() => this.props.setContent("carouselPaddle")}
             onMouseUp={this.handleOnMouseUp}>
-              Carousel<span> / Paddle</span>
+              Carousel<span> / Paddle / Conventional</span>
+          </li>
+          <li
+            onClick={() => this.props.setContent("carouselPaddleBottomUI")}
+            onMouseUp={this.handleOnMouseUp}>
+              Carousel<span> / Paddle / Bottom-UI</span>
           </li>
           <li
             onClick={() => this.props.setContent("tabs")}

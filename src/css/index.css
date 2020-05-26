@@ -412,7 +412,8 @@ a {
     outline: none; }
 
 code {
-  letter-spacing: -0.02em; }
+  letter-spacing: -0.02em;
+  line-height: 1.35; }
 
 li {
   font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif; }
@@ -1092,22 +1093,23 @@ li {
     display: block;
     flex: 0 0 auto;
     width: 5vw; }
-  @media (min-width: 768px) {
-    .carouselPaddleContent {
-      flex-wrap: wrap;
-      overflow: auto;
-      padding-top: 4px; }
-      .carouselPaddleContent::before, .carouselPaddleContent::after {
-        display: none; } }
+
+@media (min-width: 768px) {
+  .carouselPaddleElement {
+    flex-wrap: wrap;
+    overflow: auto;
+    padding-top: 4px; }
+    .carouselPaddleElement::before, .carouselPaddleElement::after {
+      display: none; } }
 
 .carouselPaddlePaddleContainer {
   position: absolute;
   bottom: 50%;
   transform: translateY(50%);
   display: flex;
-  width: calc(100% + 20px);
-  left: -10px;
-  right: -10px;
+  width: calc(100% + 24px);
+  left: -12px;
+  right: -12px;
   justify-content: space-between; }
   @media (min-width: 768px) {
     .carouselPaddlePaddleContainer {
@@ -1134,16 +1136,16 @@ li {
 
 .paddleLeft, .paddleRight {
   padding: 4px;
-  height: 56px; }
+  width: 60px; }
   .paddleLeft.active, .paddleRight.active {
     transform: scale(2.5);
     transform-origin: center center; }
     .paddleLeft.active path.base, .paddleRight.active path.base {
       opacity: 0.4; }
-  .paddleLeft.deactivated, .paddleRight.deactivated {
+  .paddleLeft.inactive, .paddleRight.inactive {
     opacity: 0;
     pointer-events: none; }
-  .paddleLeft path.base, .paddleRight path.base {
+  .paddleLeft .base, .paddleRight .base {
     fill: #101010;
     opacity: 0.8; }
 
@@ -1198,7 +1200,7 @@ li {
   display: block;
   background: #101010;
   color: white;
-  line-height: 1;
+  line-height: 1.35;
   padding: 0.75em 1.25em;
   margin: 6rem calc(1rem * -1) 3rem calc(1rem * -1); }
 
