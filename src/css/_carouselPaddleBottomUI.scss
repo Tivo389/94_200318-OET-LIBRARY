@@ -1,60 +1,4 @@
-.carouselPaddleContent {
-  flex: 1 0 auto;
-  display: flex;
-  flex-direction: row;
-  transition: $transitionMD ease-in-out;
-  &::-webkit-scrollbar {
-    background: transparent;
-    display: none;
-    width: 0px;
-  }
-  &::before, &::after {
-    content: '';
-    display: block;
-    flex: 0 0 auto;
-    width: 5vw;
-  }
-  & .carouselContentItem {
-    align-items: flex-start;
-  }
-  & .carouselContentItemContent {
-    padding: 40px 12px 144px 12px;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.50) 65%, rgba(0,0,0,0) 100%);
-    @include w768 {
-      padding: 12px 12px 120px 12px;
-    }
-    @include w1024 {
-      padding: 12px 12px 96px 12px;
-    }
-  }
-}
-.carouselPaddleElement {
-  & .carouselProgressIndicatorContainer {
-    bottom: calc(120vw - 24px);
-  }
-  @include w768 {
-    flex-wrap: wrap;
-    overflow: auto;
-    padding-top: 4px; // To cater for hover
-    &::before, &::after {
-      display: none;
-    }
-  }
-}
-.carouselPaddlePaddleContainer {
-  position: absolute;
-  bottom: 35%;
-  transform: translateY(50%);
-  display: flex;
-  width: calc(100% + 24px);
-  left: -12px;
-  right: -12px;
-  justify-content: space-between;
-  @include w768 {
-    display: none;
-  }
-}
-.carouselPaddleElement {
+.carouselPaddleBottomUIElement {
   height: 120vw;
   display: flex;
   flex-direction: column;
@@ -63,6 +7,59 @@
   max-width: 1920px;
   margin: 0 auto;
   overflow: hidden;
+  & .carouselProgressIndicatorContainer {
+    bottom: 34px;
+    left: calc(5vw + 64px);
+    width: calc(100% - 10vw - 104px);
+    & .carouselProgressIndicator {
+      max-width: 8px;
+      max-height: 8px;
+      height: 8px;;
+      & +.carouselProgressIndicator {
+        margin-left: 6px;
+      }
+    }
+  }
+  &.carouselPaddleContent {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    transition: $transitionMD ease-in-out;
+    &::-webkit-scrollbar {
+      background: transparent;
+      display: none;
+      width: 0px;
+    }
+    &::before, &::after {
+      content: '';
+      display: block;
+      flex: 0 0 auto;
+      width: 5vw;
+    }
+  }
+  & .carouselContentItemContent {
+    padding: 96px 12px 60px 12px;
+    background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.50) 65%, rgba(0,0,0,0) 100%);
+    @include w768 {
+      padding: 12px 12px 120px 12px;
+    }
+    @include w1024 {
+      padding: 12px 12px 96px 12px;
+    }
+  }
+  & .carouselPaddlePaddleContainer {
+    position: absolute;
+    bottom: 16px;
+    transform: translateY(0%);
+    display: flex;
+    width: calc(90vw - 16px);
+    left: calc(5vw + 8px);
+    height: 44px;
+    justify-content: space-between;
+    @include w768 {
+      display: none;
+    }
+  }
   &:last-of-type {
     margin-bottom: 64px;
   }
@@ -73,30 +70,36 @@
   }
   @include w768 {
     height: auto;
-  }
-}
-.paddleLeft, .paddleRight {
-  padding: 4px;
-  width: 60px;
-  &.active {
-    transform: scale(2.5);
-    transform-origin: center center;
-    & path.base {
-      opacity: 0.4;
+    flex-wrap: wrap;
+    overflow: auto;
+    padding-top: 4px; // To cater for hover
+    &::before, &::after {
+      display: none;
     }
   }
-  &.inactive {
-      opacity: 0;
-      pointer-events: none;
+  .paddleLeft, .paddleRight {
+    width: 44px;
+    touch-action: manipulation;
+    &.active {
+      transform: scale(1.5);
+      transform-origin: center center;
+      & path.base {
+        opacity: 0.4;
+      }
+    }
+    &.inactive {
+        opacity: 0.4;
+        pointer-events: none;
+    }
+    & .base {
+      fill: rgb(240,240,240);
+      opacity: 0.5;
+    }
   }
-  & .base {
-    fill: rgb(16,16,16);
-    opacity: 0.8;
-  }
-}
-.paddleRight {
-  transform: scaleX(-1);
-  &.active {
-    transform: scaleX(-1) scale(2.5);
+  .paddleRight {
+    transform: scaleX(-1);
+    &.active {
+      transform: scaleX(-1) scale(1.5);
+    }
   }
 }
