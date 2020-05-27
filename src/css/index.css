@@ -990,7 +990,7 @@ li {
   height: 4px;
   border-radius: 4px;
   flex: 1 0 auto;
-  background: #423838;
+  background: #584b4b;
   transition: 0.3s ease-in-out; }
   .carouselProgressIndicator + .carouselProgressIndicator {
     margin-left: 4px; }
@@ -1160,6 +1160,93 @@ li {
   transform: scaleX(-1); }
   .paddleRight.active {
     transform: scaleX(-1) scale(1.5); }
+
+.carouselPaddleBottomUIElement {
+  height: 120vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow: hidden; }
+  .carouselPaddleBottomUIElement .carouselProgressIndicatorContainer {
+    bottom: 34px;
+    left: calc(5vw + 64px);
+    width: calc(100% - 10vw - 104px); }
+    .carouselPaddleBottomUIElement .carouselProgressIndicatorContainer .carouselProgressIndicator {
+      max-width: 8px;
+      max-height: 8px;
+      height: 8px; }
+      .carouselPaddleBottomUIElement .carouselProgressIndicatorContainer .carouselProgressIndicator + .carouselProgressIndicator {
+        margin-left: 6px; }
+  .carouselPaddleBottomUIElement.carouselPaddleContent {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: row;
+    transition: 0.3s ease-in-out; }
+    .carouselPaddleBottomUIElement.carouselPaddleContent::-webkit-scrollbar {
+      background: transparent;
+      display: none;
+      width: 0px; }
+    .carouselPaddleBottomUIElement.carouselPaddleContent::before, .carouselPaddleBottomUIElement.carouselPaddleContent::after {
+      content: '';
+      display: block;
+      flex: 0 0 auto;
+      width: 5vw; }
+  .carouselPaddleBottomUIElement .carouselContentItemContent {
+    padding: 96px 12px 60px 12px;
+    background: linear-gradient(0deg, black 0%, rgba(0, 0, 0, 0.5) 65%, rgba(0, 0, 0, 0) 100%); }
+    @media (min-width: 768px) {
+      .carouselPaddleBottomUIElement .carouselContentItemContent {
+        padding: 12px 12px 120px 12px; } }
+    @media (min-width: 1024px) {
+      .carouselPaddleBottomUIElement .carouselContentItemContent {
+        padding: 12px 12px 96px 12px; } }
+  .carouselPaddleBottomUIElement .carouselPaddlePaddleContainer {
+    position: absolute;
+    bottom: 16px;
+    transform: translateY(0%);
+    display: flex;
+    width: calc(90vw - 16px);
+    left: calc(5vw + 8px);
+    height: 44px;
+    justify-content: space-between; }
+    @media (min-width: 768px) {
+      .carouselPaddleBottomUIElement .carouselPaddlePaddleContainer {
+        display: none; } }
+  .carouselPaddleBottomUIElement:last-of-type {
+    margin-bottom: 64px; }
+  .carouselPaddleBottomUIElement::-webkit-scrollbar {
+    background: transparent;
+    display: none;
+    width: 0px; }
+  @media (min-width: 768px) {
+    .carouselPaddleBottomUIElement {
+      height: auto;
+      flex-wrap: wrap;
+      overflow: auto;
+      padding-top: 4px; }
+      .carouselPaddleBottomUIElement::before, .carouselPaddleBottomUIElement::after {
+        display: none; } }
+  .carouselPaddleBottomUIElement .paddleLeft, .carouselPaddleBottomUIElement .paddleRight {
+    width: 44px;
+    touch-action: manipulation; }
+    .carouselPaddleBottomUIElement .paddleLeft.active, .carouselPaddleBottomUIElement .paddleRight.active {
+      transform: scale(1.5);
+      transform-origin: center center; }
+      .carouselPaddleBottomUIElement .paddleLeft.active path.base, .carouselPaddleBottomUIElement .paddleRight.active path.base {
+        opacity: 0.4; }
+    .carouselPaddleBottomUIElement .paddleLeft.inactive, .carouselPaddleBottomUIElement .paddleRight.inactive {
+      opacity: 0.4;
+      pointer-events: none; }
+    .carouselPaddleBottomUIElement .paddleLeft .base, .carouselPaddleBottomUIElement .paddleRight .base {
+      fill: #f0f0f0;
+      opacity: 0.5; }
+  .carouselPaddleBottomUIElement .paddleRight {
+    transform: scaleX(-1); }
+    .carouselPaddleBottomUIElement .paddleRight.active {
+      transform: scaleX(-1) scale(1.5); }
 
 main {
   padding-top: 44px; }
