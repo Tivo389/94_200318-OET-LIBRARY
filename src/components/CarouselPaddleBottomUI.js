@@ -103,13 +103,13 @@ class CarouselPaddleBottomUI extends Component {
           </div>
           <div className="carouselPaddlePaddleContainer">
             <PaddleCaret
-              className="paddleLeft inactive"
-              onTouchStart={this.paddleOnTouchStart}
-              onTouchEnd={this.paddleOnTouchEnd}/>
+              className="paddleLeft"
+              onMouseDown={this.paddleOnMouseDown}
+              onMouseUp={this.paddleOnMouseUp}/>
             <PaddleCaret
               className="paddleRight"
-              onTouchStart={this.paddleOnTouchStart}
-              onTouchEnd={this.paddleOnTouchEnd}/>
+              onMouseDown={this.paddleOnMouseDown}
+              onMouseUp={this.paddleOnMouseUp}/>
           </div>
           <div className="carouselProgressIndicatorContainer">
             <div className="carouselProgressIndicator active" key="1"></div>
@@ -131,7 +131,7 @@ class CarouselPaddleBottomUI extends Component {
   }
 
   // PRIMARY EVENT FUNCTIONS
-  paddleOnTouchStart = (e) => {
+  paddleOnMouseDown = (e) => {
     e.currentTarget.classList.add('active');
     // Get me the Carousel's translateX value from the inline style
     this.translateXAxis = this.getCarouselTranslateXAxis();
@@ -140,14 +140,14 @@ class CarouselPaddleBottomUI extends Component {
     // Activate the scroll snap to the next/previous slide
     this.activateScrollSnap(e);
   };
-  paddleOnTouchEnd = (e) => {
+  paddleOnMouseUp = (e) => {
     e.currentTarget.classList.remove('active');
     // Get me the index of the current slide that is in view
     this.carouselItemInView = this.getCurrentSlideInView(e);
     // Update the active indicator
     this.updateActiveIndicator();
     // Update the paddle status if necessary
-    this.updatePaddleStatus(e);
+    // this.updatePaddleStatus(e); // Disabled to cater for loop function
   };
 
   // GET FUNCTIONS
@@ -162,15 +162,21 @@ class CarouselPaddleBottomUI extends Component {
 
   // UPDATE & ACTIVATE & DEACTIVATE FUNCTIONS
   activateScrollSnap = (e) => {
+    const onFirstCarouselItem = this.carouselItemInView === 0;
+    const onLastCarouselItem = this.carouselItemInView === this.carouselContentItemCount;
     const userClickedLeft = e.currentTarget.classList.contains('paddleLeft');
     const userClickedRight = e.currentTarget.classList.contains('paddleRight');
     let scrollSnapIsActive = false;
     let translateXValue;
     if (!scrollSnapIsActive) {
       scrollSnapIsActive = true;
-      if (userClickedLeft) {
+      if (userClickedLeft && onFirstCarouselItem) {
+        translateXValue = (this.carouselItemFullWidth * this.carouselContentItemCount) * -1;
+      } else if (userClickedRight && onLastCarouselItem) {
+        translateXValue = 0;
+      } else if (userClickedLeft) {
         translateXValue = ((this.carouselItemInView - 1) * this.carouselItemFullWidth) * -1;
-      } if (userClickedRight) {
+      } else if (userClickedRight) {
         translateXValue = ((this.carouselItemInView + 1) * this.carouselItemFullWidth) * -1;
       }
     }
@@ -190,18 +196,18 @@ class CarouselPaddleBottomUI extends Component {
   updateCarouselTranslateXAxis = (translateXValue) => {
     this.domCarouselContent.style.transform = `translateX(${translateXValue}px)`
   };
-  updatePaddleStatus = (e) => {
-    const onFirstCarouselItem = this.carouselItemInView === 0;
-    const onLastCarouselItem = this.carouselItemInView === this.carouselContentItemCount;
-    if (onFirstCarouselItem) {
-      this.domPaddleLeft.classList.add('inactive');
-    } else if (onLastCarouselItem) {
-      this.domPaddleRight.classList.add('inactive');
-    } else if (!onFirstCarouselItem || !onLastCarouselItem) {
-      this.domPaddleRight.classList.remove('inactive');
-      this.domPaddleLeft.classList.remove('inactive');
-    }
-  };
+  // updatePaddleStatus = (e) => {
+  //   const onFirstCarouselItem = this.carouselItemInView === 0;
+  //   const onLastCarouselItem = this.carouselItemInView === this.carouselContentItemCount;
+  //   if (onFirstCarouselItem) {
+  //     this.domPaddleLeft.classList.add('inactive');
+  //   } else if (onLastCarouselItem) {
+  //     this.domPaddleRight.classList.add('inactive');
+  //   } else if (!onFirstCarouselItem || !onLastCarouselItem) {
+  //     this.domPaddleRight.classList.remove('inactive');
+  //     this.domPaddleLeft.classList.remove('inactive');
+  //   }
+  // };
 }
 
 export default CarouselPaddleBottomUI;

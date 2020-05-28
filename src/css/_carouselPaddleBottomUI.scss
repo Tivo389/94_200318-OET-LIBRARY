@@ -8,13 +8,14 @@
   margin: 0 auto;
   overflow: hidden;
   & .carouselProgressIndicatorContainer {
-    bottom: 34px;
-    left: calc(5vw + 64px);
-    width: calc(100% - 10vw - 104px);
+    bottom: 36px;
+    left: 28vw;
+    width: 44vw;
+    justify-content: space-between;
     & .carouselProgressIndicator {
-      max-width: 8px;
-      max-height: 8px;
-      height: 8px;;
+      max-width: 6px;
+      max-height: 6px;
+      height: 6px;;
       & +.carouselProgressIndicator {
         margin-left: 6px;
       }
@@ -24,7 +25,7 @@
     flex: 1 0 auto;
     display: flex;
     flex-direction: row;
-    transition: $transitionMD ease-in-out;
+    transition: $transitionLG ease-in-out;
     &::-webkit-scrollbar {
       background: transparent;
       display: none;
@@ -38,22 +39,23 @@
     }
   }
   & .carouselContentItemContent {
-    padding: 96px 12px 60px 12px;
+    padding: 96px 12px 64px 12px;
     background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.50) 65%, rgba(0,0,0,0) 100%);
     @include w768 {
-      padding: 12px 12px 120px 12px;
+      padding: 120px 12px 12px 12px;
     }
     @include w1024 {
-      padding: 12px 12px 96px 12px;
+      padding: 96px 12px 12px 12px;
     }
   }
   & .carouselPaddlePaddleContainer {
     position: absolute;
-    bottom: 16px;
+    bottom: 18px;
     transform: translateY(0%);
+    touch-action: manipulation;
     display: flex;
-    width: calc(90vw - 16px);
-    left: calc(5vw + 8px);
+    width: calc(90vw - 24px);
+    left: calc(5vw + 12px);
     height: 44px;
     justify-content: space-between;
     @include w768 {
@@ -80,6 +82,7 @@
   .paddleLeft, .paddleRight {
     width: 44px;
     touch-action: manipulation;
+    padding: 0;
     &.active {
       transform: scale(1.5);
       transform-origin: center center;
