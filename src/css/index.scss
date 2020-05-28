@@ -16,7 +16,9 @@
 @import '_carouselSwipe';
 @import '_carouselPaddle';
 @import '_carouselPaddleBottomUI';
-
+body {
+  touch-action: manipulation;
+}
 main {
   padding-top: $navBarUnit;
 }
