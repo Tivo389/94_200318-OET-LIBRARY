@@ -7,7 +7,7 @@ import SectionPrimary from './components/SectionPrimary';
 library.add(faBars, faExternalLinkAlt, faFileAlt, faLanguage, faNewspaper, faVideo, faCalendarAlt, faPlayCircle, faComments, faMapSigns, faWindowRestore, faTimes, faStar, faHorseHead);
 
 function App() {
-  const [content, setContent] = useState("carouselPaddleBottomUI");
+  const [content, setContent] = useState("callToAction");
   return (
     <div className="App">
       <Navigation setContent={setContent}/>

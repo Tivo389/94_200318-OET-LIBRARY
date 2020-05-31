@@ -19,7 +19,7 @@ class CallToAction extends Component {
             <code>Text CTA</code>
           </a>
           <a
-            href="#iconCTA"
+            href="#graphicCTA"
             rel="noopener noreferrer">
             <code>Icon CTA</code>
           </a>
@@ -30,7 +30,7 @@ class CallToAction extends Component {
         <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Standard CTA</code>
         <div id="standardCTA" className="callToActionContainer">
           <a
-            className="ctaTextStandardPrimary"
+            className="ctaStandardPrimary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -38,25 +38,7 @@ class CallToAction extends Component {
             Learn More
           </a>
           <a
-            className="ctaTextStandardSecondary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            Learn More
-          </a>
-        </div>
-        <div className="callToActionContainer ctaLayoutVertical">
-          <a
-            className="ctaTextStandardPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            Learn More
-          </a>
-          <a
-            className="ctaTextStandardSecondary"
+            className="ctaStandardSecondary"
             href="./"
             onTouchStart={this.onTouchStart}
             onTouchEnd={this.onTouchEnd}
@@ -69,90 +51,37 @@ class CallToAction extends Component {
       <section className="sectionContainer">
         <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Text CTA</code>
         <div id="textCTA" className="callToActionContainer">
-          <a
-            className="ctaTextOnlyPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
+          <a className="ctaTextOnlyPrimary" href="./">
             Learn More
           </a>
-          <a
-            className="ctaTextOnlySecondary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            Learn More
-          </a>
-        </div>
-        <div className="callToActionContainer ctaLayoutVertical">
-          <a
-            className="ctaTextOnlyPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            Learn More
-          </a>
-          <a
-            className="ctaTextOnlySecondary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
+          <a className="ctaTextOnlySecondary" href="./">
             Learn More
           </a>
         </div>
       </section>
-      {/* ICON CTAS */}
+      {/* GRAPHIC CTAS */}
       <section className="sectionContainer">
-        <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Icon CTA</code>
-        <div id="iconCTA" className="ctaIconContainer">
-          <a
-            className="ctaIconPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            <FontAwesomeIcon icon="newspaper" className="ctaIconIcon" width="100%"/>
-            <span className="ctaIconText">News</span>
+        <code className="sectionHeader"><FontAwesomeIcon icon="map-signs"/> Graphic CTA</code>
+        <div id="graphicCTA" className="callToActionIconContainer">
+          <a className="ctaGraphicPrimary" href="./">
+            <FontAwesomeIcon icon="newspaper" width="100%"/>
+            <span className="ctaGraphicText">News</span>
           </a>
-          <a
-            className="ctaIconPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            <FontAwesomeIcon icon="video" className="ctaIconIcon" width="100%"/>
-            <span className="ctaIconText">Livestreams</span>
+          <a className="ctaGraphicPrimary" href="./">
+            <FontAwesomeIcon icon="video" width="100%"/>
+            <span className="ctaGraphicText">Livestream</span>
           </a>
-          <a
-            className="ctaIconPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            <FontAwesomeIcon icon="calendar-alt" className="ctaIconIcon" width="100%"/>
-            <span className="ctaIconText">Events</span>
+          <a className="ctaGraphicPrimary" href="./">
+            <FontAwesomeIcon icon="calendar-alt" width="100%"/>
+            <span className="ctaGraphicText">Event</span>
           </a>
-          <a
-            className="ctaIconPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            <FontAwesomeIcon icon="play-circle" className="ctaIconIcon" width="100%"/>
-            <span className="ctaIconText">Videos</span>
+          <a className="ctaGraphicPrimary" href="./">
+            <FontAwesomeIcon icon="play-circle" width="100%"/>
+            <span className="ctaGraphicText">Video</span>
           </a>
-          <a
-            className="ctaIconPrimary"
-            href="./"
-            onTouchStart={this.onTouchStart}
-            onTouchEnd={this.onTouchEnd}
-            onTouchCancel={this.onTouchCancel}>
-            <FontAwesomeIcon icon="comments" className="ctaIconIcon" width="100%"/>
-            <span className="ctaIconText">Social</span>
+          <a className="ctaGraphicPrimary" href="./">
+            <FontAwesomeIcon icon="comments" width="100%"/>
+            <span className="ctaGraphicText">Social</span>
           </a>
         </div>
       </section>

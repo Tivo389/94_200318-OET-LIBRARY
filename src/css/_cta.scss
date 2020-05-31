@@ -1,13 +1,9 @@
 // GENERAL
-[class="callToActionContainer"] {
-  & [class*="ctaText"] + [class*="ctaText"] {
-    margin-left: 1.5em;
-  }
-}
 [class*="cta"] {
   font-weight: 500;
   letter-spacing: normal;
   line-height: 1;
+  margin: 1em;
 }
 [class*="Primary"] {
   color: $colorDarkMain;
@@ -23,25 +19,16 @@
     margin-top: 3em;
   }
 }
-.ctaLayoutVertical {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  & [class*="cta"] + [class*="cta"] {
-    margin-top: 1.5em;
-  }
-}
 // CTA STANDARD
-[class*="ctaTextStandard"] {
+[class*="ctaStandard"] {
   -webkit-tap-highlight-color: transparent; // Safari & Chrome Negate
   display: inline-block;
-  margin: 0;
   padding: 0.75em 1.25em;
   position: relative;
   transition: 60ms cubic-bezier(0, 0.4, 0.4, 1);
   user-select: none;
   &::before, &::after {
-    border-radius: 3px;
+    border-radius: 999px;
     bottom: 0;
     content: "";
     display: inline-block;
@@ -73,7 +60,7 @@
     }
   }
 }
-.ctaTextStandardPrimary {
+.ctaStandardPrimary {
   &::before {
     background: $colorLightMain;
   }
@@ -81,7 +68,7 @@
     border: 2px solid $colorLightMain;
   }
 }
-.ctaTextStandardSecondary {
+.ctaStandardSecondary {
   &::before {
     background: $colorLightGray;
   }
@@ -101,8 +88,8 @@
     }
   }
 }
-// CTA ICON
-.ctaIconContainer {
+// CTA GRAPHIC
+.callToActionIconContainer {
   display: flex;
   flex-direction: column;
   width: 240px;
@@ -120,20 +107,18 @@
   @include w1440 {
     padding: 0;
     min-width: initial;
-    max-width: 1024px;
+    max-width: 640px;
+    justify-content: center;
   }
 }
-.ctaIconPrimary {
+.ctaGraphicPrimary {
   align-items: center;
   display: flex;
   transition: $transitionSM ease-in-out;
   flex-direction: row;
-  & + .ctaIconPrimary {
-    margin: 1.25em 0 0 0;
-  }
-  & .ctaIconIcon {
+  & svg {
     height: 40px;
-    width: 40px;
+    width: 40px !important; //.svg-inline--fa.fa-w-18 OVERRIDE
   }
   @include hover {
     &:hover {
@@ -142,26 +127,15 @@
   }
   @include w768 {
     flex-direction: column;
-    width: calc(50% - 16px);
-    & + .ctaIconPrimary {
-      margin: 0 0 32px 0;
-    }
+    width: calc(50% - 2em);
   }
   @include w1440 {
-    width: calc(20% - 16px);
-    & + .ctaIconPrimary {
-      margin: 0;
-    }
+    width: calc(33.333% - 2em);
   }
 }
-.ctaIconText {
-  font-family: $ffBodyCondensed;
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 0.025em;
+.ctaGraphicText {
   margin: 0 0 0 0.75em;
   text-align: center;
-  text-transform: uppercase;
   @include w768 {
     margin: 0.75em 0 0 0;
   }
