@@ -3,7 +3,7 @@
   font-weight: 500;
   letter-spacing: normal;
   line-height: 1;
-  margin: 1em;
+  margin: 0.75em;
 }
 [class*="Primary"] {
   color: $colorDarkMain;
@@ -19,11 +19,31 @@
     margin-top: 3em;
   }
 }
+.callToActionContainerRailed {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 240px;
+  @include w768 {
+    width: 100%;
+    min-width: 240px;
+    max-width: 720px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  @include w1440 {
+    padding: 0;
+    min-width: initial;
+    max-width: 640px;
+    justify-content: center;
+  }
+}
 // CTA STANDARD
 [class*="ctaStandard"] {
   -webkit-tap-highlight-color: transparent; // Safari & Chrome Negate
   display: inline-block;
-  padding: 0.75em 1.25em;
+  padding: 1em 1.50em;
   position: relative;
   transition: 60ms cubic-bezier(0, 0.4, 0.4, 1);
   user-select: none;
@@ -76,6 +96,26 @@
     border: 2px solid $colorLightGray;
   }
 }
+// CTA ICON
+.ctaStandardPrimary.ctaWithBrandIcon {
+  align-items: center;
+  display: inline-flex;
+  flex-basis: calc(50% - 1.5em);
+  justify-content: flex-start;
+  padding-top: 0.55em;
+  padding-bottom: 0.45em;
+  @include w768 {
+    flex-basis: calc(33.33% - 1.5em);
+    justify-content: center;
+  }
+}
+.ctaBrandIcon {
+  fill: currentColor;
+  height: 100%;
+  margin: 0 0.75rem 0 0;
+  width: 2rem;
+  transform: translateY(-1px);
+}
 // CTA TEXT
 .ctaTextOnlyPrimary, .ctaTextOnlySecondary {
   &::after {
@@ -89,28 +129,6 @@
   }
 }
 // CTA GRAPHIC
-.callToActionIconContainer {
-  display: flex;
-  flex-direction: column;
-  width: 240px;
-  margin: 0 auto;
-  @include w768 {
-    width: 100%;
-    min-width: 240px;
-    max-width: 480px;
-    padding: 0 16px;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-  @include w1440 {
-    padding: 0;
-    min-width: initial;
-    max-width: 640px;
-    justify-content: center;
-  }
-}
 .ctaGraphicPrimary {
   align-items: center;
   display: flex;
@@ -127,16 +145,14 @@
   }
   @include w768 {
     flex-direction: column;
-    width: calc(50% - 2em);
-  }
-  @include w1440 {
-    width: calc(33.333% - 2em);
+    width: calc(33.33% - 1.5em);
   }
 }
 .ctaGraphicText {
   margin: 0 0 0 0.75em;
-  text-align: center;
+  text-align: left;
   @include w768 {
     margin: 0.75em 0 0 0;
+    text-align: center;
   }
 }
