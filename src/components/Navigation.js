@@ -12,26 +12,6 @@ class Navigation extends Component {
         </ul>
         <ul className="navBarContent" style={{maxHeight: window.innerHeight - 44}}>
           <li
-            onClick={() => this.props.setContent("typography")}
-            onMouseUp={this.handleOnMouseUp}>
-              Typography
-          </li>
-          <li
-            onClick={() => this.props.setContent("callToAction")}
-            onMouseUp={this.handleOnMouseUp}>
-              CTA
-          </li>
-          <li
-            onClick={() => this.props.setContent("tile")}
-            onMouseUp={this.handleOnMouseUp}>
-              Tile
-          </li>
-          <li
-            onClick={() => this.props.setContent("modal")}
-            onMouseUp={this.handleOnMouseUp}>
-              Modal
-          </li>
-          <li
             onClick={() => this.props.setContent("carouselNotes")}
             onMouseUp={this.handleOnMouseUp}>
               Carousel<span> / Notes</span>
@@ -57,9 +37,34 @@ class Navigation extends Component {
               Carousel<span> / Paddle / Bottom-UI</span>
           </li>
           <li
+            onClick={() => this.props.setContent("callToAction")}
+            onMouseUp={this.handleOnMouseUp}>
+              CTA
+          </li>
+          <li
+            onClick={() => this.props.setContent("modal")}
+            onMouseUp={this.handleOnMouseUp}>
+              Modal
+          </li>
+          <li onMouseUp={this.handleOnMouseUp}>
+            <a href="/navigation-bar">
+              Navigation Bar
+            </a>
+          </li>
+          <li
             onClick={() => this.props.setContent("tabs")}
             onMouseUp={this.handleOnMouseUp}>
-              Tabs
+              [UNDER DEVELOPMENT] Tabs
+          </li>
+          <li
+            onClick={() => this.props.setContent("tile")}
+            onMouseUp={this.handleOnMouseUp}>
+              Tile
+          </li>
+          <li
+            onClick={() => this.props.setContent("typography")}
+            onMouseUp={this.handleOnMouseUp}>
+              Typography
           </li>
         </ul>
       </nav>

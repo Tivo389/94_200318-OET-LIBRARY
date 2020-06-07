@@ -51,6 +51,9 @@
     font-size: 75%;
     letter-spacing: 0.04em;
   }
+  & li a {
+    color: inherit;
+  }
   @include w768 {
     flex-direction: row;
     flex-wrap: wrap;
@@ -65,8 +68,13 @@
     }
   }
   @include w1440 {
+    justify-content: flex-start;
     & li {
+      margin-right: 3.32%;
       width: 22.5%;
+      &:nth-child(4n) {
+        margin-right: 0;
+      }
     }
   }
 }
