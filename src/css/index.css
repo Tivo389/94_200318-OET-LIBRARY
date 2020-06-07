@@ -478,6 +478,8 @@ li {
   .navBarContent li span {
     font-size: 75%;
     letter-spacing: 0.04em; }
+  .navBarContent li a {
+    color: inherit; }
   @media (min-width: 768px) {
     .navBarContent {
       flex-direction: row;
@@ -489,8 +491,13 @@ li {
     .navBarContent li {
       width: 30%; } }
   @media (min-width: 1440px) {
-    .navBarContent li {
-      width: 22.5%; } }
+    .navBarContent {
+      justify-content: flex-start; }
+      .navBarContent li {
+        margin-right: 3.32%;
+        width: 22.5%; }
+        .navBarContent li:nth-child(4n) {
+          margin-right: 0; } }
 
 .navBarIcons {
   list-style: none;
@@ -592,7 +599,7 @@ li {
     .callToActionContainerRailed {
       padding: 0;
       min-width: initial;
-      max-width: 640px;
+      max-width: 720px;
       justify-content: center; } }
 
 [class*="ctaStandard"] {
