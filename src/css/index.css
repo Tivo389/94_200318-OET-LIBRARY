@@ -1253,6 +1253,42 @@ li {
     .carouselPaddleBottomUIElement .paddleRight.active {
       transform: scaleX(-1) scale(1.5); }
 
+.dummySection {
+  background: #988686;
+  background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
+  height: 200vh; }
+
+.navigationBarBody {
+  display: none; }
+
+.navigationBarElement {
+  background: white;
+  box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
+  height: 44px;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: sticky; }
+
+.navigationBarElement ul {
+  color: #584b4b;
+  margin: 0;
+  list-style: none;
+  padding: 0; }
+  .navigationBarElement ul li {
+    padding: 12px;
+    fill: currentColor;
+    margin: 0;
+    max-height: 44px;
+    max-width: 44px; }
+
+.navigationBarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%; }
+
 body {
   touch-action: manipulation; }
 

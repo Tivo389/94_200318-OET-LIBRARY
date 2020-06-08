@@ -1,0 +1,44 @@
+@charset 'utf-8';
+$navigationBarUnit: 44px;
+
+.dummySection {
+  background: $colorGray;
+  background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
+  height: 200vh;
+}
+
+.navigationBarBody {
+  display: none;
+}
+
+.navigationBarElement {
+  background: $colorWhite;
+  box-shadow: $boxShadowDefault;
+  height: $navigationBarUnit;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: sticky;
+}
+
+.navigationBarElement ul {
+  color: $colorDarkGray;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+  & li {
+    padding: 12px;
+    fill: currentColor;
+    margin: 0;
+    max-height: $navigationBarUnit;
+    max-width: $navigationBarUnit;
+  }
+}
+
+.navigationBarHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
