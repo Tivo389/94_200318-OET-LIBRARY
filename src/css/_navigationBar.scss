@@ -1,44 +1,69 @@
 @charset 'utf-8';
 $navigationBarUnit: 44px;
+$navigationBarUnitDouble: calc(#{$navigationBarUnit} * 2);
+$navigationBarUnitHalf: calc(#{$navigationBarUnit} / 2);
 
 .dummySection {
-  background: $colorGray;
   background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
+  background: $colorGray;
   height: 200vh;
 }
 
 .navigationBarBody {
-  display: none;
+  // transform: translateY(-100vh);
+  border-top: 1px solid lighten($colorGray, 5%);
+  background: $colorWhite;
+  color: $colorBlack;
+  display: flex;
+  // display: none;
+  flex-direction: column;
+  font-size: 1rem;
+  justify-content: flex-start;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  list-style: none;
+  margin: 0;
+  overflow: scroll;
+  padding: 0 0 $navigationBarUnitDouble 0;
+  text-align: left;
+  transition: $transitionMD cubic-bezier(0, 0, 0.9, 1);
+  width: 100%;
+  height: calc(100vh - #{$navigationBarUnit});
+  & li {
+    padding: $navigationBarUnitHalf 0;
+    margin: 0 $navigationBarUnitHalf;
+    border-bottom: 1px dashed lighten($colorGray, 5%);
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
 }
 
 .navigationBarElement {
   background: $colorWhite;
   box-shadow: $boxShadowDefault;
   height: $navigationBarUnit;
-  width: 100%;
-  top: 0;
   left: 0;
-  right: 0;
   position: sticky;
+  right: 0;
+  top: 0;
+  // width: 100%;
 }
 
-.navigationBarElement ul {
+.navigationBarHeader {
+  align-items: center;
   color: $colorDarkGray;
-  margin: 0;
+  display: flex;
+  height: $navigationBarUnit;
+  justify-content: space-between;
   list-style: none;
+  margin: 0;
   padding: 0;
   & li {
-    padding: 12px;
     fill: currentColor;
     margin: 0;
     max-height: $navigationBarUnit;
     max-width: $navigationBarUnit;
+    padding: 12px;
   }
-}
-
-.navigationBarHeader {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
 }
