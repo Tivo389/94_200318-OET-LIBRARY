@@ -3,19 +3,15 @@ $navigationBarUnit: 44px;
 $navigationBarUnitDouble: calc(#{$navigationBarUnit} * 2);
 $navigationBarUnitHalf: calc(#{$navigationBarUnit} / 2);
 
-.dummySection {
-  background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
-  background: $colorGray;
-  height: 200vh;
+body.active {
+  overflow: hidden;
 }
 
 .navigationBarBody {
-  // transform: translateY(-100vh);
-  border-top: 1px solid lighten($colorGray, 5%);
+  transform: translateY(-100vh);
   background: $colorWhite;
   color: $colorBlack;
   display: flex;
-  // display: none;
   flex-direction: column;
   font-size: 1rem;
   justify-content: flex-start;
@@ -29,10 +25,11 @@ $navigationBarUnitHalf: calc(#{$navigationBarUnit} / 2);
   transition: $transitionMD cubic-bezier(0, 0, 0.9, 1);
   width: 100%;
   height: calc(100vh - #{$navigationBarUnit});
+  z-index: 970;
   & li {
     padding: $navigationBarUnitHalf 0;
     margin: 0 $navigationBarUnitHalf;
-    border-bottom: 1px dashed lighten($colorGray, 5%);
+    border-bottom: 1px dashed $colorLightGray;
     &:last-of-type {
       border-bottom: 0;
     }
@@ -41,24 +38,33 @@ $navigationBarUnitHalf: calc(#{$navigationBarUnit} / 2);
 
 .navigationBarElement {
   background: $colorWhite;
-  box-shadow: $boxShadowDefault;
   height: $navigationBarUnit;
   left: 0;
   position: sticky;
   right: 0;
   top: 0;
-  // width: 100%;
+  &.active .navigationBarHeader {
+    box-shadow: $boxShadowDefault;
+  }
+  &.active .navigationBarBody {
+    transform: translateY(0);
+  }
 }
 
 .navigationBarHeader {
   align-items: center;
+  border-bottom: 1px solid $colorLightGray;
   color: $colorDarkGray;
   display: flex;
+  background: $colorWhite;
   height: $navigationBarUnit;
   justify-content: space-between;
   list-style: none;
   margin: 0;
   padding: 0;
+  position: relative;
+  transition: $transitionMD cubic-bezier(0, 0, 0.9, 1);
+  z-index: 980;
   & li {
     fill: currentColor;
     margin: 0;

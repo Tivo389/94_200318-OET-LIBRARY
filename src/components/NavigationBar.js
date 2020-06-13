@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { ReactComponent as IconBurger } from '../images/icon-burger.svg';
 import { ReactComponent as IconFPO1x1 } from '../images/icon-fpo-1x1.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFileAlt } from '@fortawesome/free-solid-svg-icons'
+library.add(faFileAlt);
+
+
 
 class NavigationBar extends Component {
   // LIFECYCLE METHODS
@@ -15,7 +20,7 @@ class NavigationBar extends Component {
       <>
         <nav className="navigationBarElement">
           <ul className="navigationBarHeader">
-            <li>
+            <li onClick={this.onBurgerIconClick}>
               <IconBurger/>
             </li>
             <li>
@@ -34,6 +39,13 @@ class NavigationBar extends Component {
             <li>Foxtrot</li>
             <li>Golf</li>
             <li>Hotel</li>
+            <li>India</li>
+            <li>Juliett</li>
+            <li>Kilo</li>
+            <li>Lima</li>
+            <li>Mike</li>
+            <li>November</li>
+            <li>Oscar</li>
           </ul>
         </nav>
         <section className="sectionContainer">
@@ -86,8 +98,9 @@ class NavigationBar extends Component {
 
   // FUNCTION: BASIC EXPLANATION HERE
   // - Detailed explanation here
-  sampleFunction = () => {
-    console.log('sampleFunction!');
+  onBurgerIconClick = () => {
+    document.querySelector('.navigationBarElement').classList.toggle('active');
+    document.body.classList.toggle('active');
   };
 }
 

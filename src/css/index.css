@@ -1253,13 +1253,11 @@ li {
     .carouselPaddleBottomUIElement .paddleRight.active {
       transform: scaleX(-1) scale(1.5); }
 
-.dummySection {
-  background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
-  background: #988686;
-  height: 200vh; }
+body.active {
+  overflow: hidden; }
 
 .navigationBarBody {
-  border-top: 1px solid #a49494;
+  transform: translateY(-100vh);
   background: white;
   color: #202020;
   display: flex;
@@ -1275,32 +1273,41 @@ li {
   text-align: left;
   transition: 0.3s cubic-bezier(0, 0, 0.9, 1);
   width: 100%;
-  height: calc(100vh - 44px); }
+  height: calc(100vh - 44px);
+  z-index: 970; }
   .navigationBarBody li {
     padding: calc(44px / 2) 0;
     margin: 0 calc(44px / 2);
-    border-bottom: 1px dashed #a49494; }
+    border-bottom: 1px dashed #e3dede; }
     .navigationBarBody li:last-of-type {
       border-bottom: 0; }
 
 .navigationBarElement {
   background: white;
-  box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24);
   height: 44px;
   left: 0;
   position: sticky;
   right: 0;
   top: 0; }
+  .navigationBarElement.active .navigationBarHeader {
+    box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24); }
+  .navigationBarElement.active .navigationBarBody {
+    transform: translateY(0); }
 
 .navigationBarHeader {
   align-items: center;
+  border-bottom: 1px solid #e3dede;
   color: #584b4b;
   display: flex;
+  background: white;
   height: 44px;
   justify-content: space-between;
   list-style: none;
   margin: 0;
-  padding: 0; }
+  padding: 0;
+  position: relative;
+  transition: 0.3s cubic-bezier(0, 0, 0.9, 1);
+  z-index: 980; }
   .navigationBarHeader li {
     fill: currentColor;
     margin: 0;
@@ -1328,6 +1335,11 @@ ul {
 li {
   margin: 0.65em 0;
   line-height: 1.35; }
+
+.dummySection {
+  background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
+  background: #988686;
+  height: 200vh; }
 
 .externalLinkIcon {
   font-size: 80% !important;

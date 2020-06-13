@@ -39,6 +39,11 @@ li {
   margin: 0.65em 0;
   line-height: 1.35;
 }
+.dummySection {
+  background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
+  background: $colorGray;
+  height: 200vh;
+}
 .externalLinkIcon {
   font-size: 80% !important;
   color: $colorLightGray;
