@@ -1,44 +1,75 @@
 @charset 'utf-8';
 $navigationBarUnit: 44px;
+$navigationBarUnitDouble: calc(#{$navigationBarUnit} * 2);
+$navigationBarUnitHalf: calc(#{$navigationBarUnit} / 2);
 
-.dummySection {
-  background: $colorGray;
-  background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
-  height: 200vh;
+body.active {
+  overflow: hidden;
 }
 
 .navigationBarBody {
-  display: none;
+  transform: translateY(-100vh);
+  background: $colorWhite;
+  color: $colorBlack;
+  display: flex;
+  flex-direction: column;
+  font-size: 1rem;
+  justify-content: flex-start;
+  letter-spacing: 0.02em;
+  line-height: 1;
+  list-style: none;
+  margin: 0;
+  overflow: scroll;
+  padding: 0 0 $navigationBarUnitDouble 0;
+  text-align: left;
+  transition: $transitionMD cubic-bezier(0, 0, 0.9, 1);
+  width: 100%;
+  height: calc(100vh - #{$navigationBarUnit});
+  z-index: 970;
+  & li {
+    padding: $navigationBarUnitHalf 0;
+    margin: 0 $navigationBarUnitHalf;
+    border-bottom: 1px dashed $colorLightGray;
+    &:last-of-type {
+      border-bottom: 0;
+    }
+  }
 }
 
 .navigationBarElement {
   background: $colorWhite;
-  box-shadow: $boxShadowDefault;
   height: $navigationBarUnit;
-  width: 100%;
-  top: 0;
   left: 0;
-  right: 0;
   position: sticky;
-}
-
-.navigationBarElement ul {
-  color: $colorDarkGray;
-  margin: 0;
-  list-style: none;
-  padding: 0;
-  & li {
-    padding: 12px;
-    fill: currentColor;
-    margin: 0;
-    max-height: $navigationBarUnit;
-    max-width: $navigationBarUnit;
+  right: 0;
+  top: 0;
+  &.active .navigationBarHeader {
+    box-shadow: $boxShadowDefault;
+  }
+  &.active .navigationBarBody {
+    transform: translateY(0);
   }
 }
 
 .navigationBarHeader {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  height: 100%;
+  border-bottom: 1px solid $colorLightGray;
+  color: $colorDarkGray;
+  display: flex;
+  background: $colorWhite;
+  height: $navigationBarUnit;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  transition: $transitionMD cubic-bezier(0, 0, 0.9, 1);
+  z-index: 980;
+  & li {
+    fill: currentColor;
+    margin: 0;
+    max-height: $navigationBarUnit;
+    max-width: $navigationBarUnit;
+    padding: 12px;
+  }
 }
