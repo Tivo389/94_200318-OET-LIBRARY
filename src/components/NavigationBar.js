@@ -4,13 +4,18 @@ import { ReactComponent as IconFPO1x1 } from '../images/icon-fpo-1x1.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faFileAlt } from '@fortawesome/free-solid-svg-icons'
+import { throttle } from './Helper';
 library.add(faFileAlt);
 
 
 
 class NavigationBar extends Component {
+  valueToHideNavigationBar = 128;
+
   // LIFECYCLE METHODS
-  componentDidMount() {}
+  componentDidMount() {
+    window.addEventListener('scroll', throttle(this.handleOnScroll,16));
+  }
   componentDidUpdate() {}
   componentWillUnmount() {}
 
@@ -18,13 +23,16 @@ class NavigationBar extends Component {
   render() {
     return (
       <>
+      <div className="App">
         <nav className="navigationBarElement">
           <ul className="navigationBarHeader">
             <li onClick={this.onBurgerIconClick}>
               <IconBurger/>
             </li>
             <li>
-              <IconFPO1x1/>
+              <a href="/">
+                <IconFPO1x1/>
+              </a>
             </li>
             <li>
               <IconFPO1x1/>
@@ -92,6 +100,10 @@ class NavigationBar extends Component {
             </ul>
           </ul>
         </section>
+        <section className="dummySection">
+          <p>Dummy<br/>Section</p>
+        </section>
+      </div>
       </>
     );
   }
@@ -101,6 +113,21 @@ class NavigationBar extends Component {
   onBurgerIconClick = () => {
     document.querySelector('.navigationBarElement').classList.toggle('active');
     document.body.classList.toggle('active');
+  };
+  handleOnScroll = () => {
+    const valueTriggerHideNav = 88; // Double the average touch area value
+    const startPageYOffset = window.pageYOffset;
+    let endPageYOffset;
+    let valueAmountScrolled;
+    setTimeout(function() {
+      endPageYOffset = window.pageYOffset;
+      valueAmountScrolled = endPageYOffset - startPageYOffset;
+      if (valueAmountScrolled >= valueTriggerHideNav) {
+        document.querySelector('.navigationBarElement').classList.add('hidden');
+      } else if (valueAmountScrolled <= valueTriggerHideNav * -0.5) {
+        document.querySelector('.navigationBarElement').classList.remove('hidden');
+      };
+    }, 1000);
   };
 }
 

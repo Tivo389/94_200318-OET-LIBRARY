@@ -4,9 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 class Navigation extends Component {
   render() {
     return (
-      <nav className="navBar">
+      <nav className="navBar" onScroll={this.handleOnScroll}>
         <ul className="navBarIcons">
-          <li className="navBarIcon" onClick={this.onClick}>
+          <li className="navBarIcon" onClick={this.handleOnClick}>
             <FontAwesomeIcon icon="bars"/>
           </li>
         </ul>
@@ -70,7 +70,7 @@ class Navigation extends Component {
       </nav>
     );
   }
-  onClick = (e) => {
+  handleOnClick = (e) => {
     document.querySelector(".navBar").classList.toggle('active');
   };
   handleOnMouseUp = () => {

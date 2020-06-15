@@ -40,9 +40,18 @@ li {
   line-height: 1.35;
 }
 .dummySection {
+  align-items: center;
   background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
   background: $colorGray;
+  color: white;
+  display: flex;
   height: 200vh;
+  justify-content: center;
+  & p {
+    font-size: 2rem;
+    text-align: center;
+    color: currentColor;
+  }
 }
 .externalLinkIcon {
   font-size: 80% !important;
