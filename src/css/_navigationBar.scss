@@ -43,11 +43,15 @@ body.active {
   position: sticky;
   right: 0;
   top: 0;
+  transition: $transitionMD cubic-bezier(0.5, 0, 0.5, 2);
   &.active .navigationBarHeader {
     box-shadow: $boxShadowDefault;
   }
   &.active .navigationBarBody {
     transform: translateY(0);
+  }
+  &.hidden {
+    transform: translateY(-$navigationBarUnit);
   }
 }
 

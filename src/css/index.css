@@ -428,9 +428,6 @@ li {
   all: unset !important;
   border: 1px dashed #00C8FF !important; }
 
-.hidden {
-  display: none !important; }
-
 .navBar {
   align-items: flex-start;
   background-color: #202020;
@@ -1288,11 +1285,14 @@ body.active {
   left: 0;
   position: sticky;
   right: 0;
-  top: 0; }
+  top: 0;
+  transition: 0.3s cubic-bezier(0.5, 0, 0.5, 2); }
   .navigationBarElement.active .navigationBarHeader {
     box-shadow: 0 1px 6px rgba(32, 32, 32, 0.24); }
   .navigationBarElement.active .navigationBarBody {
     transform: translateY(0); }
+  .navigationBarElement.hidden {
+    transform: translateY(-44px); }
 
 .navigationBarHeader {
   align-items: center;
@@ -1337,9 +1337,17 @@ li {
   line-height: 1.35; }
 
 .dummySection {
+  align-items: center;
   background-image: url("https://www.transparenttextures.com/patterns/noisy-grid.png");
   background: #988686;
-  height: 200vh; }
+  color: white;
+  display: flex;
+  height: 200vh;
+  justify-content: center; }
+  .dummySection p {
+    font-size: 2rem;
+    text-align: center;
+    color: currentColor; }
 
 .externalLinkIcon {
   font-size: 80% !important;
