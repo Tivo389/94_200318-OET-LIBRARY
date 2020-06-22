@@ -1250,7 +1250,7 @@ li {
     .carouselPaddleBottomUIElement .paddleRight.active {
       transform: scaleX(-1) scale(1.5); }
 
-body.active {
+body.hideOverflow {
   overflow: hidden; }
 
 .navigationBarBody {
@@ -1265,7 +1265,8 @@ body.active {
   line-height: 1;
   list-style: none;
   margin: 0;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
   padding: 0 0 calc(44px * 2) 0;
   text-align: left;
   transition: 0.3s cubic-bezier(0, 0, 0.9, 1);
@@ -1278,6 +1279,8 @@ body.active {
     border-bottom: 1px dashed #e3dede; }
     .navigationBarBody li:last-of-type {
       border-bottom: 0; }
+  .navigationBarBody.overflowYHidden {
+    overflow-y: hidden; }
 
 .navigationBarElement {
   background: white;
@@ -1314,6 +1317,25 @@ body.active {
     max-height: 44px;
     max-width: 44px;
     padding: 12px; }
+
+.navigationBarSubBody {
+  background: white;
+  bottom: 0;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform: translateX(100vw);
+  transition: 0.15s cubic-bezier(0, 0, 0.9, 1); }
+  .navigationBarSubBody.active {
+    transform: translateX(0); }
+  .navigationBarSubBody li[data-nav-sub-body-function='child'] {
+    padding: calc(44px / 2) 0;
+    margin: 0 calc(44px / 2);
+    border-bottom: 1px dashed #e3dede; }
 
 body {
   touch-action: manipulation; }
