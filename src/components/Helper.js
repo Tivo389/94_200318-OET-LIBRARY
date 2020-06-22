@@ -7,3 +7,11 @@ export const throttle = (func, limit) => {
     }
   }
 };
+
+export const addClass = (domTarget, className) => {
+  domTarget.classList.add(className);
+};
+
+export const removeClass = (domTarget, className) => {
+  domTarget.classList.remove(className);
+};

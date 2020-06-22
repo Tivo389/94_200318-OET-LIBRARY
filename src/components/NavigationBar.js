@@ -3,9 +3,9 @@ import { ReactComponent as IconBurger } from '../images/icon-burger.svg';
 import { ReactComponent as IconFPO1x1 } from '../images/icon-fpo-1x1.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faFileAlt } from '@fortawesome/free-solid-svg-icons'
-import { throttle } from './Helper';
-library.add(faFileAlt);
+import { faFileAlt, faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { throttle, addClass, removeClass } from './Helper';
+library.add(faFileAlt, faArrowCircleLeft, faArrowCircleRight);
 
 
 
@@ -39,9 +39,53 @@ class NavigationBar extends Component {
             </li>
           </ul>
           <ul className="navigationBarBody">
-            <li>Alpha</li>
+            <li onClick={this.handleSubNavigationParent} data-nav-sub-body-function="parent">
+              Alpha&ensp;<FontAwesomeIcon icon="arrow-circle-right"/>
+              <ul className="navigationBarSubBody">
+                <a href="/">
+                  <li data-nav-sub-body-function="child">
+                    Alpha-1
+                  </li>
+                </a>
+                <a href="/">
+                  <li data-nav-sub-body-function="child">
+                    Alpha-2
+                  </li>
+                </a>
+                <a href="/">
+                  <li data-nav-sub-body-function="child">
+                    Alpha-3
+                  </li>
+                </a>
+                <li data-nav-sub-body-function="close">
+                  <FontAwesomeIcon icon="arrow-circle-left"/>&ensp;Back
+                </li>
+              </ul>
+            </li>
             <li>Beta</li>
-            <li>Charie</li>
+            <li onClick={this.handleSubNavigationParent} data-nav-sub-body-function="parent">
+              Charlie&ensp;<FontAwesomeIcon icon="arrow-circle-right"/>
+              <ul className="navigationBarSubBody">
+                <a href="/">
+                  <li data-nav-sub-body-function="child">
+                    Charlie-1
+                  </li>
+                </a>
+                <a href="/">
+                  <li data-nav-sub-body-function="child">
+                    Charlie-2
+                  </li>
+                </a>
+                <a href="/">
+                  <li data-nav-sub-body-function="child">
+                    Charlie-3
+                  </li>
+                </a>
+                <li data-nav-sub-body-function="close">
+                  <FontAwesomeIcon icon="arrow-circle-left"/>&ensp;Back
+                </li>
+              </ul>
+            </li>
             <li>Delta</li>
             <li>Echo</li>
             <li>Foxtrot</li>
@@ -57,7 +101,7 @@ class NavigationBar extends Component {
           </ul>
         </nav>
         <section className="sectionContainer">
-          <code><FontAwesomeIcon icon="file-alt"/> Navigation Bar / 200607</code>
+          <code><FontAwesomeIcon icon="file-alt"/>&ensp;Navigation Bar / 200607</code>
           <ul>
             <li>The &lt;ul&gt; and &lt;li&gt; have been used conventionally for Navigation. Semantic, Structure, and SEO seem to be the most common reason, however, is this the most effective?</li>
             <ul>
@@ -100,9 +144,6 @@ class NavigationBar extends Component {
             </ul>
           </ul>
         </section>
-        <section className="dummySection">
-          <p>Dummy<br/>Section</p>
-        </section>
       </div>
       </>
     );
@@ -112,7 +153,7 @@ class NavigationBar extends Component {
   // - Detailed explanation here
   onBurgerIconClick = () => {
     document.querySelector('.navigationBarElement').classList.toggle('active');
-    document.body.classList.toggle('active');
+    document.body.classList.toggle('hideOverflow');
   };
   handleOnScroll = () => {
     const valueTriggerHideNav = 88; // Double the average touch area value
@@ -128,6 +169,23 @@ class NavigationBar extends Component {
         document.querySelector('.navigationBarElement').classList.remove('hidden');
       };
     }, 1000);
+  };
+  handleSubNavigationParent = (e) => {
+    const navBody = document.querySelector('.navigationBarBody');
+    const navSubBody = e.currentTarget.querySelector('.navigationBarSubBody');
+    const navSubBodyIsActive = navSubBody.classList.contains('active');
+    const subBodyParent = e.target.closest('li').dataset.navSubBodyFunction === 'parent';
+    const subBodyChild = e.target.closest('li').dataset.navSubBodyFunction === 'child';
+    const subBodyClose = e.target.closest('li').dataset.navSubBodyFunction === 'close';
+    if (!navSubBodyIsActive && subBodyParent) {
+      addClass(navBody, 'overflowYHidden');
+      addClass(navSubBody, 'active');
+    } else if (navSubBodyIsActive && subBodyChild) {
+      return;
+    } else if (navSubBodyIsActive && subBodyClose) {
+      removeClass(navBody, 'overflowYHidden');
+      removeClass(e.currentTarget.querySelector('.navigationBarSubBody.active'), 'active');
+    }
   };
 }
 
