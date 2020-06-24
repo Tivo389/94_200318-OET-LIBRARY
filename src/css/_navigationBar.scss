@@ -8,25 +8,37 @@ body.hideOverflow {
 }
 
 .navigationBarBody {
-  transform: translateY(-100vh);
   background: $colorWhite;
   color: $colorBlack;
   display: flex;
   flex-direction: column;
   font-size: 1rem;
+  height: calc(100vh - #{$navigationBarUnit});
   justify-content: flex-start;
-  letter-spacing: 0.02em;
   line-height: 1;
   list-style: none;
   margin: 0;
-  overflow-y: scroll;
   overflow-x: hidden;
+  overflow-y: scroll;
   padding: 0 0 $navigationBarUnitDouble 0;
   text-align: left;
+  transform: translateY(-100vh);
   transition: $transitionMD cubic-bezier(0, 0, 0.9, 1);
   width: 100%;
-  height: calc(100vh - #{$navigationBarUnit});
   z-index: 970;
+  @include w1024 {
+    align-items: flex-start;
+    border-bottom: 1px solid $colorLightGray;
+    flex-direction: row;
+    flex: 0 0 auto;
+    height: $navigationBarUnit;
+    overflow: visible;
+    padding: 0;
+    position: relative;
+    transform: translateY(0);
+  }
+}
+.navigationBarBody {
   & li {
     padding: $navigationBarUnitHalf 0;
     margin: 0 $navigationBarUnitHalf;
@@ -34,9 +46,69 @@ body.hideOverflow {
     &:last-of-type {
       border-bottom: 0;
     }
+    &:not([data-nav-sub-body-function='parent']):hover {
+      text-decoration: underline;
+    }
+    &[data-nav-sub-body-function='parent'] {
+      flex-direction: column;
+      &:hover .navigationBarSubBody {
+        display: initial;
+      }
+    }
+    &[data-nav-sub-body-function='child'] {
+      padding: $navigationBarUnitHalf 0;
+      margin: 0 $navigationBarUnitHalf;
+      border-bottom: 1px dashed $colorLightGray;
+    }
+  }
+  & .desktopAngleIcon {
+    display: none;
+  }
+  & .desktopLogo {
+    display: none;
+    margin: 0;
+    padding: 12px;
+    flex: 1 0 auto;
   }
   &.overflowYHidden {
     overflow-y: hidden;
+  }
+  @include w1024 {
+    & li {
+      align-items: center;
+      border-bottom: none;
+      display: flex;
+      flex-direction: row;
+      margin: 0;
+      padding: calc((#{$navigationBarUnit} - (1rem * 1.35)) / 2) $navigationBarUnitHalf;
+      cursor: pointer;
+      &:last-of-type {
+        border-bottom: 0;
+      }
+      &[data-nav-sub-body-function='parent']:hover {
+        padding-left: 1.5px;
+        padding-right: 1.5px;
+      }
+      &[data-nav-sub-body-function='child'] {
+        padding: $navigationBarUnitHalf;
+        margin: 0;
+      }
+      &[data-nav-sub-body-function='close'] {
+        display: none;
+      }
+    }
+    & .desktopAngleIcon {
+      display: initial;
+    }
+    & .desktopLogo {
+      display: initial;
+      max-height: $navigationBarUnit;
+      max-width: $navigationBarUnit;
+      margin: 0 $navigationBarUnitHalf;
+    }
+    & .mobileAngleIcon {
+      display: none;
+    }
   }
 }
 
@@ -47,7 +119,7 @@ body.hideOverflow {
   position: sticky;
   right: 0;
   top: 0;
-  transition: $transitionMD cubic-bezier(0.5, 0, 0.5, 2);
+  transition: $transitionMD cubic-bezier(0.5, 0, 0.5, 1);
   &.active .navigationBarHeader {
     box-shadow: $boxShadowDefault;
   }
@@ -80,6 +152,9 @@ body.hideOverflow {
     max-width: $navigationBarUnit;
     padding: 12px;
   }
+  @include w1024 {
+    display: none;
+  }
 }
 
 .navigationBarSubBody {
@@ -97,9 +172,16 @@ body.hideOverflow {
   &.active {
     transform: translateX(0);
   }
-  & li[data-nav-sub-body-function='child'] {
-    padding: $navigationBarUnitHalf 0;
-    margin: 0 $navigationBarUnitHalf;
-    border-bottom: 1px dashed $colorLightGray;
+  @include w1024 {
+    background: $colorWhite;
+    border-bottom: 1px solid $colorLightGray;
+    border-left: 1px solid $colorLightGray;
+    border-right: 1px solid $colorLightGray;
+    list-style: none;
+    margin: calc(1rem / 2) 0 0 0;
+    padding: 0;
+    position: initial;
+    transform: translateX(-4px);
+    display: none;
   }
 }

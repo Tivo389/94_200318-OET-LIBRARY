@@ -3,14 +3,15 @@ import { ReactComponent as IconBurger } from '../images/icon-burger.svg';
 import { ReactComponent as IconFPO1x1 } from '../images/icon-fpo-1x1.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faFileAlt, faArrowCircleLeft, faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
+import { faFileAlt, faAngleLeft, faAngleRight, faAngleDown } from '@fortawesome/free-solid-svg-icons'
 import { throttle, addClass, removeClass } from './Helper';
-library.add(faFileAlt, faArrowCircleLeft, faArrowCircleRight);
+library.add(faFileAlt, faAngleLeft, faAngleRight, faAngleDown);
 
 
 
 class NavigationBar extends Component {
   valueToHideNavigationBar = 128;
+  isMobileBreakpoint = window.innerWidth < 1024;
 
   // LIFECYCLE METHODS
   componentDidMount() {
@@ -39,50 +40,67 @@ class NavigationBar extends Component {
             </li>
           </ul>
           <ul className="navigationBarBody">
-            <li onClick={this.handleSubNavigationParent} data-nav-sub-body-function="parent">
-              Alpha&ensp;<FontAwesomeIcon icon="arrow-circle-right"/>
+            <li className="desktopLogo">
+              <a href="/">
+                <IconFPO1x1/>
+              </a>
+            </li>
+            <li
+              onClick={this.isMobileBreakpoint ? this.handleSubNavigationParent : null}
+              data-nav-sub-body-function="parent">
+              <span>
+                Alpha&ensp;
+                <FontAwesomeIcon icon="angle-right" className="mobileAngleIcon"/>
+                <FontAwesomeIcon icon="angle-down" className="desktopAngleIcon"/>
+              </span>
               <ul className="navigationBarSubBody">
                 <a href="/">
                   <li data-nav-sub-body-function="child">
-                    Alpha-1
+                    Alpha-One
                   </li>
                 </a>
                 <a href="/">
                   <li data-nav-sub-body-function="child">
-                    Alpha-2
+                    Alpha-Two
                   </li>
                 </a>
                 <a href="/">
                   <li data-nav-sub-body-function="child">
-                    Alpha-3
+                    Alpha-Three
                   </li>
                 </a>
                 <li data-nav-sub-body-function="close">
-                  <FontAwesomeIcon icon="arrow-circle-left"/>&ensp;Back
+                  <FontAwesomeIcon icon="angle-left"/>&ensp;Back
                 </li>
               </ul>
             </li>
             <li>Beta</li>
-            <li onClick={this.handleSubNavigationParent} data-nav-sub-body-function="parent">
-              Charlie&ensp;<FontAwesomeIcon icon="arrow-circle-right"/>
+            <li
+              onClick={this.isMobileBreakpoint ? this.handleSubNavigationParent : null}
+              data-nav-sub-body-function="parent">
+              <span>
+                Charlie&ensp;
+                <FontAwesomeIcon icon="angle-right" className="mobileAngleIcon"/>
+                <FontAwesomeIcon icon="angle-down" className="desktopAngleIcon"/>
+              </span>
               <ul className="navigationBarSubBody">
                 <a href="/">
                   <li data-nav-sub-body-function="child">
-                    Charlie-1
+                    Charlie-One
                   </li>
                 </a>
                 <a href="/">
                   <li data-nav-sub-body-function="child">
-                    Charlie-2
+                    Charlie-Two
                   </li>
                 </a>
                 <a href="/">
                   <li data-nav-sub-body-function="child">
-                    Charlie-3
+                    Charlie-Three
                   </li>
                 </a>
                 <li data-nav-sub-body-function="close">
-                  <FontAwesomeIcon icon="arrow-circle-left"/>&ensp;Back
+                  <FontAwesomeIcon icon="angle-left"/>&ensp;Back
                 </li>
               </ul>
             </li>
@@ -92,12 +110,6 @@ class NavigationBar extends Component {
             <li>Golf</li>
             <li>Hotel</li>
             <li>India</li>
-            <li>Juliett</li>
-            <li>Kilo</li>
-            <li>Lima</li>
-            <li>Mike</li>
-            <li>November</li>
-            <li>Oscar</li>
           </ul>
         </nav>
         <section className="sectionContainer">

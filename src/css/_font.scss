@@ -31,12 +31,10 @@ h1 span, h2 span, h3 span, h4 span, h5 span, h6 span {
   display: block;
   font-size: 14px;
   font-weight: initial;
-  letter-spacing: initial;
   line-height: $desktopLineHeight;
 }
 p, a {
   font-family: $ffBody;
-  letter-spacing: -0.02em;
   line-height: $mobileLineHeight;
   margin: 0;
   @include w768 {
@@ -95,7 +93,6 @@ a {
   }
 }
 code {
-  letter-spacing:  -0.02em;
   line-height: 1.35;
 }
 li {
