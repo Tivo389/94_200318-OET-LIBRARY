@@ -1312,7 +1312,7 @@ body.hideOverflow {
 
 @media (min-width: 1024px) {
   .navigationBarBody li {
-    align-items: center;
+    align-items: flex-start;
     border-bottom: none;
     display: flex;
     flex-direction: row;
@@ -1321,9 +1321,6 @@ body.hideOverflow {
     cursor: pointer; }
     .navigationBarBody li:last-of-type {
       border-bottom: 0; }
-    .navigationBarBody li[data-nav-sub-body-function='parent']:hover {
-      padding-left: 1.5px;
-      padding-right: 1.5px; }
     .navigationBarBody li[data-nav-sub-body-function='child'] {
       padding: calc(44px / 2);
       margin: 0; }
@@ -1399,10 +1396,14 @@ body.hideOverflow {
       border-left: 1px solid #e3dede;
       border-right: 1px solid #e3dede;
       list-style: none;
-      margin: calc(1rem / 2) 0 0 0;
+      margin: 0;
       padding: 0;
-      position: initial;
-      transform: translateX(-4px);
+      position: absolute;
+      left: initial;
+      top: calc(44px - 1px);
+      bottom: initial;
+      right: initial;
+      transform: translateX(calc(calc(44px / 2) * -1));
       display: none; } }
 
 body {
