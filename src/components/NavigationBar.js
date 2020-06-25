@@ -54,6 +54,9 @@ class NavigationBar extends Component {
                 <FontAwesomeIcon icon="angle-down" className="desktopAngleIcon"/>
               </span>
               <ul className="navigationBarSubBody">
+                <li data-nav-sub-body-function="close">
+                  <FontAwesomeIcon icon="angle-left"/>&ensp;Back
+                </li>
                 <a href="/">
                   <li data-nav-sub-body-function="child">
                     Alpha-One
@@ -69,9 +72,6 @@ class NavigationBar extends Component {
                     Alpha-Three
                   </li>
                 </a>
-                <li data-nav-sub-body-function="close">
-                  <FontAwesomeIcon icon="angle-left"/>&ensp;Back
-                </li>
               </ul>
             </li>
             <li>Beta</li>
@@ -84,6 +84,9 @@ class NavigationBar extends Component {
                 <FontAwesomeIcon icon="angle-down" className="desktopAngleIcon"/>
               </span>
               <ul className="navigationBarSubBody">
+                <li data-nav-sub-body-function="close">
+                  <FontAwesomeIcon icon="angle-left"/>&ensp;Back
+                </li>
                 <a href="/">
                   <li data-nav-sub-body-function="child">
                     Charlie-One
@@ -99,9 +102,6 @@ class NavigationBar extends Component {
                     Charlie-Three
                   </li>
                 </a>
-                <li data-nav-sub-body-function="close">
-                  <FontAwesomeIcon icon="angle-left"/>&ensp;Back
-                </li>
               </ul>
             </li>
             <li>Delta</li>

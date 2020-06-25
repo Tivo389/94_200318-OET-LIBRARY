@@ -75,7 +75,7 @@ body.hideOverflow {
   }
   @include w1024 {
     & li {
-      align-items: center;
+      align-items: flex-start;
       border-bottom: none;
       display: flex;
       flex-direction: row;
@@ -84,10 +84,6 @@ body.hideOverflow {
       cursor: pointer;
       &:last-of-type {
         border-bottom: 0;
-      }
-      &[data-nav-sub-body-function='parent']:hover {
-        padding-left: 1.5px;
-        padding-right: 1.5px;
       }
       &[data-nav-sub-body-function='child'] {
         padding: $navigationBarUnitHalf;
@@ -178,10 +174,14 @@ body.hideOverflow {
     border-left: 1px solid $colorLightGray;
     border-right: 1px solid $colorLightGray;
     list-style: none;
-    margin: calc(1rem / 2) 0 0 0;
+    margin: 0;
     padding: 0;
-    position: initial;
-    transform: translateX(-4px);
+    position: absolute;
+    left: initial;
+    top: calc(#{$navigationBarUnit} - 1px);
+    bottom: initial;
+    right: initial;
+    transform: translateX(calc(#{$navigationBarUnitHalf} * -1));
     display: none;
   }
 }
