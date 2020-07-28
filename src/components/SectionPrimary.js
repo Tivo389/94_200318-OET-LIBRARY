@@ -1,25 +1,27 @@
 import React, { Component } from 'react';
-import Typography from "./SectionTypography";
 import CallToAction from "./SectionCallToAction";
-import Tile from "./SectionTile";
-import Modal from "./SectionModal";
 import CarouselNotes from "./SectionCarouselNotes";
-import CarouselScroll from "./SectionCarouselScroll";
-import CarouselSwipe from "./SectionCarouselSwipe";
 import CarouselPaddle from "./SectionCarouselPaddle";
 import CarouselPaddleBottomUI from "./SectionCarouselPaddleBottomUI";
+import CarouselScroll from "./SectionCarouselScroll";
+import CarouselSwipe from "./SectionCarouselSwipe";
+import Modal from "./SectionModal";
+import Table from "./SectionTable";
+import Tile from "./SectionTile";
+import Typography from "./SectionTypography";
 
 class SectionPrimary extends Component {
   content = {
-    typography: Typography,
     callToAction: CallToAction,
-    tile: Tile,
-    modal: Modal,
     carouselNotes: CarouselNotes,
+    carouselPaddle: CarouselPaddle,
+    carouselPaddleBottomUI: CarouselPaddleBottomUI,
     carouselScroll: CarouselScroll,
     carouselSwipe: CarouselSwipe,
-    carouselPaddle: CarouselPaddle,
-    carouselPaddleBottomUI: CarouselPaddleBottomUI
+    modal: Modal,
+    table: Table,
+    tile: Tile,
+    typography: Typography
     // tabs: Tabs
   };
 
