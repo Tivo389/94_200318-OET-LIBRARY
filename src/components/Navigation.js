@@ -52,6 +52,11 @@ class Navigation extends Component {
             </a>
           </li>
           <li
+            onClick={() => this.props.setContent("table")}
+            onMouseUp={this.handleOnMouseUp}>
+              Table
+          </li>
+          <li
             onClick={() => this.props.setContent("tabs")}
             onMouseUp={this.handleOnMouseUp}>
               [UNDER DEVELOPMENT] Tabs

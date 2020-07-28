@@ -1406,6 +1406,62 @@ body.hideOverflow {
       transform: translateX(calc(calc(44px / 2) * -1));
       display: none; } }
 
+.tableContainer {
+  background-color: #ffffff;
+  border: 1px solid #e3dede;
+  border-radius: 8px;
+  margin: 0 auto;
+  max-width: 1120px;
+  overflow-x: auto; }
+
+.tableElement {
+  font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  border-collapse: collapse;
+  border: 0;
+  min-width: 100%;
+  table-layout: fixed;
+  white-space: nowrap; }
+
+.tableHeader {
+  background-color: #e3dede; }
+
+.tableHeaderCell {
+  color: #584b4b;
+  font-size: .875rem;
+  padding: 18px 16px;
+  font-weight: bolder;
+  letter-spacing: .0075em;
+  line-height: 1.35;
+  text-align: left; }
+
+.tableBody {
+  font-size: .875rem;
+  line-height: 1.25;
+  font-weight: 400;
+  letter-spacing: .0178571429em;
+  text-decoration: inherit;
+  text-transform: inherit; }
+
+.tableBodyRow {
+  border-top-width: 1px;
+  border-top-style: solid;
+  border-top-color: rgba(0, 0, 0, 0.12); }
+
+.tableBodyCell {
+  padding: 16px;
+  font-size: .875rem;
+  line-height: 1.25rem;
+  font-weight: 400;
+  letter-spacing: .0178571429em;
+  text-decoration: inherit;
+  text-transform: inherit;
+  box-sizing: border-box;
+  text-overflow: ellipsis;
+  overflow: hidden; }
+
+.tableBodyRow:hover {
+  background-color: rgba(0, 0, 0, 0.04); }
+
 body {
   touch-action: manipulation; }
 
