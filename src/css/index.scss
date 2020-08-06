@@ -66,9 +66,13 @@ li {
 }
 .linksContainer {
   margin-top: 1em;
+  display: flex;
+  flex-direction: column;
   & a {
-    display: block;
-    margin-right: 1.5em;
+    margin-right: auto;
+  }
+  & a + a  {
+    margin-top: 0.35em;
   }
 }
 .sectionContainer {
