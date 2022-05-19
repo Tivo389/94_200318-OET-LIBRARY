@@ -1,15 +1,15 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from '../App';
 import NavigationBar from '../components/NavigationBar';
 
 const Router = () => (
   <BrowserRouter>
-    <Switch>
-      <Route exact path="/" component={App}/>
+    <Routes>
+      <Route exact path="/" element={<App/>}/>
       {/* <Route exact path="/" component={NavigationBar}/> */}
-      <Route exact path="/navigation-bar" component={NavigationBar}/>
-    </Switch>
+      <Route exact path="/navigation-bar" element={<NavigationBar/>}/>
+    </Routes>
   </BrowserRouter>
 )
 
